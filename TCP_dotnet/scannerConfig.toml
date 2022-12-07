@@ -1,0 +1,3 @@
+[scanner_detail]
+ip = "127.0.0.1" # ip-address of the scanner; mention it within the double quotes
+port = 6000

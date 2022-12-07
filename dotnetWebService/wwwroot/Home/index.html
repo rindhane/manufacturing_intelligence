@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+			href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
+			rel="stylesheet"
+	/>
+    <link rel="stylesheet" href="/CSS/master.css">
+    <link rel="stylesheet" href="./individual.css">
+    <title>QDas Dashboard</title>
+    <link rel="icon" href="/favicon.png">
+</head>
+<body onload="console.log('loaded');">
+    <header>
+        <div class="logo-container">
+            <img src="/img/client.png" alt="logo">  
+        </div>
+        <div class="header-title">
+            <div class="titleContent">Home Page</div> 
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-link-outer hidden"><a class="nav-link" href="#">Home Page</a></li>
+                <li class="nav-link-outer hidden"><a class="nav-link" href="#">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="DrawerContainer">
+            <div class="AppsDrawer">
+                <div class="DrawerTitle">User Apps</div>
+                <div class="AppContainer">
+                    <ul class="app-links">
+                        <li class="app-link-outer"><a class="app-link" href="/TraceSearch">Part Traceability</a></li>
+                        <li class="app-link-outer"><a class="app-link" href="/LabEntry">Lab Data Upload</a></li>
+                        <li class="app-link-outer"><a class="app-link" href="/ManualEntry">Manual Scan Entry</a></li>
+                        <li class="app-link-outer"><a class="app-link" href="/LaserMarking">Laser Marking Entry</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="AppsDrawer" ><!--style="visibility:hidden"-->
+                <div class="DrawerTitle">Dashboard Apps</div>
+                <div class="AppContainer">
+                    <ul class="app-links" id="app-links">
+                        <!--
+                        <li class="app-link-outer"><a class="app-link" href="/MainDashboard?Line=LineABC">Line: ABC</a></li>
+                        <li class="app-link-outer"><a class="app-link" href="/DemoDashboard">Line:DEMO</a></li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+            <div class="AppsDrawer">
+                <div class="DrawerTitle">Configuration Apps</div>
+                <div class="AppContainer">
+                    <ul class="app-links">
+                        <li class="app-link-outer"><a class="app-link" href="#" onclick="syncControlPlan()">Sync Control Plan</a></li>
+                        <li class="app-link-outer" style="visibility:hidden"><a class="app-link" href="#">Lab Station Definition</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        <div class="modal" id="FinishModal">
+            <div class="modal-content">
+                <span id="FinishModalText"></span>
+                <button class="reset" onclick="reloadWindow()">Revert</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="disclaimer">
+            Powered By : 
+        </div>
+        <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png"/>
+    </footer>
+</body>
+<script defer src="./layoutUpdater.js" ></script>

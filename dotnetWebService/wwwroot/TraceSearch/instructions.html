@@ -1,0 +1,29 @@
+<h2 id="instructions-to-initiate-the-test-traceability-web-screen">Instructions to initiate the test Traceability Web-Screen</h2>
+<ul>
+<li>First unzip the  <code>testWebApp.zip</code> and extract its content</li>
+<li>Go within the unzipped folder , run the startup script by double clicking on it, to run the test server. The name of the script is <code>StartUpScript.cmd</code></li>
+<li>Check the listening port of the server as indicated in the sprung-up terminal. Refer the below image to see an example of running server&#39;s listening port. To manage listening port follow instruction at <code>Handling the listening port</code></li>
+<li><img src="./bootupScreen.png" alt="server bootup screen" title="Live Server" style="height:200px; widhth:100px"> </li>
+<li>To go to the Part traceability screen, type in address: <code>http://localhost:port/</code>  within the url-bar of your browser</li>
+<li>For eg: if listening port is <code>5500</code> then type-in as <code>http://localhost:5500</code></li>
+<li>Now you should be able to see the traceability screen on your browser</li>
+</ul>
+<h2 id="scan-code-test-procedure">Scan code test procedure</h2>
+<ul>
+<li>The scanner input field only accepts the DMC code as PO annexure A. The annexure is shown below: </li>
+<li><img src="./Traceability_DMC_code.jpg" alt="Annexure Details" title="Barcode details" style="height:200px; widhth:100px">  </li>
+<li>Currently only following data points have been configured in the test server. <ul>
+    <li><strong>1234567;07365;3;AG672;G04;P4567;07:09:26</strong> </li>
+    <li><strong>1236789;11111;1;ABCDE;p01;A1234;22:03:06</strong> </li>
+    <li><strong>1236789;11111;1;ABCDG;p01;A1234;22:03:06</strong> </li>
+    </ul>
+</li>
+<li>For more data points in the test,  fill additional <code>jsonObject</code> string within the file <code>DataStorage\data.json</code></li>
+<li>Scan code are case-insensitively validated and checked on server end</li>
+</ul>
+<h3 id="handling-the-listening-port-">Handling the listening port :</h3>
+<ul>
+<li>Default port is 8080, but use the listenning port as indicated in the terminal</li>
+<li>To change the port, edit the property-value <code>AppPort-http</code> within the file <code>ServerConfig.json</code> to change the listening port </li>
+<li>If listening port is changed. restart the test server using the startup script</li>
+</ul>

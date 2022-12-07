@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+			href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
+			rel="stylesheet"
+	/>
+    <link rel="stylesheet" href="/CSS/canvas.css">
+    <title>QDas Dashboard</title>
+</head>
+<body onload="console.log('loaded');">
+    <header>
+    </header>
+    <canvas id="builtLayout">
+        <img src="~/img/layout.jpg" width="150" height="150" alt="Static Layout" />
+        <img src="~/img/arrowBase.png" width="150" height="150" alt="arrowlayout" />
+    </canvas>
+    <footer></footer>
+</body>
+<script src="./canvas.js" ></script>
+<script defer>
+    buildLayout(IMG_SRC_PATH);
+    console.log("executed the script");
+</script>

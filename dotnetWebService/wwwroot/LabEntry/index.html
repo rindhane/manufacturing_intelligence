@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+			href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
+			rel="stylesheet"
+	/>
+    <link rel="stylesheet" href="/CSS/master.css">
+    <link rel="stylesheet" href="./individual.css">
+    <title>QDas Dashboard</title>
+    <link rel="icon" href="/favicon.png">
+</head>
+<body onload="console.log('loaded');">
+    <header>
+        <div class="logo-container">
+            <img src="/img/client.png" alt="logo">  
+        </div>
+        <div class="header-title">
+            <div class="titleContent">Lab Inspection Form</div> 
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-link-outer "><a class="nav-link" href="/Home">Home Page</a></li>
+                <li class="nav-link-outer hidden"><a class="nav-link" href="#">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="LabForm">
+            <div class="FormTitle">Form for Lab Report Upload</div>
+            <div class="FormHeader">
+                <div class="SerialFieldContainer">
+                    <div class="SerialInputBar">
+                        <label for="SerialField">Serial Number</label>
+                        <input type="text" id="SerialField" name="SerialField" placeholder="Scan the Serial Number">
+                    </div>
+                    <span class="SerialFieldValidation" id="SerialFieldValidation">empty</span>
+                </div> 
+                <select id="LabStation">
+                    <!--
+                    <option value="0">Select Station</option>
+                    <option value="1">CMM</option>
+                    <option value="2">Surface Roughness</option>
+                    <option value="3">Profile Tester</option>
+                    -->
+                </select>
+            </div>
+            <div class="DropLocation" id="dropField">
+                <ref>
+                    Drag & Drop Reference: 
+                    https://css-tricks.com/drag-and-drop-file-uploading/
+                    https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+                    https://css-tricks.com/examples/DragAndDropFileUploading/
+
+                    File System Api Access : 
+                    https://web.dev/file-system-access/#drag-and-drop-integration
+                    https://web.dev/read-files/#toc-selecting-files-dnd
+                    https://www.w3schools.com/jsref/prop_fileupload_files.asp
+
+                    Box-Shadow Examples: 
+                    https://getcssscan.com/css-box-shadow-examples
+                </ref>
+                <label for="file" class="InputHolder">
+                    <svg class="DropLocation__icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43">
+                        <path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"></path>
+                    </svg>
+                    <input type="file" name="file" id="fileInput" class="fileInput" accept="application/pdf"><br/>
+                    <strong>Choose a file</strong><span class="DropLocation__label"> or drag it here</span>.
+                    <div class="resultFileDisplay" id="resultFileDisplay"></div> 
+                </label>
+            </div>
+            <button onclick="uploadFileData(fileHook);">Upload</button>
+        </div>
+        <div class="modal" id="FinishModal">
+            <div class="modal-content">
+                <span id="FinishModalText"></span>
+                <button class="reset" onclick="reloadWindow(input)">Revert</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="disclaimer">
+            Powered By : 
+        </div>
+        <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png"/>
+    </footer>
+</body>
+<script src="./submission.js" ></script>
+<script>
+    (async ()=>{
+        let dat = await getLabStations();
+        populateSelector(selectElem,dat);
+    })();
+</script>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+			href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
+			rel="stylesheet"
+	/>
+    <link rel="stylesheet" href="/CSS/master.css">
+    <link rel="stylesheet" href="./individual.css">
+    <title>QDas Dashboard</title>
+    <link rel="icon" href="/favicon.png">
+</head>
+<body onload="console.log('loaded');">
+    <header>
+        <div class="logo-container">
+            <img src="/img/client.png" alt="logo">
+        </div>
+        <div class="header-title">
+            <div class="titleContent">Traceability Dashboard</div> 
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-link-outer"><a class="nav-link" href="/Home">Home Page</a></li>
+                <li class="nav-link-outer hidden"><a class="nav-link" href="#">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="graphGrid">
+            <div class="graphRow1" def="row1">
+                <div class="LayoutContainer" id="LayoutContainer">
+                    <div class="canvasContainer">
+                        <canvas id="backgroundFloor" class="canvasTile">
+                            <img src="/img/floor.jpg" width="150" height="150" alt="Static Layout" />
+                        </canvas>
+                        <canvas id="builtLayout" class="canvasTile">
+                            <img src="/img/newArrow.png" width="150" height="150" alt="Static Layout" />
+                        </canvas>
+                    </div>
+                </div>
+                <div class="pieChartContainer">
+                    <div id= "qualityPie" class="qualityPie"></div>
+                </div>
+            </div>
+            <div class="graphRow2" def="row2">
+                <div class="operationChartContainer">
+                    <div id="operationRuntime" class="operationRuntime"></div>
+                </div>
+                <div class="statusblock" id="statusblock">
+                    <!--
+                    <ul class="Status-Header">
+                        <li>Ok</li>
+                        <li>NOk</li>
+                        <li>Total</li>
+                        <li>Quality</li>
+                    </ul>
+                    <div class="statusIndicators" def="row1">
+                        <div class="OK-block">172ks</div>
+                        <div class="NOK-block">32ks</div>
+                        <div class="Total-block">205ks</div>
+                        <div class="Quality-block">84.4%</div>
+                    </div>
+                    <div class="statusIndicators" def="row2">
+                        <div class="OK-block">193ks</div>
+                        <div class="NOK-block">12ks</div>
+                        <div class="Total-block">205ks</div>
+                        <div class="Quality-block">94.1%</div>
+                    </div>
+                    <div  class="statusIndicators" def="row2">
+                        <div class="OK-block">204ks</div>
+                        <div class="NOK-block">1ks</div>
+                        <div class="Total-block">205ks</div>
+                        <div class="Quality-block">99.5%</div>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="disclaimer">
+            Powered By : 
+        </div>
+        <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png"/>
+    </footer>
+</body>
+<script src="/Scripts/plotly_local.js">
+//<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+</script>
+<script src="./plotterWidget.js"></script>
+<script src="./canvasWidget.js" ></script>
+<script src="./payloadHandler.js"></script>
+<script src="./statusBoardWidget.js"></script>
+<script defer>
+    console.log("queries", new URLSearchParams(window.location.search).get("Line"));
+    let STATION_MASTER=processNameGenerator(8);
+    let MASTER_DATA_FORMAT= {
+        x:[],
+        y:[],
+        c:[],
+        id:[]
+    };
+    // creating local respository of data from the payload pushed from the server
+    let MASTER_DATA_STORE= new Map();
+    STATION_MASTER.forEach(element=>{
+        MASTER_DATA_STORE.set(element, {
+                                x:[],
+                                y:[],
+                                c:[],
+                                id:[]
+        });
+    });
+    //
+    //preparing configs for rendering and payload processing
+    const MASTER_CONFIG = {
+    canvasHeight: 600, 
+    canvasWidth : 600,
+    imageDisplayHeight: 100,
+    imageDisplayWidth : 100,
+    station_layout:STATION_MASTER,
+    machine_status: Array(STATION_MASTER.length).fill('not-init'),
+    MASTER_STORE: MASTER_DATA_STORE //MASTER_DATA_FORMAT //
+    }
+    MASTER_CONFIG.statusIndicatorBlockTypes= Array("OK-block","NOK-block","Total-block", "Quality-block");
+    let server_payload = [];
+    let val = [19, 26, 55];
+    const element = document.getElementById('LayoutContainer');
+    let plotElement1= "operationRuntime";
+    let plotElement2 = "qualityPie";
+    let STATUS_BLOCK_ELEMENT = document.getElementById('statusblock');
+    let canvasHeight=element.clientHeight;
+    let canvasWidth=element.clientWidth;
+    MASTER_CONFIG.canvasHeight = element.clientHeight; 
+    MASTER_CONFIG.canvasWidth= element.clientWidth;
+    //delete below code
+    runRandomDemo(config=MASTER_CONFIG,stepTime=5000); 
+    console.log("executed the script");
+</script>

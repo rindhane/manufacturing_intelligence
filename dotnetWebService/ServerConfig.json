@@ -1,0 +1,7 @@
+{
+    "Configs" : {
+        "AppPort-http": "8080",
+        "AppPort-https": "8081"
+    },
+    "TokenHandlerSecret":"ABCDEFGHIJKL"
+}

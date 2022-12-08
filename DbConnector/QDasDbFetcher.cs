@@ -12,7 +12,7 @@ namespace DbConnectors
         string? QDB_NAME {get;set;}
         string? reportTable {get;set;} 
 
-        string serialNumCol {get;set;}= "WV0014";//Confirm the field is K0054/WV0054 and not K0014/WV0014 //correctionPending: put the right field for search
+        string serialNumCol {get;set;}= "WV0055";//Confirm the field is K0054/WV0054 and not K0014/WV0014
 
         public QDasDbConnection(dbOptions opt , string report_table) : base(opt)
         {
@@ -28,7 +28,7 @@ namespace DbConnectors
                 List<object[]> result = this.ValuesFromSQLquery(query,2);
                 List<(int,int)>opRaw = new List<(int,int)>();
                 for(int i=0;i<result.Count;i++) {
-                    var temp = getOperationNum(result[i][0].ToString());
+                    var temp = getOperationNum(result[i][0].ToString()!);
                     if (temp!=-1) {
                         opRaw.Add((temp,i));// adding all the operation and their index in result list 
                     }
@@ -38,11 +38,11 @@ namespace DbConnectors
                 var opCodeToTEIL_Id= new OrderedDictionary();
                 var TEIL_IdToOpCode = new Dictionary<int,string>();
                 for (int i=0; i<opRaw.Count;i++){
-                    opCodeToTEIL_Id.Add(result[opRaw[i].Item2][0].ToString(),
+                    opCodeToTEIL_Id.Add(result[opRaw[i].Item2][0].ToString()!,
                                         (int)result[opRaw[i].Item2][1]); // key is the original opcodename in TEARBEITSGANG 
                                                                         //and value is the ID in TETEIL 
                     TEIL_IdToOpCode.Add((int)result[opRaw[i].Item2][1], 
-                                        result[opRaw[i].Item2][0].ToString()); // vice-versa of the above mapping 
+                                        result[opRaw[i].Item2][0].ToString()!); // vice-versa of the above mapping 
                 }
                 return (opCodeToTEIL_Id,TEIL_IdToOpCode);
         }
@@ -69,9 +69,9 @@ namespace DbConnectors
         public int getOperationId(string PartCategory, string operationString){
             if(PartOperationFlow.ContainsKey(PartCategory)){
                 var  temp =  (System.ValueTuple<OrderedDictionary, Dictionary<int,string>>) 
-                PartOperationFlow[PartCategory]; // receiving opCodeToTEIL_Id, TEIL_IdToOpCode from Hashtable
+                PartOperationFlow[PartCategory]!; // receiving opCodeToTEIL_Id, TEIL_IdToOpCode from Hashtable
                 var opCodeToTEIL_Id = temp.Item1;
-                return (int) opCodeToTEIL_Id[operationString];
+                return (int) opCodeToTEIL_Id[operationString]!;
             } 
             return -1;
         }
@@ -106,14 +106,15 @@ namespace DbConnectors
         public string getPartTypeCode(string serialNum){ //gets the partsTypeCode/TETEILNR/PartCategory from serialNum 
             string query = 
             $"SELECT TOP(1) WVTEIL FROM [{QDB_NAME}].[dbo].[WERTEVAR] " +
-            $"WHERE {serialNumCol} = '{serialNum}'";  
+            $"WHERE {serialNumCol} = '{serialNum}' " + 
+            $"ORDER BY WVDATZEIT DESC" ;  
             List<object[]> result = this.GetSingleRowFromSQLquery(query,1);
             if(result.Count>0){
-                string tempId =result[0][0].ToString();
+                string tempId =result[0][0].ToString()!;
                 query =  $"SELECT TOP(1) TETEILNR FROM [{QDB_NAME}].[dbo].[TEIL] " +
                          $"WHERE TETEIL = {tempId}";
                 List<object[]> IdList = this.GetSingleRowFromSQLquery(query,1);
-                return IdList[0][0].ToString();
+                return IdList[0][0].ToString()!;
             }
             return string.Empty;
         }
@@ -150,7 +151,8 @@ namespace DbConnectors
         public Dictionary<int,string[]> GetAllInspectionOperationParams(string serialNum){
             string query =
             $"SELECT WVTEIL, WVMERKMAL, WVPRUEFER, WVDATZEIT, WVMASCHINE  FROM [{QDB_NAME}].[dbo].[WERTEVAR] " +
-            $"WHERE {serialNumCol} = '{serialNum}'" ;  
+            $"WHERE {serialNumCol} = '{serialNum}' " + 
+            $"ORDER BY WVDATZEIT DESC ;" ;  // to get the latest inpspection data first 
             List<object[]> input = this.ValuesFromSQLquery(query,5);
             var result = new Dictionary<int, string[]> (); //key : opID/WVTEIL; array order is [operator, TIMESTAMP, MachineName] 
             if (input.Count>0) {

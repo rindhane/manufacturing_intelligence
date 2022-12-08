@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Qdas Traceability</title>
-    <link>/test/</link>
-    <description>Recent content on Qdas Traceability</description>
+    <title>Q-DAS Traceability</title>
+    <link>/instructions/</link>
+    <description>Recent content on Q-DAS Traceability</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/test/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Dec 2022 11:53:46 +0530</lastBuildDate><atom:link href="/instructions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installation Instructions</title>
+      <link>/instructions/posts/installation-instructions.html</link>
+      <pubDate>Wed, 07 Dec 2022 11:53:46 +0530</pubDate>
+      
+      <guid>/instructions/posts/installation-instructions.html</guid>
+      <description>Pre-requisities for QDAS-T deployment Complete the following pre-requisities before initiating the web-application installation : Complete the installation of QDAS application including launcher applications, QDAS database setup, QDAS-web-client and Sql-Management-Studio [Optional] Configure the control plans required for the production lines under traceability monitoring. Check out the Control Plan Constraints section to understand the essential configuration expectations by traceability application Installation Procedure : Get hold of the QdasTraceabilityWebApp.zip package and place it within the folder C:\Q-Das\traceabilitySetup of the server which has to run traceability application Unzip the files on to the same folder (C:\Q-Das\traceabilitySetup) from the traceability package.</description>
+    </item>
+    
   </channel>
 </rss>

@@ -1,0 +1,3 @@
+[submodule "instructionDocs/themes/paper"]
+	path = instructionDocs/themes/paper
+	url = https://github.com/nanxiaobei/hugo-paper

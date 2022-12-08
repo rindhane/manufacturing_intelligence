@@ -1,0 +1,1 @@
+Sqlcmd -S . -i .\create_pdf_table.sql

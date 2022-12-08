@@ -1,3 +1,5 @@
-baseURL = 'http://example.org/'
+baseURL = '/instructions'  # '/instructions' 'http://example.org'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Q-DAS Traceability'
+theme = 'paper'
+uglyurls = true

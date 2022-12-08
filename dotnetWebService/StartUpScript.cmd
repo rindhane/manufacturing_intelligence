@@ -1,6 +1,4 @@
-:: setting up environement variables
-set JWT_URL=KobayashiMaru
-cd testWebApp
-echo %JWR_URL% 
+:: booting up the test server
+cd .\QdasTraceabilityWebApp
 .\dotnetWebService.exe
 

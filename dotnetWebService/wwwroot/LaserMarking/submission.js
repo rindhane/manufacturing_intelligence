@@ -147,7 +147,6 @@ async function getConfiguredPartCodes(){
   const serverMainPath = "" ; 
   let response = await fetch(`${serverMainPath}/GetAllPartCodes`, options); //`${serverMainPath}/GetProductionLines`
   const temp = await response.json();
-  console.log(temp); //correctionPending : comment out this line
   const data = temp.map((elem)=>{
     return elem.Item1;
   })
@@ -155,9 +154,10 @@ async function getConfiguredPartCodes(){
 }
 //
 async function populateSelector(selElem, data){
-  let LabList = JSON.parse(data);
+  let JsonList = JSON.parse(data);
+  selElem.innerHTML=""; //remove any previously added elements;
   selElem.appendChild(createElementForSelector("0","Select option"));
-  LabList.forEach(elem => {
+  JsonList.forEach(elem => {
     selElem.appendChild(createElementForSelector(elem,elem));
   });
 }

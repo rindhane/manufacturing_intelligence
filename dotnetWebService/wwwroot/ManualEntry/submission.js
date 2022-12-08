@@ -127,9 +127,10 @@ async function getConfiguredLines(){
 }
 
 async function populateSelector(selElem, data){
-  let LabList = JSON.parse(data);
+  let JsonList = JSON.parse(data);
+  selElem.innerHTML=""; //remove any previously added elements;
   selElem.appendChild(createElementForSelector("0","Select option"));
-  LabList.forEach(elem => {
+  JsonList.forEach(elem => {
     selElem.appendChild(createElementForSelector(elem,elem));
   });
 }

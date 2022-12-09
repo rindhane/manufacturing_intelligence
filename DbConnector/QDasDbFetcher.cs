@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace DbConnectors
 {   
+    public record PartFlowCategoryInput{ //this is the unique part and Line combination belongs for building part Flow 
+        public string PartTypeCode {get;set;} = string.Empty;
+        public string LineName {get;set;}  = string.Empty;
+    }
+
     public class QDasDbConnection : DbConnection  {
 
         Hashtable PartOperationFlow = new Hashtable(); //stores opCodeToTEIL_Id,TEIL_IdToOpCode against PartCategory
         string? QDB_NAME {get;set;}
         string? reportTable {get;set;} 
 
-        string serialNumCol {get;set;}= "WV0055";//Confirm the field is K0054/WV0054 and not K0014/WV0014
+        string serialNumCol {get;set;}= "WV0055";//Confirm the field is K0054/WV0054 and not K0014/WV0014 //
 
         public QDasDbConnection(dbOptions opt , string report_table) : base(opt)
         {
@@ -20,11 +25,11 @@ namespace DbConnectors
             reportTable=report_table;//"LABREPORT" ;
         }
        
-        public (OrderedDictionary, Dictionary<int,string>) getOperationFlowforPartCategory(string PartCategory){
+        public (OrderedDictionary, Dictionary<int,string>) getOperationFlowforPartCategory(PartFlowCategoryInput input){
             // provides a map of operationCode : unique TETEIL ID in sorted manner
             string query = 
                 $"SELECT TEARBEITSGANG, TETEIL FROM [{QDB_NAME}].[dbo].[TEIL] " + 
-                $"WHERE TETEILNR = '{PartCategory}'";
+                $"WHERE TETEILNR = '{input.PartTypeCode}' and TEWERKSTATT = '{input.LineName}' ";
                 List<object[]> result = this.ValuesFromSQLquery(query,2);
                 List<(int,int)>opRaw = new List<(int,int)>();
                 for(int i=0;i<result.Count;i++) {
@@ -46,13 +51,17 @@ namespace DbConnectors
                 }
                 return (opCodeToTEIL_Id,TEIL_IdToOpCode);
         }
+        
         public void updatePartOperationFlow(string PartCategory){
+            // currently not storing the updated Part flow
+            /*
             var result = getOperationFlowforPartCategory(PartCategory);
             if(PartOperationFlow.ContainsKey(PartCategory)){
                 PartOperationFlow[PartCategory]=result;
                 return ;
             }
             PartOperationFlow.Add(PartCategory,result);
+            */ 
         }
         
         int getOperationNum(string operationString){//helper Function to parse opcode into int-type
@@ -66,25 +75,41 @@ namespace DbConnectors
             System.Int32.TryParse(temp, out result);
             return result;
         }
-        public int getOperationId(string PartCategory, string operationString){
+        public int getOperationId(string PartCategory, string LineName ,string operationString){
+            /* // following commented out code is ghosted since not storing the part flow
             if(PartOperationFlow.ContainsKey(PartCategory)){
                 var  temp =  (System.ValueTuple<OrderedDictionary, Dictionary<int,string>>) 
                 PartOperationFlow[PartCategory]!; // receiving opCodeToTEIL_Id, TEIL_IdToOpCode from Hashtable
                 var opCodeToTEIL_Id = temp.Item1;
                 return (int) opCodeToTEIL_Id[operationString]!;
+            }
+            */
+            // creating operationFlow for the part from the sql itself
+            var result = getOperationFlowforPartCategory(new PartFlowCategoryInput {
+                PartTypeCode = PartCategory,
+                LineName=LineName
+            });
+            var opCodeToTEIL_Id = result.Item1;
+            if(opCodeToTEIL_Id.Contains(operationString)){
+                return (int) opCodeToTEIL_Id[operationString]!;
             } 
             return -1;
         }
 
-        OrderedDictionary getAllOperationSequenceOfPartCategory(string PartCategory){
+        OrderedDictionary getAllOperationSequenceOfPartCategory(PartFlowCategoryInput part){
+            /* // this code is ghosted since partflow is not being stored in the hashtable
             //it is assumed that the partCategory exists
             var  temp =  (System.ValueTuple<OrderedDictionary, Dictionary<int,string>>) 
                 PartOperationFlow[PartCategory]!;
-            return temp.Item1;
+            */
+            //it is assumed that the partCategory exists
+            // creating operationFlow for the part from the sql itself
+            var result = getOperationFlowforPartCategory(part);
+            return result.Item1;
         }
-        public object[] getCharacteristicSpecs(string PartCategory, string operationString, string characteristicCode){
+        public object[] getCharacteristicSpecs(string PartCategory,string LineName ,string operationString, string characteristicCode){
             // gets the specs of the characteristics of specific characteristicCode 
-            int operationID = getOperationId(PartCategory, operationString);
+            int operationID = getOperationId(PartCategory, LineName ,operationString);
             string query = 
             $"SELECT TOP(1) MEMERKBEZ, MENENNMAS, MEUGW, MEOGW FROM [{QDB_NAME}].[dbo].[MERKMAL] " + 
                 $"WHERE MEMERKNR = '{characteristicCode}' AND METEIL = '{operationID}'";
@@ -95,14 +120,16 @@ namespace DbConnectors
             }
             return new object[0];
         }
-        public List<object[]> getAllCharacteriticsOfOperationCode(string PartCategory, string operationString){
-            int operationID = getOperationId(PartCategory, operationString);
+        public List<object[]> getAllCharacteriticsOfOperationCode(string PartCategory, string LineName, string operationString){
+            int operationID = getOperationId(PartCategory, LineName, operationString);
             string query = 
             $"SELECT MEMERKMAL, MEMERKNR FROM [{QDB_NAME}].[dbo].[MERKMAL] " +
             $"WHERE METEIL = {operationID}"; // return Characteristics ID and CharacteristicCode 
             List<object[]> result = this.ValuesFromSQLquery(query,2);
             return result; 
         }       
+        
+        /*
         public string getPartTypeCode(string serialNum){ //gets the partsTypeCode/TETEILNR/PartCategory from serialNum 
             string query = 
             $"SELECT TOP(1) WVTEIL FROM [{QDB_NAME}].[dbo].[WERTEVAR] " +
@@ -118,14 +145,33 @@ namespace DbConnectors
             }
             return string.Empty;
         }
+        */
+        public PartFlowCategoryInput getPartTypeCode(string serialNum){ //gets the partsTypeCode/TETEILNR/PartCategory from serialNum 
+            string query = 
+            $"SELECT TOP(1) WVTEIL FROM [{QDB_NAME}].[dbo].[WERTEVAR] " +
+            $"WHERE {serialNumCol} = '{serialNum}' " + 
+            $"ORDER BY WVDATZEIT DESC" ;  
+            List<object[]> result = this.GetSingleRowFromSQLquery(query,1);
+            if(result.Count>0){
+                string tempId =result[0][0].ToString()!;
+                query =  $"SELECT TOP(1) TETEILNR, TEWERKSTATT FROM [{QDB_NAME}].[dbo].[TEIL] " +
+                         $"WHERE TETEIL = {tempId}";
+                List<object[]> IdList = this.GetSingleRowFromSQLquery(query,2);
+                return new PartFlowCategoryInput { 
+                    PartTypeCode=IdList[0][0].ToString()! ,
+                    LineName= IdList[0][1].ToString()! 
+                };
+            }
+            return new PartFlowCategoryInput ();
+        }
         public OrderedDictionary fetchTraceabilitySearchDataOfPart(string serialNum){
-           string partsTypeCode = getPartTypeCode(serialNum); //this is the PartCategory code in TEIL table
+           var partDetail = getPartTypeCode(serialNum); //this is the PartCategory code in TEIL table
            var result = new OrderedDictionary();
-           if (partsTypeCode!=string.Empty){
-            var opSequenceDict=getAllOperationSequenceOfPartCategory(partsTypeCode);
+           if (partDetail.PartTypeCode!=string.Empty){
+            var opSequenceDict=getAllOperationSequenceOfPartCategory(partDetail);
             var inspectionParamsInput = GetAllInspectionOperationParams(serialNum);
             foreach (DictionaryEntry ent in opSequenceDict){
-                var checkKey = getOperationId(partsTypeCode, (string)ent.Key);
+                var checkKey = getOperationId(partDetail.PartTypeCode, partDetail.LineName ,(string)ent.Key);
                 if(inspectionParamsInput.ContainsKey(checkKey)){
                     var input = inspectionParamsInput[checkKey]; 
                     result.Add((string)ent.Key, new string[]{

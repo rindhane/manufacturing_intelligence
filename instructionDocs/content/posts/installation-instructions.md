@@ -59,6 +59,7 @@ draft: false
         #this are the Qdas Database Connectivity details
         [qdas_value_db]
         dataSource = "127.0.0.1"  # ip of the sql server. 127.0.0.1 if on located on the local machine
+        port = 1433
         userID = "qdas"            
         password = "qdas1234"
         dbName="QDAS_VALUE_DATABASE" #database which contains the measurement data of q-das

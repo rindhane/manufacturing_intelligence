@@ -84,8 +84,17 @@ namespace PartDataManager{
             updateAllPartOperationFlow();
         }
         public System.Tuple<dbOptions,string> buildOptionsfromConfig(){
+            var source1Part = (string)configReader!.getKeyValue("dataSource","qdas_value_db");
+            var dataSource =source1Part;
+            try { // port variable were later added in the config file
+                var source2Part = (string)configReader!.getKeyValue("port","qdas_value_db").ToString()!;
+                dataSource = source1Part.Trim() + "," + source2Part.Trim();  
+            }
+            catch{
+                System.Console.WriteLine("port details weren't provided");
+            } 
             var opt = new dbOptions(){
-                dataSource = (string)configReader!.getKeyValue("dataSource","qdas_value_db"),  
+                dataSource = dataSource,  
                 userID = (string)configReader!.getKeyValue("userID","qdas_value_db"),            
                 password = (string)configReader!.getKeyValue("password","qdas_value_db"),     
                 dbName=(string)configReader!.getKeyValue("dbName","qdas_value_db")
@@ -117,7 +126,7 @@ namespace PartDataManager{
 
         public async Task<string> getOperationStatus(string opKey,string serial, string timeStamp){
             var partCode = dbHandler!.getPartTypeCode(serial);
-            var operationId = dbHandler.getOperationId(partCode,opKey);
+            var operationId = dbHandler.getOperationId(partCode.PartTypeCode, partCode.LineName ,opKey);
             var items = dbHandler.getQueryinAlarmsSearch(operationId,serial);
             for (int i=0;i<items.Count;i++){
                 if((System.Int64)items[i][0]!=0){
@@ -213,25 +222,26 @@ namespace PartDataManager{
             var writer = new DFQWriter(directory+fileName);
             var result = JsonConvert.DeserializeObject<Dictionary<string,string>>(scanInput);
             var dfqResult= new List<System.Tuple<string,string>>(); 
-            string partTypeCode =string.Empty;
+            var partDetail = new PartFlowCategoryInput();
             if(!result!.ContainsKey("partCode")){
-                partTypeCode= dbHandler!.getPartTypeCode(result!["serialNum"]);
+                partDetail= dbHandler!.getPartTypeCode(result!["serialNum"]);
             }else{
-                partTypeCode=result["partCode"];
+                partDetail.PartTypeCode=result["partCode"];
+                partDetail.LineName= result["LineNum"];
             }
             
             #region dfq Part data
             //prepare the inputs for the part data
             dfqResult= addElementToDfqObject(dfqResult,
-                                                "K1001", partTypeCode ) ;// part code
+                                                "K1001", partDetail.PartTypeCode ) ;// part code
             dfqResult= addElementToDfqObject(dfqResult,
                                                 "K1086",
                                                 result["OpStation"]
                                             ) ;//opcode
             dfqResult= addElementToDfqObject(dfqResult,
                                                 "K1102",
-                                                result["LineNum"]
-                                            ) ;//opcode
+                                                partDetail.LineName
+                                            ) ;//LineName
             /* // removing he operation description not required
             dfqResult= addElementToDfqObject(dfqResult,
                                                 "K1087",

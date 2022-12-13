@@ -7,6 +7,8 @@ using BackendServices; //to add the services to the Webservice
 using App.Middleware; // to add custom Middleware 
 using Microsoft.AspNetCore.Hosting; // to use the extension ConfigureKestrel; 
 using Microsoft.AspNetCore.Server.Kestrel.Core; // to use Enum of HttpProtocols;
+using BackgroundHostingService; // to run the application as background service;
+
 
 namespace WebService 
 {
@@ -23,6 +25,9 @@ namespace WebService
                                     optional:true,
                                     reloadOnChange:true);
             });
+            //optional & critical : 
+                // to run the application as background service
+                builder.RunAsWindowService();
             //configuring Server Options : 
             /* //Presently not using http2 , this function is kept for future use
             builder.WebHost.ConfigureKestrel((context, serverOptions)=>{

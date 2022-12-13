@@ -75,7 +75,7 @@ namespace App.Configurations
 
         public string getTokenHandlerSecret(){
 
-            return Configuration["TokenHandlerSecret"];
+            return Configuration["TokenHandlerSecret"]!;
 
         }
 

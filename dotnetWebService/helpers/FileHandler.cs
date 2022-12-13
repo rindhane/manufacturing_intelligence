@@ -42,7 +42,7 @@ namespace FileHandler {
             string line;
             string[] temp;
             var Candidates = new List<(string, string)>();
-            while((line = sr.ReadLine()) != null) {
+            while((line = sr.ReadLine()!) != null) {
                 temp = line.Split("~");
                 Candidates.Add((temp[0],temp[1]));
             }

@@ -132,7 +132,7 @@ namespace PartDataManager{
             var items = dbHandler.getQueryinAlarmsSearch(operationId,serial);
             var count_check = System.Math.Min(items.Count,num_characteristics.Count);
             for (int i=0;i<count_check;i++){
-                if(System.Int64.Parse(items[i][0].ToString())!=0){
+                if(System.Int64.Parse(items[i][0].ToString()!)!=0){
                     return "not-ok";
                 }
             }

@@ -12,7 +12,7 @@ using App.Configurations; // to access the configurations
 using PartDataManager; // to access the jsonData Stored in BackendDatabase
 using RequestResponseHandlers; //to read the body stream;
 using System.IO;
-using pdfFileReader; // to access the test pdf file reader;
+//using pdfFileReader; // to access the test pdf file reader;
 using Microsoft.AspNetCore.Hosting; // to access the IWebHostEnvironment
 
 namespace App.RouteBindings
@@ -73,7 +73,7 @@ public static class RouteMethods{
                                                               TokenManager manager,
                                                               authKeeper keeper, 
                                                               runTimeConfiguration configs){
-    string contentType= request.Headers["content-type"];
+    string contentType= request.Headers["content-type"]!;
     if (contentType.ToLower().Equals("application/xml;charset=utf-8"))
     {
       string cooky = request.Cookies["Flag1"]!;
@@ -116,7 +116,7 @@ public static class RouteMethods{
                                         TokenManager manager, authKeeper keeper, 
                                         [FromServices]IFileHandler resultHandler){
     try{
-      string result = request.Headers["JWT"];
+      string result = request.Headers["JWT"]!;
       System.Console.WriteLine($"JWT received: {result}");
       var handler = manager.handler;
       var check = handler.validateStringToken(result);
@@ -159,8 +159,8 @@ public static class RouteMethods{
 
   public static async Task LabUpload(HttpContext context, HttpRequest request, IpartDataHandler qdasManager)
   {
-    string serialNum=request.Headers["serialNum"];
-    string stationName=request.Headers["LabStation"];
+    string serialNum=request.Headers["serialNum"]!;
+    string stationName=request.Headers["LabStation"]!;
     var reader = new StreamReader(request.Body);
     string pdfData = await reader.ReadToEndAsync();//it is the pdf which needs to be stored
     var stat= qdasManager.storePDF(serialNum,stationName,pdfData);

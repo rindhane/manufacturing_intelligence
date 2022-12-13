@@ -127,9 +127,12 @@ namespace PartDataManager{
         public async Task<string> getOperationStatus(string opKey,string serial, string timeStamp){
             var partCode = dbHandler!.getPartTypeCode(serial);
             var operationId = dbHandler.getOperationId(partCode.PartTypeCode, partCode.LineName ,opKey);
+            var num_characteristics = dbHandler.getAllCharacteriticsOfOperationCode(
+                partCode.PartTypeCode,partCode.LineName,opKey);
             var items = dbHandler.getQueryinAlarmsSearch(operationId,serial);
-            for (int i=0;i<items.Count;i++){
-                if((System.Int64)items[i][0]!=0){
+            var count_check = System.Math.Min(items.Count,num_characteristics.Count);
+            for (int i=0;i<count_check;i++){
+                if(System.Int64.Parse(items[i][0].ToString())!=0){
                     return "not-ok";
                 }
             }

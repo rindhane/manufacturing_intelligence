@@ -257,7 +257,8 @@ namespace DbConnectors
 
         public List<object[]> getQueryinAlarmsSearch(int operationId, string serial){
             string query = $"SELECT DISTINCT ALARM_EW FROM [{QDB_NAME}].[dbo].[ALARM_VALUES] "+
-                            $"WHERE K1000={operationId} AND K0055='{serial}' ;" ;
+                            $"WHERE K1000={operationId} AND K0055='{serial}' " + 
+                            $"ORDER BY ALARM_DATETIME DESC" ;
             List<object[]> result = this.ValuesFromSQLquery(query,1);
             return result;
         }

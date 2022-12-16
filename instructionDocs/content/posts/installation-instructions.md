@@ -94,24 +94,22 @@ draft: false
     - Critical one (i.e mandatory ) is the ***folder_path*** which dictates the folder to place the dfq files from the manual scan
 
 ### Booting-up / Initiating the  Traceability application :
-1. Go back to the `root folder` and double click on `StartUpScript.cmd` file : 
+1. Run a trial run by booting up a temporary instance, through this step: go back to the `root folder` and double click on `StartUpScript.cmd` file : 
         ![FolderView on extraction](/img/traceabilitySetup.png)
 2. Once the application boots-up, it will look like as shown below : 
         ![server boot up](/img/serverBoot.png)
 3. Go to the browser and put in the address & port as shown on the command prompt of server application. In the above example, it is shown as http://0.0.0.0:8080, which means you should reach to `http://localhost:8080` to checkout the traceability application
 4. You should be able to see the home page as shown below : 
     ![webview](/img/webview.png)
-
-### Control Plan Constraints :
-Following are the expectations & constraints imposed by the Traceability web-application , and need to be adhered by the QDAS control plan schema, to maintain the integrity of the solution : 
-1. Each control plan created should have mandatorily following fields : 
-    - K1001 : Part Number 
-    - K1086 : Operation Number 
-    - K1102 : Line Name 
-1. A unique value in K1001 should be used to describe a combination of unique part type for a unique model 
-1. K1086 should contain digits (0-9) within them to describe the operation stage. These numbers are used to identify the sequence of each operation within the given line 
-2. To use K0055 to store the unique serail number / identification number (UID) of any component. It should capture the whole UID and not any of the partial value 
-3. For measurement values, use K0008 to store the operator responsible and K0010 to store the machine involved in manufacutring/ inspecting certain component 
-4. Traceability Web-Application assumes following mannerism in data storage within Qdas database: 
-    - All characteristic's measurements are written down in database at once/ simultaneously (i.e without any practical time gap) involved within a specific operation stage
-    - All characteristic's measurements will be tightly coupled to have the same values for these operation parameters such as K0008, K0010 & timestamp 
+5. Now `close` the command prompt show in *step no. 2* 
+6. Now we have to make the application run automatically, when the local workstation boots up by following instructions : 
+    1. Go within the `installationSupportItems` folder within the **root folder**
+    2. Double click the `create_service.cmd` file to initiate the registration of application as background service
+    ![create_service.cmd](/img/create_service_run.png)
+    3. Once registration done, you should be able to see the following confirmation on the command prompt screen : 
+    ![registration_success](/img/registration_success.png)
+    4. Press enter to close the above command prompt. Now press &#8862; (windows key) + 'R' key to get the `run` console . After that enter *services.msc* in input field as shown below : 
+    ![services.msc](/img/run_console.PNG)
+    5. Check whether you can see the  `QdasT` service in services list as shown below : 
+    ![services_list](/img/services_list.png)
+    6. Now `restart` the *local workstation* to check whether the application-service run automatically on its own when the local workstation boots up.

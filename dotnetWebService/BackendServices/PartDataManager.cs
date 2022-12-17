@@ -243,7 +243,7 @@ namespace PartDataManager{
                                             ) ;//opcode
             dfqResult= addElementToDfqObject(dfqResult,
                                                 "K1102",
-                                                partDetail.LineName
+                                                result["LineNum"]//partDetail.LineName //check which way is the appropriate way to define line name
                                             ) ;//LineName
             /* // removing he operation description not required
             dfqResult= addElementToDfqObject(dfqResult,
@@ -295,7 +295,14 @@ namespace PartDataManager{
             dfqResult= addElementToDfqObject(dfqResult,"K0008", 0.ToString()); //operatorID
             dfqResult= addElementToDfqObject(dfqResult,"K0010", 0.ToString()); //machine Id
             dfqResult= addElementToDfqObject(dfqResult,"K0055", result["serialNum"]);
-            dfqResult= addElementToDfqObject(dfqResult,"K0009", result["senderTag"]);
+            // get K-filed name for senderTag :
+            try { 
+                var Kfield_senderTag = (string)configReader!.getKeyValue("senderTag_KField","DFQ_FROM_SCAN");
+                dfqResult = addElementToDfqObject(dfqResult,Kfield_senderTag, result["senderTag"]);
+            }catch (System.Exception e) {
+                System.Console.WriteLine(e.Message);
+                System.Console.WriteLine("senderTag_field was not written in the dfq ");
+            }
             writer.fileTextWriter(dfqResult,1); //write the characteritics config to dfq
             dfqResult.Clear();            
             #endregion 

@@ -1,26 +1,51 @@
-using TCPSetup;
-using TOMLreader;
+using Microsoft.Extensions.Hosting; //to get access to Host.CreateDefaultBuilder & UseWindowService
+using Microsoft.Extensions.Logging; //to get access to iLogger
+using Microsoft.Extensions.Logging.EventLog; // to get access to EventLogSettings, EventLogLoggerProvider;
+using Microsoft.Extensions.Logging.Configuration; // to get access LoggerProviderOptions;
+using Microsoft.Extensions.Configuration; // to get access to AddJsonFile
+using System.Threading.Tasks; //for access to async 
+using WindowsBackgroundService; // to get access to ScannerBackgroundService 
+using Microsoft.Extensions.DependencyInjection; // to get access to AddHostedService
 
 namespace MainProgram {
   public static class MainProgram
   {
-    public static void Main()
+    public static void Main(string[] args)
     {
-      var configReader=new tomlConfigReader("scannerConfig.toml");
-      var scannerIP=(string)configReader.getKeyValue("ip","scanner_detail");
-      var temp = (System.Int64)configReader.getKeyValue("port","scanner_detail");
-      var port=System.Convert.ToInt32(temp);
-      while(true) {
-        try{
-          var client= new TcpRunner(scannerIP,port);//new MyTcpClient(scannerIP, port);
-          client.initiateConnection();
-          client.keepContinuousWatch();
-        }catch{
-          System.Console.WriteLine("Sleep for 2 secs");
-          System.Threading.Thread.Sleep(2000);
-          System.Console.WriteLine("Will try to reconnect with the scanner");
-        }
-      }
+      var configFile = "appConfig.json";
+      IHost host = Host.CreateDefaultBuilder(args)
+      .ConfigureHostConfiguration(hostConfig =>{
+        hostConfig.AddEnvironmentVariables();
+        hostConfig.AddCommandLine(args);
+      })
+      .ConfigureAppConfiguration((hostingContext,config)=>{
+                config.AddJsonFile(configFile, 
+                                    optional:true,
+                                    reloadOnChange:true);
+      })
+      .UseWindowsService(options =>
+        {
+            options.ServiceName = "QdasT_scanner";
+        })
+      .ConfigureServices(services =>
+        {
+          LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(services);
+          services.AddHostedService<ScannerBackgroundService>();
+
+        })
+      .ConfigureLogging((context, logging) =>
+      {
+          // See: https://github.com/dotnet/runtime/issues/47303
+          logging.AddConfiguration(
+              context.Configuration.GetSection("Logging"));
+          // check what's the other way to configur event logging or configure logging
+          //var settings = new EventLogSettings();
+          //settings.Filter
+      })
+      .Build();
+      host.Run();
+      //await host.RunAsync();
     }
   }
+
 }

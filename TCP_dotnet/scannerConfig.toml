@@ -1,3 +1,11 @@
 [scanner_detail]
 ip = "127.0.0.1" # ip-address of the scanner; mention it within the double quotes
-port = 6000
+port = 6000  # port of the scanner listener
+LineNum = "Line_1"
+OpStation = "OP_30"
+senderTag = "Scanner_TCP"
+
+[QdasT_config]
+endpoint = "/ManualScanData" # don't change it 
+ip_address_server = "127.0.0.1"
+port_server = "9000"

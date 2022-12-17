@@ -32,15 +32,15 @@ public class MyTcpClient
       }
       catch (ArgumentNullException e)
       {
-        Console.WriteLine("ArgumentNullException: {0}", e);
+        Console.WriteLine("ArgumentNullException: {0}", e.Message);
       }
       catch (SocketException e)
       {
-        Console.WriteLine("SocketException: {0}", e);
+        Console.WriteLine("SocketException: {0}", e.Message);
       }
       catch (Exception e)
       {
-        Console.WriteLine("Other UnhandledException:{0}", e);
+        Console.WriteLine("Other UnhandledException:{0}", e.Message);
       }
       return false;
   }
@@ -87,6 +87,10 @@ public class MyTcpClient
       responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
     }
     return responseData;
+  }
+
+  public bool isChannelConnected (){
+    return _client!.Connected;
   }
   public void readContinuousData(){
     while(true){

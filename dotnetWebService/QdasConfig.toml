@@ -22,3 +22,4 @@ characteristic_remark = "Scanner/Manual Data Captured for Traceability App" # (K
 characteristic_UID = "{4B8302DA-21AD-401F-AF45-1DFD956B80B5}" # (K2997)
 characteristic_measurement_type = "vision" # (K2142)
 characteristic_type = 1 # (K2004) this is anyway optional, it is already configured to be a attribute type
+senderTag_KField = "K0009"

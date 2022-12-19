@@ -77,7 +77,7 @@ function generateReportElem(name,id){
   elem.setAttribute("class", "PdfLink");
   //elem.setAttribute("target","_blank");
   elem.setAttribute('reportID',id);
-  elem.setAttribute('onclick','showReport(this);');
+  elem.setAttribute('onclick','downloadReport(this);');
   elem.href='#';
   elem.innerText=name;
   return elem;
@@ -95,6 +95,59 @@ function addReporttoBox(masterElem,report){
 async function showReport(elem) {
   PdfModal.style.display='block';
   displayPdf(elem.getAttribute('reportID'));
+}
+
+async function downloadReport(elem) {
+  const fileName = elem.innerText;
+  const asciiStringData = await getFilePdf(elem.getAttribute('reportID'));
+  const bytes = new Uint8Array(asciiStringData.length);
+  const arrayBuffer = bytes.map((byte,i)=>asciiStringData.charCodeAt(i));
+  downloadFromBlobAndView(arrayBuffer,fileName);
+  return true; 
+}
+
+
+async function getFilePdf(fileId,serial=serialNum){
+  let reqData= {
+    serial:serial,
+    fileId:fileId
+  }
+  //console.log(reqData);
+  const serverMainPath= "";//'http://127.0.0.1:8080' ; //
+  let data = await fetchPdfData(`${serverMainPath}/GetReportData`,JSON.stringify(reqData));
+  let passingData = atob(data);
+  return passingData;
+}
+
+async function downloadFromBlob(arrayBuffer,fileName, extension="pdf"){
+  //ref : https://medium.com/@riccardopolacci/download-file-in-javascript-from-bytea-6a0c5bb3bbdb
+  const source = new Blob([arrayBuffer]);
+  const downloadName = `${fileName}.${extension}`;
+  const link = document.createElement('a');
+  const url = URL.createObjectURL(source);
+  link.setAttribute('href',url);
+  link.setAttribute('download',downloadName);
+  link.style.visibility='hidden';
+  link.setAttribute('target', "_blank");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+async function downloadFromBlobAndView(arrayBuffer,fileName, extension="pdf"){
+  //const source = new Blob([arrayBuffer]);
+  const downloadName = `${fileName}.${extension}`;
+  const link = document.createElement('a');
+  const fileType ='application/pdf'; //correctionPending : get filetype form extension
+  const fileHolder = new File([arrayBuffer],downloadName, {type: fileType});
+  const url = URL.createObjectURL(fileHolder);
+  link.setAttribute('href',url);
+  //link.setAttribute('download',downloadName);
+  link.style.visibility='hidden';
+  link.setAttribute('target', "_blank");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 async function displayPdf(fileId,serial=serialNum){

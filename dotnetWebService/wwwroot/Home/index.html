@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        https://stackoverflow.com/questions/17493601/what-is-the-code-to-remove-this-symbol-%C3%82-in-html
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <link
 			href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
 			rel="stylesheet"
@@ -26,50 +31,51 @@
         </nav>
     </header>
     <main>
+        <ref>
         <div>example: https://dribbble.com/shots/14336291-DAILY-UI-029-MAP</div>
-        <div class="DrawerContainer">
-            <div class="AppsDrawer">
-                <div class="DrawerTitle">User Apps</div>
+        </ref>
+        <div class="animationContainer">
+                <img class="animationIcon" src="./img/piston.webp" alt="pistons running">
+        </div>
                 <div class="AppContainer">
                     <ul class="app-links">
-                        <li class="app-link-outer"><a class="app-link" href="/TraceSearch">Part Traceability</a></li>
-                        <li class="app-link-outer"><a class="app-link" href="/LabEntry">Lab Data Upload</a></li>
-                        <li class="app-link-outer"><a class="app-link" href="/ManualEntry">Manual Scan Entry</a></li>
-                        <li class="app-link-outer"><a class="app-link" href="/LaserMarking">Laser Marking Entry</a></li>
+                        <li class="app-link-outer">
+                            <a class="app-link" href="/TraceSearch">
+                                <div class="appIconContainer">
+                                    <img class="appIcon" src="./img/traceability.png">
+                                </div>
+                                <span class="appTitle">Part Traceability</span>
+                            </a>
+                        </li>
+                        <li class="app-link-outer">
+                            <a class="app-link" href="/LabEntry">
+                                <div class="appIconContainer">
+                                    <img class="appIcon" src="./img/labData.jpg">
+                                </div>
+                                <span class="appTitle">Lab Data Upload</span>
+                            </a>
+                        </li>
+                        <li class="app-link-outer">
+                            <a class="app-link" href="/ManualEntry">
+                                <div class="appIconContainer">
+                                    <img class="appIcon" src="./img/manualscan.jpg">
+                                </div>
+                                <span class="appTitle" >Manual Scan Entry</span>
+                            </a>
+                        </li>
+                        <li class="app-link-outer">
+                            <a class="app-link" href="/LaserMarking">
+                                <div class="appIconContainer">
+                                    <img class="appIcon" src="./img/LaserMarking.jpg">
+                                </div>
+                                <span class="appTitle" >Laser Marking Entry</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-            </div>
-            <div class="AppsDrawer" style="visibility:hidden"><!-- to make the dashboard hidden-->
-                <div class="DrawerTitle">Dashboard Apps</div>
-                <div class="AppContainer">
-                    <ul class="app-links" id="app-links">
-                        <!--
-                        <li class="app-link-outer"><a class="app-link" href="/MainDashboard?Line=LineABC">Line: ABC</a></li>
-                        <li class="app-link-outer"><a class="app-link" href="/DemoDashboard">Line:DEMO</a></li>
-                        -->
-                    </ul>
-                </div>
-            </div>
-            <div class="AppsDrawer">
-                <div class="DrawerTitle">Configuration Apps</div>
-                <div class="AppContainer">
-                    <ul class="app-links">
-                        <li class="app-link-outer"><a class="app-link" href="#" onclick="syncControlPlan()">Sync Control Plan</a></li>
-                        <li class="app-link-outer" style="visibility:hidden"><a class="app-link" href="#">Lab Station Definition</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-        </div>
-        <div class="modal" id="FinishModal">
-            <div class="modal-content">
-                <span id="FinishModalText"></span>
-                <button class="reset" onclick="reloadWindow()">Revert</button>
-            </div>
-        </div>
     </main>
     <footer>
-        <div class="footer-client">© 2022 - Shriram Pistons & Rings Ltd</div>
+        <div class="footer-client">&copy; 2022 - Shriram Pistons & Rings Ltd</div>
         <div class="disclaimer">
             Powered By : 
             <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png"/>

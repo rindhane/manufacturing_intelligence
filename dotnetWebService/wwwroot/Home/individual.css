@@ -1,47 +1,72 @@
-.DrawerContainer{
+.animationContainer{
     display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    width:50%; 
-    align-self: center;
-}
-.AppsDrawer{
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; /* ref: https://getcssscan.com/css-box-shadow-examples */
+    margin: 10px;
     padding: 10px;
-    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; /* ref: https://getcssscan.com/css-box-shadow-examples */
+    border-radius: 20px;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
 }
-.DrawerTitle{
-    align-self: center;
-    font-size: 3vh;
+.animationIcon{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
 }
+
 .AppContainer{
     display:flex;
-    margin:auto;
-    /*min-height: 150px;*/
-    justify-content: center;
+    margin:10px;
+    padding: 10px ;
+    width:40%;
+    border-radius: 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; /* ref: https://getcssscan.com/css-box-shadow-examples */
+
 }
 .app-links{
     display: flex;
+    flex-direction: column;
     list-style: none;
-    justify-content: center;
+    flex: 1;
 }
 .app-link-outer{
+    display: flex;
     margin: 5px;
     border-radius: 5px;
-    background-color: #140463;
-    border: 2px solid #73AD21;
+    background-color: ghostwhite ;/*#140463; */
+    border: 2px solid lightgray;
     padding: 5px;
     font-size: 1vw;
+    flex:1;
 }
 .app-link-outer:hover {
-    background-color:  #4e46bc ;
+    background-color:  #6aacd6 ;
   }
 .app-link{
+    display: flex;
     text-decoration:none;
-    color: White;
+    flex:1;
+    justify-content: space-between;    
+}
+.appIconContainer{
+    display: flex;
+    max-width: 70%;
+    height: 100%;
+    align-self: center;
+}
+.appIcon{
+    width:auto;
+    height: 100%;
+    max-height: 120px;
+    align-self: center;
+    border-radius: 5px;
+}
+.appTitle{
+    display: flex;
+    color: darkblue;
+    align-items: center;
+    padding: 10px;
+    font-size: 2em;
 }
 
 button{

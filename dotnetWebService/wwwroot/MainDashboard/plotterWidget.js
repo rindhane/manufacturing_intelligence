@@ -70,3 +70,12 @@ function plotPieChart(element,val){
     Plotly.newPlot(plot , data, layout, config);
 }
 
+//redraw feature plotly : 
+    //https://community.plotly.com/t/what-is-the-most-performant-way-to-update-a-graph-with-new-data/639
+    // https://stackoverflow.com/questions/32116368/plotly-update-data
+    //https://plotly.com/javascript/streaming/
+// menu feature/buttons in plotly
+    //https://codepen.io/plotly/pen/BqYMqq
+
+// function reference in plotly :
+    //https://plotly.com/javascript/plotlyjs-function-reference/#plotly-redraw

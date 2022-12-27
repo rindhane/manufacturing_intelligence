@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link
+			href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
+			rel="stylesheet"
+	/>
+    <link rel="stylesheet" href="/CSS/master.css">
+    <link rel="stylesheet" href="./individual.css">
+    <title>QDas Dashboard</title>
+    <link rel="icon" href="/favicon.png">
+</head>
+<body onload="console.log('loaded');">
+    <header>
+        <div class="logo-container">
+            <img src="/img/client.png" alt="logo">  
+        </div>
+        <div class="header-title">
+            <div class="titleContent">Automatic Entry Form</div> 
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-link-outer"><a class="nav-link" href="/Home">Home Page</a></li>
+                <li class="nav-link-outer hidden"><a class="nav-link" href="#">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="ManualForm">
+            <div class="FormTitle">Form for Automatic Entry of Scan</div>
+            <ref>
+                <div>use this three-dot animation : https://codepen.io/nzbin/pen/GGrXbp</div>
+                <!--correctionPending: Implement this Feature-->
+            </ref>
+            <div class="FormHeader">
+                <div class="SerialFieldContainer">
+                    <div class="SerialInputBar">
+                        <label for="SerialField">Serial Number</label>
+                        <input type="text" id="SerialField" name="SerialField" placeholder="Scan the Serial Number">
+                    </div>
+                    <span class="SerialFieldValidation" id="SerialFieldValidation">empty</span>
+                </div>
+                <div class="selectionSet operationContainer">
+                    <span>Line Applicable</span>
+                    <select id="LineSelector" onchange="operationsOfLine(event);">
+                        <!--
+                        <option value="0">Select Station</option>
+                        <option value="1">Line:ABC</option>
+                        <option value="2">Line:BCD</option>
+                        <option value="3">Line:3AB</option>
+                        -->
+                    </select>
+                </div> 
+                <div class="selectionSet operationContainer">
+                    <span>Operation Stage</span>
+                    <select id="OperationSelector">
+                        <!--
+                        <option value="0">Select Station</option>
+                        <option value="1">OP-10</option>
+                        <option value="2">OP-20</option>
+                        <option value="3">OP-30</option>
+                        -->
+                    </select>
+                </div>
+                <div class="selectionSet operationContainer">
+                    <span>Display Time</span>
+                    <select id="waitTimeSelector">
+                        <option value=0>0 second</option>
+                        <option value=1>1 second</option>
+                        <option value=2 selected>2 seconds</option>
+                        <option value=3>3 seconds</option>
+                    </select>
+                </div>
+                <div class="selectionSet operationContainer">
+                    <span>Hold Out Time</span>
+                    <input type="number"  id="holdTimeSelector" value=10 />
+                </div>
+            </div>
+            <button onclick="refreshWindow();">Scan Refresh</button>
+        </div>
+        <div class="modal" id="FinishModal">
+            <div class="modal-content">
+                <span id="FinishModalText"></span>
+                <button class="reset" onclick="reloadWindow(input)">Revert</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-client">© 2022 - Shriram Pistons & Rings Ltd</div>
+        <div class="disclaimer">
+            Powered By : 
+            <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png"/>
+        </div>
+    </footer>
+</body>
+<script src="./submission.js" ></script>
+<script defer>
+    input.focus(); // to keep the focus on the serial Number field
+    (async ()=>{
+        let dat = await getConfiguredLines();
+        //let dat ='["Line1", "Line2", "Line3"]';
+        populateSelector(LineSelector,dat);
+    })();
+    console.log(WaitTimeSelector.value==2);
+</script>

@@ -57,7 +57,7 @@
 .appIcon{
     width:auto;
     height: 100%;
-    max-height: 120px;
+    max-height: 105px; /* correctionPending: Use another method to get the sizing of image */
     align-self: center;
     border-radius: 5px;
 }

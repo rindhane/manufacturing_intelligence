@@ -27,67 +27,73 @@
         </nav>
     </header>
     <main>
-        <div class="searchContainer">
-            <div class="searchBar">
-                <label for="serialInput">Part Serial Number</label>
-                <input type="text" id="serialInput" placeholder="Scan Serial Number" name="serialInput" />
-            </div>
-            <span class="inputValidation" id="inputValidation">empty</span>
-        </div>
-        <div class="resultContainer" id="resultContainer">
-        <!--
-            <div class="resultHeader">
-                <div class="resultHeaderTitle">Headers</div>
-                <div class="imgContainer">
-                    <img  src="/img/operator.png" class="operator imgSetter" alt="operator pic" />
+        <div class="contentGrid">
+            <div class="searchContainer">
+                <div class="searchBar">
+                    <label for="serialInput">Part Serial Number</label>
+                    <input type="text" id="serialInput" placeholder="Scan Serial Number" name="serialInput" />
                 </div>
-                <div class="imgContainer">
-                    <img  src="/img/scanner.png" class="scanner imgSetter" alt="scanner pic" />
+                <span class="inputValidation" id="inputValidation">empty</span>
+            </div>
+            <div class="resultContainer" id="resultContainer">
+                <!--
+                <div class="resultHeader">
+                    <div class="resultHeaderTitle">Headers</div>
+                    <div class="imgContainer">
+                        <img  src="/img/operator.png" class="operator imgSetter" alt="operator pic" />
+                    </div>
+                    <div class="imgContainer">
+                        <img  src="/img/scanner.png" class="scanner imgSetter" alt="scanner pic" />
+                    </div>
+                    <div class="imgContainer">
+                        <img  src="/img/machine.jpg" class="machine imgSetter" alt="machine pic" />
+                    </div>
+                    <div class="imgContainer">
+                        <img src="/img/Merkmal.png" class="merkmal imgSetter" alt="Characteristics" />
+                    </div>
                 </div>
-                <div class="imgContainer">
-                    <img  src="/img/machine.jpg" class="machine imgSetter" alt="machine pic" />
+                <div class="resultBlock">
+                    <div class="resultItem resultItemHeader"><div class="operationStation">OP10</div></div>
+                    <div class="resultItem resultItemContent"><div class="operatorDetail">Operator1</div></div>
+                    <div class="resultItem resultItemContent"><div class="timeStamp">20.01.2022/11.23.15</div></div>
+                    <div class="resultItem resultItemContent"><div class="machineDetail">Machine1</div></div>
+                    <div class="resultItem resultItemContent"><div class="statusSignal statusOk">Ok</div></div>
                 </div>
-                <div class="imgContainer">
-                    <img src="/img/Merkmal.png" class="merkmal imgSetter" alt="Characteristics" />
+                <div class="resultBlock">
+                    <div class="resultItem resultItemHeader"><div class="operationStation">OP20</div></div>
+                    <div class="resultItem resultItemContent"><div class="operatorDetail">Operator13</div></div>
+                    <div class="resultItem resultItemContent"><div class="timeStamp">20.01.2022/12.23.15</div></div>
+                    <div class="resultItem resultItemContent"><div class="machineDetail">Machine3</div></div>
+                    <div class="resultItem resultItemContent"><div class="statusSignal statusOk ">Ok</div></div>
                 </div>
+                <div class="resultBlock">
+                    <div class="resultItem resultItemHeader"><div class="operationStation">OP30</div></div>
+                    <div class="resultItem resultItemContent"><div class="operatorDetail">Operator16</div></div>
+                    <div class="resultItem resultItemContent"><div class="timeStamp">20.01.2022/12.23.15</div></div>
+                    <div class="resultItem resultItemContent"><div class="machineDetail">Machine3</div></div>
+                    <div class="resultItem resultItemContent"><div class="statusSignal statusNotOk">Not Ok</div></div>
+                </div>
+                <div class="resultBlock">
+                    <div class="resultItem resultItemHeader"><div class="operationStation">OP40</div></div>
+                </div>
+                <div class="resultBlock">
+                    <div class="resultItem resultItemHeader"><div class="operationStation">Final Inspection</div></div>
+                </div>
+                <div class="resultBlock">
+                    <div class="resultItemContent">
+                        <div class="operationStation">LabResult</div>
+                    </div>
+                    <div class="resultItemContent">
+                        <div class="labLinkBox">
+                            <a href="/LabReportDisplay?serialNum=1234567;07365;3;AG672;G04;P4567;07:09:26">Link</a>
+                        </div>
+                    </div>
+                    <div class="resultItemContent">
+                        <div class="labLinkBoxHidden">1234567;07365;3;AG672;G04;P4567;07:09:26</div>
+                    </div>
+                </div>
+                -->
             </div>
-            <div class="resultBlock">
-                <div class="resultItem resultItemHeader"><div class="operationStation">OP10</div></div>
-                <div class="resultItem resultItemContent"><div class="operatorDetail">Operator1</div></div>
-                <div class="resultItem resultItemContent"><div class="timeStamp">20.01.2022/11.23.15</div></div>
-                <div class="resultItem resultItemContent"><div class="machineDetail">Machine1</div></div>
-                <div class="resultItem resultItemContent"><div class="statusSignal">Ok</div></div>
-            </div>
-            <div class="resultBlock">
-                <div class="resultItem resultItemHeader"><div class="operationStation">OP20</div></div>
-                <div class="resultItem resultItemContent"><div class="operatorDetail">Operator13</div></div>
-                <div class="resultItem resultItemContent"><div class="timeStamp">20.01.2022/12.23.15</div></div>
-                <div class="resultItem resultItemContent"><div class="machineDetail">Machine3</div></div>
-                <div class="resultItem resultItemContent"><div class="statusSignal">Not Ok</div></div>
-            </div>
-            <div class="resultBlock">
-                <div class="resultItem resultItemHeader"><div class="operationStation">OP20</div></div>
-                <div class="resultItem resultItemContent"><div class="operatorDetail">Operator13</div></div>
-                <div class="resultItem resultItemContent"><div class="timeStamp">20.01.2022/12.23.15</div></div>
-                <div class="resultItem resultItemContent"><div class="machineDetail">Machine3</div></div>
-                <div class="resultItem resultItemContent"><div class="statusSignal">Not Ok</div></div>
-            </div>
-            <div class="resultBlock">
-                <div class="resultItem resultItemHeader"><div class="operationStation">OP20</div></div>
-            </div>
-            <div class="resultBlock">
-                <div class="resultItem resultItemHeader"><div class="operationStation">Final Inspection</div></div>
-            </div>
-            <div class="resultBlock">
-                <div class="resultItem resultItemHeader"><div class="operationStation">OP20</div></div>
-            </div>
-            <div class="resultBlock">
-                <div class="resultItem resultItemHeader"><div class="operationStation">OP20</div></div>
-            </div>
-            <div class="resultBlock">
-                <div class="resultItem resultItemHeader"><div class="operationStation">OP20</div></div>
-            </div>
-        -->
         </div>
     </main>
     <footer>

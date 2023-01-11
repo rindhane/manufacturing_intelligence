@@ -19,7 +19,9 @@ body{
 }
 header{
     display:flex;
-    background: rgb(162, 160, 160);
+    /*background: rgb(162, 160, 160);*/
+    background: transparent linear-gradient(90deg,#b0d35a 0,#3fab99 49%,#00abc8 100%);
+    /*background: #005072 0 0 no-repeat content-box;*/
     width : 90%;
     align-self: center;
     align-items: center;

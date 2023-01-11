@@ -1,3 +1,8 @@
+.contentGrid{
+    display:flex;
+    flex-direction: column;
+    width: 90vw;
+}
 .searchContainer{
     display: flex;
     flex-direction: column;

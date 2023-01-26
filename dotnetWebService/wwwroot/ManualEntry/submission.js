@@ -35,6 +35,7 @@ async function uploadScanData(inputElem=input,
     LineNum:LineElem.value,
     OpStation:opElem.value,
     senderTag:'ManualWebFormUpload',
+    partCode: getPartCodeFromValidSerialNumber(inputElem.value),
   }
   response = await postDataStream(`${serverMainPath}/ManualScanData`, JSON.stringify(payload));
   uploadFinishModal.style.display='block';

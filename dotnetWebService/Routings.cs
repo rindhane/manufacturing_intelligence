@@ -17,7 +17,7 @@ public static class Routes{
         app.MapGet("/MainDashboard", RouteMethods.pageRedirectWithLineParams);
         app.MapGet("/LabEntry",RouteMethods.pageRedirect);
         app.MapGet("/ManualEntry",RouteMethods.pageRedirect);
-        app.MapGet("/LaserMarking",RouteMethods.pageRedirect);
+        app.MapGet("/LaserMarkingAuto",RouteMethods.pageRedirect);
         app.MapGet("/instructions",RouteMethods.pageRedirect);
         app.MapGet("/AutoScanEntry",RouteMethods.pageRedirect);
         //

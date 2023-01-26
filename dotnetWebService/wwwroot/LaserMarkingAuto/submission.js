@@ -36,7 +36,7 @@ async function uploadScanData(inputElem=input,
     serialNum:inputElem.value,
     LineNum:LineElem.value,
     OpStation:opElem.value,
-    senderTag:'AutoWebFormUpload',
+    senderTag:'LaserMarkingAutoFormUpload',
     partCode: getPartCodeFromValidSerialNumber(inputElem.value),
   }
   response = await postDataStream(`${serverMainPath}/ManualScanData`, JSON.stringify(payload));
@@ -82,15 +82,15 @@ function reloadWindow(input){
   input.focus();
 }
 
+const refreshLock={ // this makes only the refreshWindow to be used by one session 
+  active:false
+}
 function refreshWindow(){
   input.value="";
   input.focus();
   showValidationMessage(validationElem,'hide'); // to remove any previous validation message
   refreshLock.active=false;
   releaseTheUpdateModal(); // this is for the refreshment path when valid serial was executed
-}
-const refreshLock={ // this makes only the refreshWindow to be used by the 
-  active:false
 }
 
 //input validation 
@@ -186,11 +186,12 @@ function createElementForSelector(value,text){
 
 async function operationsOfLine(event){
   let line = event.target.value; 
+  /* below code has been stopped since for laser marking it is using definite operation code
   let dat = await getOperationsOfLine(line);
   //console.log(dat); 
   //trial data//let dat ='["op1", "op2", "op3"]';
   populateSelector(OperationSelector,dat); //Global Variable used
-
+  */
 }
 
 async function getOperationsOfLine(Line){

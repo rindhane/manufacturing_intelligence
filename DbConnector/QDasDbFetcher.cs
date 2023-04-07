@@ -35,7 +35,11 @@ namespace DbConnectors
                 for(int i=0;i<result.Count;i++) {
                     var temp = getOperationNum(result[i][0].ToString()!);
                     if (temp!=-1) {
-                        opRaw.Add((temp,i));// adding all the operation and their index in result list 
+                        try{ // try & catch to avoid the multiple entry operation code entries
+                        opRaw.Add((temp,i));// adding all the operation and their index in result list
+                        }catch(System.Exception e){
+                            System.Console.WriteLine(e.Message);
+                        } 
                     }
                 }
                 opRaw.Sort(); //sort the operation in ascending operation
@@ -196,10 +200,10 @@ namespace DbConnectors
         }
         public Dictionary<int,string[]> GetAllInspectionOperationParams(string serialNum){
             string query =
-            $"SELECT WVTEIL, WVMERKMAL, WVPRUEFER, WVDATZEIT, WVMASCHINE  FROM [{QDB_NAME}].[dbo].[WERTEVAR] " +
+            $"SELECT WVTEIL, WVMERKMAL, WVPRUEFER, WVDATZEIT, WVMASCHINE, WVWERT  FROM [{QDB_NAME}].[dbo].[WERTEVAR] " +
             $"WHERE {serialNumCol} = '{serialNum}' " + 
             $"ORDER BY WVDATZEIT DESC ;" ;  // to get the latest inpspection data first 
-            List<object[]> input = this.ValuesFromSQLquery(query,5);
+            List<object[]> input = this.ValuesFromSQLquery(query,6);
             var result = new Dictionary<int, string[]> (); //key : opID/WVTEIL; array order is [operator, TIMESTAMP, MachineName] 
             if (input.Count>0) {
                 for(int i=0; i<input.Count;i++){

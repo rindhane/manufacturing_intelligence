@@ -27,10 +27,12 @@ namespace App.Configurations
             configFile = "ServerConfig.json";
             resultFile = "result.dat";
             dataFile="DataStorage/data.json";
-            qdasConfig=System.AppDomain.CurrentDomain.BaseDirectory+"QdasConfig.toml"; // BaseDirectory usage become essential during running webservice as window's background service 
-            //read about in the ref here : 
-                //https://stackoverflow.com/questions/2714262/relative-path-issue-with-net-windows-service;
-                //https://haacked.com/archive/2004/06/29/current-directory-for-windows-service-is-not-what-you-expect.aspx/
+            qdasConfig="QdasConfig.toml"; //window background service issue is being handled at service initiation
+            //archived & alternative way of configuration 
+                //qdasConfig=System.AppDomain.CurrentDomain.BaseDirectory+"QdasConfig.toml"; // BaseDirectory usage become essential during running webservice as window's background service 
+                //read about in the ref here : 
+                    //https://stackoverflow.com/questions/2714262/relative-path-issue-with-net-windows-service;
+                    //https://haacked.com/archive/2004/06/29/current-directory-for-windows-service-is-not-what-you-expect.aspx/
             jwt_url=System.Environment.GetEnvironmentVariable("JWT_URL")!;
             //System.Environment.GetEnvironmentVariable("JWT_TEST_URL",System.EnvironmentVariableTarget.User);
             if(jwt_url==null){

@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting; // to access type hostoption; BackgroundServ
 using BackendStoreManager;
 using FileHandler;
 using PartDataManager;
+using Microsoft.AspNetCore.Hosting; //to access WebHostEnvironment interface;
 namespace BackendServices {
 
     public static class Services{
@@ -30,7 +31,10 @@ namespace BackendServices {
             builder.Services.AddSingleton<authKeeper>();
             builder.Services.AddScoped<TokenManager>();
             builder.Services.AddTransient<IFileHandler,ResultHandler>(sp=>new ResultHandler(configs.resultFile));
-            builder.Services.AddSingleton<IpartDataHandler,PartDataHandler>(sp=>new PartDataHandler(configs.qdasConfig));
+            builder.Services.AddSingleton<IpartDataHandler,PartDataHandler>(sp=> {
+                                                var webHostEnvironment = sp.GetRequiredService<IWebHostEnvironment>();
+                                              return new PartDataHandler(webHostEnvironment.ContentRootPath+"/"+configs.qdasConfig);
+                                            });
             return builder;
         }
     }

@@ -3,7 +3,7 @@
   "version": "2.0.3",
   "options": {
     "inputs": [
-      "http://inpum-c1684m3/qs-STAT1_WebService/QdasWebService.dll/wsdl/IQdas_Web_Service"
+      "http://qdastestsetup/qs-STAT1_WebService/QdasWebService.dll/wsdl/IQdas_Web_Service"
     ],
     "namespaceMappings": [
       "*, ServiceReference"

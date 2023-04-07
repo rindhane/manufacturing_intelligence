@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+    <!--
+        https://stackoverflow.com/questions/17493601/what-is-the-code-to-remove-this-symbol-%C3%82-in-html
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link
+			href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
+			rel="stylesheet"
+	/>
+    <link rel="stylesheet" href="/CSS/master.css">
+    <link rel="stylesheet" href="./individual.css">
+    <script src="/CSS/echarts.js"></script>
+    <title>QDas Dashboard</title>
+    <link rel="icon" href="/favicon.png">
+</head>
+<body onload="console.log('loaded');">
+    <header>
+        <div class="logo-container">
+            <img src="/img/client.png" alt="logo">  
+        </div>
+        <div class="header-title">
+            <div class="titleContent">Q-DAS Traceability Dashboard</div> 
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-link-outer hidden"><a class="nav-link" href="#">Home Page</a></li>
+                <li class="nav-link-outer hidden"><a class="nav-link" href="#">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="animationContainer">
+            <ref>
+                <div>https://www.w3schools.com/howto/howto_js_slideshow.asp</div>
+            </ref>
+            <div class="mySlide fade">
+                <div class="numberText">1/5</div>
+                <img class="animationIcon" src="./img/mahle-1.jpg" alt="slideshow">
+                 <div class="captionWrite"> 
+                   <span class="captionHead">Detail :</span> Some Write-up from the Mahle 
+                </div>
+            </div>
+            <div class="mySlide fade">
+                <div class="numberText">2/5</div>
+                <img class="animationIcon" src="./img/mahle-2.jpg" alt="slideshow">
+                 <div class="captionWrite"> 
+                   <span class="captionHead">Detail :</span> Some Write-up from the Mahle 
+                </div>
+            </div>
+            <div class="mySlide fade">
+                <div class="numberText">3/5</div>
+                <img class="animationIcon" src="./img/mahle-3.png" alt="slideshow">
+                 <div class="captionWrite"> 
+                   <span class="captionHead">Detail :</span> Some Write-up from the Mahle 
+                </div>
+            </div>
+            <div class="mySlide fade">
+                <div class="numberText">4/5</div>
+                <img class="animationIcon" src="./img/mahle-4.jpg" alt="slideshow">
+                 <div class="captionWrite"> 
+                   <span class="captionHead">Detail :</span> Some Write-up from the Mahle 
+                </div>
+            </div>
+            <div class="mySlide fade">
+                <div class="numberText">5/5</div>
+                <img class="animationIcon" src="./img/mahle-5.jpg" alt="slideshow">
+                 <div class="captionWrite"> 
+                   <span class="captionHead">Detail :</span> Some Write-up from the Mahle 
+                </div>
+            </div>
+            <div style="text-align:center">
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            <hiddenWrap style="display: none;">
+                <img class="animationIcon" src="./img/piston.gif" alt="pistons running">
+            </hiddenWrap>
+        </div>
+        <div class="AppContainer">
+            <ul class="app-links">
+                <li class="app-link-outer">
+                    <span class="appTitle">Line-1 Status</span>
+                    <a class="app-link" href="/LineOperationView?Line=ABC1">
+                        <div id="Line1Stat" style="width: 700px;height:450px;" ></div>
+                    </a>
+                </li>
+                <li class="app-link-outer">
+                    <span class="appTitle">Line-2 Status</span>
+                    <a class="app-link" href="/LineOperationView?Line=ABC2">
+                        <div id="Line2Stat" style="width: 700px;height:450px;" ></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-client">&copy; 2023 - Hexagon Manufacturing Intelligence Ltd</div>
+        <div class="disclaimer">
+            Powered By : 
+            <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png"/>
+        </div>
+    </footer>
+</body>
+<script src="/Scripts/preloadUtilities.js"></script>
+<script defer src="./chartUpdater.js" ></script>
+<script defer src="./slideshow.js" ></script>
+

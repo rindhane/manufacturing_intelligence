@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<head>
+    <!--
+        https://stackoverflow.com/questions/17493601/what-is-the-code-to-remove-this-symbol-%C3%82-in-html
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link
+			href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
+			rel="stylesheet"
+	/>
+    <link rel="stylesheet" href="/CSS/master.css">
+    <link rel="stylesheet" href="./individual.css">
+    <script src="/CSS/echarts.js"></script>
+    <script src="/css/bootstrap.js" ></script>
+    <title>QDas Dashboard</title>
+    <link rel="icon" href="/favicon.png">
+</head>
+<body onload="console.log('loaded');">
+    <header>
+        <div class="logo-container">
+            <img src="/img/client.png" alt="logo">  
+        </div>
+        <div class="header-title">
+            <div class="titleContent">Q-DAS Traceability Dashboard</div> 
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-link-outer "><a class="nav-link" href="#">Home Page</a></li>
+                <li class="nav-link-outer hidden"><a class="nav-link" href="#">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="columnContainer">
+            <div class="optionsContainer">
+                <div class="optionsMenu">
+                    <div class="menuContainer">
+                        <label class="menuLabel" for="filterStart">Start date:</label>
+                        &nbsp;
+                        <input type="date" id="filterStart" name="date-start" value="2018-07-22">
+                    </div>
+                    &nbsp; &nbsp;&nbsp;
+                    <div class="menuContainer">
+                        <label class="menuLabel" for="filterEnd">End Date:</label>
+                        &nbsp;
+                        <input type="date" id="filterEnd" name="date-end" value="2018-07-22">
+                    </div>
+                </div>
+                <div class="optionsMenu">
+                    <div class="menuContainer">
+                        <label class="menuLabel" for="modelSelector">Model : </label>
+                        &nbsp;
+                        <select name="modelSelector" id="modelSelector">
+                            <option value="SK66"> SK66</option>
+                            <option value="SK76"> SK76</option>
+                            <option value="SK78" selected>SK78 - Dur:Sleek Centinel</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="optionsMenu">
+                    <div class="menuContainer">
+                        <label class="menuLabel" for="modelSelector"> Operation: </label>
+                        &nbsp;
+                        <select name="modelSelector" id="modelSelector">
+                            <option value="SK66"> SK66</option>
+                            <option value="SK76"> SK76</option>
+                            <option value="SK78" selected>OP-60: Al Blasting</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="AppContainer">
+                <div class="headingContainer">
+                    <span class="appTitle">
+                        Operation :&nbsp; <span class="darkFont"id="partID">OP-60</span> &nbsp; Statistics 
+                    </span> 
+                    <div class="detailSet">
+                        <div class="row">
+                            <div class="boxDetail">
+                                <span class="boxDetail-particular">
+                                    Part Description : 
+                                </span>
+                                <span class="boxDetail-value">
+                                    Connecting rod (70mm) SK78
+                                </span>
+                            </div>
+                            <div class="boxDetail">
+                                <span class="boxDetail-particular">
+                                    Part Number : 
+                                </span>
+                                <span class="boxDetail-value">
+                                    435621
+                                </span>
+                            </div>    
+                        </div>
+                        <div class="row">
+                            <div class="boxDetail">
+                                <span class="boxDetail-particular">
+                                    Product Model : 
+                                </span>
+                                <span class="boxDetail-value">
+                                    SK78- Dur:Sleek Centinel 
+                                </span>
+                            </div>
+                            <div class="boxDetail">
+                                <span class="boxDetail-particular">
+                                    Product Type : 
+                                </span>
+                                <span class="boxDetail-value">
+                                    Connecting Rod
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-container" role="table" aria-label="Destinations">
+                    <ref>
+                        https://medium.com/@snowleo208/how-to-create-responsive-table-d1662cb62075
+                        https://codepen.io/snowleo208/pen/NLpZjv
+                    </ref>
+                    <div class="flex-table header" role="rowgroup">
+                        <div class="flex-row first" role="columnheader">OP No</div>
+                        <div class="flex-row " role="columnheader">Char Desc</div>
+                        <div class="flex-row " role="columnheader">Class</div>
+                        <div class="flex-row " role="columnheader">Avg</div>
+                        <div class="flex-row " role="columnheader">Std Dev</div>
+                        <div class="flex-row " role="columnheader">Pp</div>
+                        <div class="flex-row " role="columnheader">PpK</div>
+                        <div class="flex-row " role="columnheader">Chart</div>
+                    </div>
+                    <div class="flex-table row" role="rowgroup">
+                        <div class="flex-row first" role="cell">OP 60</div>
+                        <div class="flex-row " role="cell">OP TWIST (306 mm) </div>
+                        <div class="flex-row " role="cell">
+                            <img src="./img/halfCircle.svg" />
+                        </div>
+                        <div class="flex-row " role="cell">1.6</div>
+                        <div class="flex-row " role="cell">0.009 </div>
+                        <div class="flex-row " role="cell">1.4 </div>
+                        <div class="flex-row " role="cell">1.85 </div>
+                        <div class="flex-row " role="cell">
+                            <img class="labelImage" src="./img/Ppk.PNG"/>
+                        </div>
+                    </div>
+                    <div class="flex-table row" role="rowgroup">
+                        <div class="flex-row first" role="cell">OP 60</div>
+                        <div class="flex-row " role="cell">Bore Radius </div>
+                        <div class="flex-row " role="cell">
+                            <img src="./img/fullCircle.svg" />
+                        </div>
+                        <div class="flex-row " role="cell">10.0</div>
+                        <div class="flex-row " role="cell">0.8</div>
+                        <div class="flex-row " role="cell">1.3</div>
+                        <div class="flex-row " role="cell">1.6</div>
+                        <div class="flex-row " role="cell">
+                            <img class="labelImage" src="./img/Ppk.PNG"/>
+                        </div>
+                    </div>
+                    <div class="flex-table row" role="rowgroup">
+                        <div class="flex-row first" role="cell">OP 60</div>
+                            <div class="flex-row first" role="cell">X-Coordinate </div>
+                            <div class="flex-row " role="cell">
+                                <img src="./img/fullCircle.svg" />
+                            </div>                        
+                            <div class="flex-row " role="cell">101.8</div>
+                            <div class="flex-row " role="cell">0.065 </div>
+                            <div class="flex-row " role="cell">1.1</div>
+                            <div class="flex-row " role="cell">1.3</div>
+                            <div class="flex-row " role="cell">
+                                <img class="labelImage" src="./img/Ppk.PNG"/>
+                            </div>
+                    </div>
+                    <div class="chartGraph" style="display: block;">
+                        <div class="menuContainer">
+                            <input type="radio" id="firstChart" name="chart_options" value="valueChart">
+                            <label for="">Value/IMR Chart</label><br/> &nbsp; &nbsp; &nbsp;
+                            <input type="radio" id="secondChart" name="chart_options" value=" QCC Chart">
+                            <label for="css">QCC Chart</label><br> 
+                        </div>
+                        <hidingWrapper style="display:none">
+                            <img class="expandImage" src="./img/QdasChart.png"/>
+                        </hidingWrapper>
+                        <hidingWrapper style="display:block">
+                            <img class="expandImage" src="./img/qdasChart2.png"/>
+                        </hidingWrapper>
+                    </div>
+                    <div class="flex-table row">
+                        <div class="flex-row first" role="cell">OP 60</div>
+                        <div class="flex-row first" role="cell">Y-Coordinate </div>
+                        <div class="flex-row " role="cell">
+                            <img src="./img/fullCircle.svg" />
+                        </div>                        
+                        <div class="flex-row " role="cell">101.8</div>
+                        <div class="flex-row " role="cell">0.78 </div>
+                        <div class="flex-row " role="cell">1.00</div>
+                        <div class="flex-row " role="cell">1.00</div>
+                        <div class="flex-row " role="cell">
+                            <img class="labelImage" src="./img/Ppk.PNG"/>
+                        </div>
+                    </div>
+                    <div class="flex-table row">
+                        <div class="flex-row first" role="cell">OP 60</div>
+                        <div class="flex-row " role="cell">Z-Coordinate </div>
+                        <div class="flex-row " role="cell">
+                            <img src="./img/fullCircle.svg" />
+                        </div>                        
+                        <div class="flex-row " role="cell">101.8</div>
+                        <div class="flex-row " role="cell">0.89</div>
+                        <div class="flex-row " role="cell">1.4</div>
+                        <div class="flex-row " role="cell">1.46</div>
+                        <div class="flex-row " role="cell">
+                            <img class="labelImage" src="./img/Ppk.PNG"/>
+                        </div>
+                    </div>
+                    <div class="flex-table row" role="rowgroup">
+                        <div class="flex-row first" role="cell">OP 60</div>
+                        <div class="flex-row " role="cell">Vertex Angle </div>
+                        <div class="flex-row " role="cell">
+                            <img src="./img/halfCircle.svg" />
+                        </div>
+                        <div class="flex-row " role="cell">45</div>
+                        <div class="flex-row " role="cell">40 </div>
+                        <div class="flex-row " role="cell">50</div>
+                        <div class="flex-row " role="cell">44.6</div>
+                        <div class="flex-row " role="cell">
+                            <img class="labelImage" src="./img/Ppk.PNG"/>
+                        </div>
+                    </div>
+                    <div class="flex-table row" role="rowgroup">
+                        <div class="flex-row first" role="cell">OP 60</div>
+                        <div class="flex-row " role="cell">SRC Dia </div>
+                        <div class="flex-row " role="cell">
+                            <img src="./img/emptyCircle.svg" />
+                        </div>
+                        <div class="flex-row " role="cell">17.8</div>
+                        <div class="flex-row " role="cell">0.0043</div>
+                        <div class="flex-row " role="cell">1.13</div>
+                        <div class="flex-row " role="cell">1.09</div>
+                        <div class="flex-row " role="cell">
+                            <img class="labelImage" src="./img/Ppk.PNG"/>
+                        </div>
+                    </div>
+                    <div class="flex-table row" role="rowgroup">
+                        <div class="flex-row first" role="cell">OP 60</div>
+                        <div class="flex-row " role="cell">DC Width </div>
+                        <div class="flex-row " role="cell">
+                            <img src="./img/halfCircle.svg" />
+                        </div>
+                        <div class="flex-row " role="cell">23</div>
+                        <div class="flex-row " role="cell">0.78</div>
+                        <div class="flex-row " role="cell">1.01</div>
+                        <div class="flex-row " role="cell">1.02</div>
+                        <div class="flex-row " role="cell">
+                            <img class="labelImage" src="./img/Ppk.PNG"/>
+                        </div>
+                    </div>
+                    <div class="flex-table row" role="rowgroup">
+                        <div class="flex-row first" role="cell">OP 60</div>
+                        <div class="flex-row " role="cell">SC finish </div>
+                        <div class="flex-row " role="cell">
+                            <img src="./img/emptyCircle.svg" />
+                        </div>
+                        <div class="flex-row " role="cell">1.8</div>
+                        <div class="flex-row " role="cell">0.43</div>
+                        <div class="flex-row " role="cell">1.05</div>
+                        <div class="flex-row " role="cell">1.01</div>
+                        <div class="flex-row " role="cell">
+                            <img class="labelImage" src="./img/Ppk.PNG"/>
+                        </div>
+                    </div>
+                    <div class="flex-table row" role="rowgroup">
+                        <div class="flex-row first" role="cell">OP 60</div>
+                        <div class="flex-row " role="cell">OD Size </div>
+                        <div class="flex-row " role="cell">
+                            <img src="./img/halfCircle.svg" />
+                        </div>
+                        <div class="flex-row " role="cell">45</div>
+                        <div class="flex-row " role="cell">0.43 </div>
+                        <div class="flex-row " role="cell">1.03</div>
+                        <div class="flex-row " role="cell">1.02</div>
+                        <div class="flex-row " role="cell">
+                            <img class="labelImage" src="./img/Ppk.PNG"/>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-client">&copy; 2023 - Hexagon Manufacturing Intelligence Ltd</div>
+        <div class="disclaimer">
+            Powered By : 
+            <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png"/>
+        </div>
+    </footer>
+</body>
+<script defer src="./layoutUpdater.js" ></script>
+<script defer src="./chartUpdater.js" ></script>
+<script src="/Scripts/preloadUtilities.js"></script>
+

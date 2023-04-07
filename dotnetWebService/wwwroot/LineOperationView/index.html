@@ -27,6 +27,32 @@
     </header>
     <main>
         <div class="graphGrid">
+            <div class="optionsContainer">
+                <div class="optionsMenu">
+                    <div class="menuContainer">
+                        <label class="menuLabel" for="filterStart">Start date:</label>
+                        &nbsp;
+                        <input type="date" id="filterStart" name="date-start" value="2018-07-22">
+                    </div>
+                    &nbsp; &nbsp;&nbsp;
+                    <div class="menuContainer">
+                        <label class="menuLabel" for="filterEnd">End Date:</label>
+                        &nbsp;
+                        <input type="date" id="filterEnd" name="date-end" value="2018-07-22">
+                    </div>
+                </div>
+                <div class="optionsMenu">
+                    <div class="menuContainer">
+                        <label class="menuLabel" for="modelSelector">Model : </label>
+                        &nbsp;
+                        <select name="modelSelector" id="modelSelector">
+                            <option value="SK66"> SK66</option>
+                            <option value="SK76"> SK76</option>
+                            <option value="SK78" selected>SK78 - Dur:Sleek Centinel</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <div class="graphRow1" def="row1">
                 <div class="LayoutContainer" id="LayoutContainer">
                     <div class="canvasContainer">
@@ -78,7 +104,7 @@
         </div>
     </main>
     <footer>
-        <div class="footer-client">© 2022 - Hexagon Manufacturing Intellignce Pvt Ltd</div>
+        <div class="footer-client">&copy; 2023 - Hexagon Manufacturing Intelligence Ltd</div>
         <div class="disclaimer">
             Powered By : 
             <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png"/>
@@ -92,7 +118,6 @@
 <script src="./canvasWidget.js" ></script>
 <script src="./payloadHandler.js"></script>
 <script src="./statusBoardWidget.js"></script>
-<script src="/Scripts/preloadUtilities.js"></script>
 <script defer>
     console.log("queries", new URLSearchParams(window.location.search).get("Line"));
     let STATION_MASTER=processNameGenerator(8);
@@ -138,3 +163,4 @@
     runRandomDemo(config=MASTER_CONFIG,stepTime=5000); 
     console.log("executed the script");
 </script>
+<script src="/Scripts/preloadUtilities.js"></script>

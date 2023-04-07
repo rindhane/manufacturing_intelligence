@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<head>
+    <!--
+        https://stackoverflow.com/questions/17493601/what-is-the-code-to-remove-this-symbol-%C3%82-in-html
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link
+			href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
+			rel="stylesheet"
+	/>
+    <link rel="stylesheet" href="/CSS/master.css">
+    <link rel="stylesheet" href="./individual.css">
+    <script src="/CSS/echarts.js"></script>
+    <script src="/css/bootstrap.js" ></script>
+    <title>QDas Dashboard</title>
+    <link rel="icon" href="/favicon.png">
+</head>
+<body onload="console.log('loaded');">
+    <header>
+        <div class="logo-container">
+            <img src="/img/client.png" alt="logo">  
+        </div>
+        <div class="header-title">
+            <div class="titleContent">Q-DAS Traceability Dashboard</div> 
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-link-outer "><a class="nav-link" href="#">Home Page</a></li>
+                <li class="nav-link-outer hidden"><a class="nav-link" href="#">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="AppContainer">
+            <div class="headingContainer">
+                <span class="appTitle">
+                    Part Report :&nbsp; <span class="subtext"id="partID">x0123456</span>
+                </span> 
+                <div class="detailSet">
+                    <div class="boxDetail">
+                        <span class="boxDetail-particular">
+                            Part Description : 
+                        </span>
+                        <span class="boxDetail-value">
+                            Connecting rod (70mm) 
+                        </span>
+                    </div>
+                    <div class="boxDetail">
+                        <span class="boxDetail-particular">
+                            Part Model : 
+                        </span>
+                        <span class="boxDetail-value">
+                            SK66 - Export Batch
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="table-container" role="table" aria-label="Destinations">
+                <ref>
+                    https://medium.com/@snowleo208/how-to-create-responsive-table-d1662cb62075
+                    https://codepen.io/snowleo208/pen/NLpZjv
+                </ref>
+                <div class="flex-table header" role="rowgroup">
+                    <div class="flex-row first" role="columnheader">OP No</div>
+                    <div class="flex-row " role="columnheader">Char Desc</div>
+                    <div class="flex-row " role="columnheader">Class</div>
+                    <div class="flex-row " role="columnheader">DateTime</div>
+                    <div class="flex-row " role="columnheader">Nominal</div>
+                    <div class="flex-row " role="columnheader">LSL</div>
+                    <div class="flex-row " role="columnheader">USL</div>
+                    <div class="flex-row " role="columnheader">Actual</div>
+                    <div class="flex-row " role="columnheader">Eval</div>
+                </div>
+                <div class="flex-table row" role="rowgroup">
+                    <div class="flex-row first" role="cell">OP 10</div>
+                    <div class="flex-row " role="cell">OP TWIST (306 mm) </div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/halfCircle.svg" />
+                    </div>
+                    <div class="flex-row " role="cell">11-01-2023 17:06:49</div>
+                    <div class="flex-row " role="cell">1.6</div>
+                    <div class="flex-row " role="cell">1.0 </div>
+                    <div class="flex-row " role="cell">2.0 </div>
+                    <div class="flex-row " role="cell">1.85 </div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/emoji-frown-fill.svg" />
+                    </div>
+                </div>
+                <div class="flex-table row" role="rowgroup">
+                    <div class="flex-row first" role="cell">OP 20</div>
+                    <div class="flex-row " role="cell">Bore Radius </div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/fullCircle.svg" />
+                    </div>
+                    <div class="flex-row " role="cell">11-01-2023 17:12:39</div>
+                    <div class="flex-row " role="cell">10.0</div>
+                    <div class="flex-row " role="cell">11.0 </div>
+                    <div class="flex-row " role="cell">12.0</div>
+                    <div class="flex-row " role="cell">11.9</div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/emoji-expressionless-fill.svg" />
+                    </div>
+                </div>
+                <div class="flex-table row" role="rowgroup">
+                    <div class="flex-row rowspan first" role="cell">OP 30</div>
+                    <div class="column">
+                        <div class="flex-row">
+                            <div class="flex-cell first" role="cell">X-Coordinate </div>
+                            <div class="flex-cell " role="cell">
+                                <img src="./img/fullCircle.svg" />
+                            </div>                        
+                            <div class="flex-cell " role="cell">11-01-2023 17:19:22</div>
+                            <div class="flex-cell " role="cell">101.8</div>
+                            <div class="flex-cell " role="cell">102.0 </div>
+                            <div class="flex-cell " role="cell">100.8</div>
+                            <div class="flex-cell " role="cell">101.9</div>
+                            <div class="flex-cell " role="cell">
+                                <img src="./img/emoji-smile-fill.svg" />
+                            </div>
+                        </div>
+                        <div class="flex-row">
+                            <div class="flex-cell first" role="cell">Y-Coordinate </div>
+                            <div class="flex-cell " role="cell">
+                                <img src="./img/fullCircle.svg" />
+                            </div>                        
+                            <div class="flex-cell " role="cell">11-01-2023 17:19:22</div>
+                            <div class="flex-cell " role="cell">101.8</div>
+                            <div class="flex-cell " role="cell">102.0 </div>
+                            <div class="flex-cell " role="cell">100.8</div>
+                            <div class="flex-cell " role="cell">101.9</div>
+                            <div class="flex-cell " role="cell">
+                                <img src="./img/emoji-smile-fill.svg" />
+                            </div>
+                        </div>
+                        <div class="flex-row">
+                            <div class="flex-cell first" role="cell">Z-Coordinate </div>
+                            <div class="flex-cell " role="cell">
+                                <img src="./img/fullCircle.svg" />
+                            </div>                        
+                            <div class="flex-cell " role="cell">11-01-2023 17:19:22</div>
+                            <div class="flex-cell " role="cell">101.8</div>
+                            <div class="flex-cell " role="cell">102.0 </div>
+                            <div class="flex-cell " role="cell">100.8</div>
+                            <div class="flex-cell " role="cell">101.9</div>
+                            <div class="flex-cell " role="cell">
+                                <img src="./img/emoji-smile-fill.svg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-table row" role="rowgroup">
+                    <div class="flex-row first" role="cell">OP 40</div>
+                    <div class="flex-row " role="cell">Vertex Angle </div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/halfCircle.svg" />
+                    </div>
+                    <div class="flex-row " role="cell">11-01-2023 17:21:01</div>
+                    <div class="flex-row " role="cell">45</div>
+                    <div class="flex-row " role="cell">40 </div>
+                    <div class="flex-row " role="cell">50</div>
+                    <div class="flex-row " role="cell">44.6</div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/emoji-expressionless-fill.svg" />
+                    </div>
+                </div>
+                <div class="flex-table row" role="rowgroup">
+                    <div class="flex-row first" role="cell">OP 50</div>
+                    <div class="flex-row " role="cell">SRC Dia </div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/emptyCircle.svg" />
+                    </div>
+                    <div class="flex-row " role="cell">11-01-2023 18:11:11</div>
+                    <div class="flex-row " role="cell">17.8</div>
+                    <div class="flex-row " role="cell">17.4 </div>
+                    <div class="flex-row " role="cell">18.2</div>
+                    <div class="flex-row " role="cell">17.9</div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/emoji-expressionless-fill.svg" />
+                    </div>
+                </div>
+                <div class="flex-table row" role="rowgroup">
+                    <div class="flex-row first" role="cell">OP 60</div>
+                    <div class="flex-row " role="cell">DC Width </div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/halfCircle.svg" />
+                    </div>
+                    <div class="flex-row " role="cell">11-01-2023 18:31:27</div>
+                    <div class="flex-row " role="cell">23</div>
+                    <div class="flex-row " role="cell">20 </div>
+                    <div class="flex-row " role="cell">26</div>
+                    <div class="flex-row " role="cell">23.6</div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/emoji-expressionless-fill.svg" />
+                    </div>
+                </div>
+                <div class="flex-table row" role="rowgroup">
+                    <div class="flex-row first" role="cell">OP 70</div>
+                    <div class="flex-row " role="cell">SC finish </div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/emptyCircle.svg" />
+                    </div>
+                    <div class="flex-row " role="cell">11-01-2023 19:01:12</div>
+                    <div class="flex-row " role="cell">1.8</div>
+                    <div class="flex-row " role="cell">1.67</div>
+                    <div class="flex-row " role="cell">1.83</div>
+                    <div class="flex-row " role="cell">1.76</div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/emoji-expressionless-fill.svg" />
+                    </div>
+                </div>
+                <div class="flex-table row" role="rowgroup">
+                    <div class="flex-row first" role="cell">OP 80</div>
+                    <div class="flex-row " role="cell">OD Size </div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/halfCircle.svg" />
+                    </div>
+                    <div class="flex-row " role="cell">11-01-2023 20:19:56</div>
+                    <div class="flex-row " role="cell">45</div>
+                    <div class="flex-row " role="cell">40 </div>
+                    <div class="flex-row " role="cell">50</div>
+                    <div class="flex-row " role="cell">44.6</div>
+                    <div class="flex-row " role="cell">
+                        <img src="./img/emoji-expressionless-fill.svg" />
+                    </div>
+                </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-client">&copy; 2023 - Hexagon Manufacturing Intelligence Ltd</div>
+        <div class="disclaimer">
+            Powered By : 
+            <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png"/>
+        </div>
+    </footer>
+</body>
+<script defer src="./layoutUpdater.js" ></script>
+<script defer src="./chartUpdater.js" ></script>
+<script src="/Scripts/preloadUtilities.js"></script>
+

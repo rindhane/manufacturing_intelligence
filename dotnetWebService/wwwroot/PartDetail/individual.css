@@ -1,0 +1,206 @@
+:root {
+    --table-header: #1976D2;
+    --table-header-border: #1565C0;
+    --table-border: #d9d9d9;
+    --row-bg: #f4f2f1;
+}
+.animationContainer{
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; /* ref: https://getcssscan.com/css-box-shadow-examples */
+    border-radius: 20px;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+}
+.animationIcon{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+.AppContainer{
+    display:flex;
+    flex-direction: column;
+    margin:10px;
+    padding: 10px ;
+    width:85%;
+    border-radius: 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; /* ref: https://getcssscan.com/css-box-shadow-examples */
+
+}
+
+.headingContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;    
+}
+.detailSet{
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.boxDetail-particular{
+    font-weight: 700;
+    padding: 2px;
+}
+.boxDetail{
+    border-radius: 0.5em;
+    border-style :groove;
+    border-color: #39bfd3;
+    padding: 5px;
+}
+
+.app-links{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    flex: 1;
+}
+.app-link-outer{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: ghostwhite ;/*#140463; */
+    border: 2px solid lightgray;
+    padding: 5px;
+    font-size: 1vw;
+    flex:1;
+}
+.app-link-outer:hover {
+    background-color:  #6aacd6 ;
+  }
+.app-link{
+    display: flex;
+    text-decoration:none;
+    flex:1;
+    justify-content: space-between;    
+}
+.appIconContainer{
+    display: flex;
+    max-width: 70%;
+    height: 100%;
+    align-self: center;
+}
+.appIcon{
+    width:auto;
+    height: 100%;
+    max-height: 105px; /* correctionPending: Use another method to get the sizing of image */
+    align-self: center;
+    border-radius: 5px;
+}
+.appTitle{
+    display: flex;
+    color: darkblue;
+    align-items: center;
+    padding: 10px;
+    font-size: 2em;
+    align-self: center;
+}
+.subtext{
+    color: lightgreen;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    margin: 2em auto;
+    width: 95%;
+}  
+.flex-table {
+    display: flex;
+    border-left: solid 1px var(--table-border);
+}
+.flex-table:first-of-type{
+    border-top: solid 1px var(--table-header-border);
+    border-left: solid 1px var(--table-header-border);
+}
+.flex-table:first-of-type .flex-row{
+    background: var(--table-header);
+    color: white;
+    border-color: var(--table-header-border);
+}
+.flex-table.row:nth-child(odd) .flex-row{
+    background: var(--row-bg);
+}
+.flex-row {
+    display: flex;
+    flex: 1;
+    /*width: calc(100% / 9);*/
+    text-align: center;
+    padding: 0.5em 0.5em;
+    border-right: solid 1px var(--table-border);
+    border-bottom: solid 1px var(--table-border);
+}
+.column {
+    display: flex;
+    flex-flow: column wrap;
+    width: calc(100%*8/9);
+    padding: 0;
+  }
+
+.column .flex-row {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+    border: 0;
+    border-bottom: solid 1px var(--table-border);
+  }
+.flex-cell {
+    display: flex;
+    /*width: calc(100% / 3);*/ 
+    padding: 0.5em 0.5em;
+    border-right: solid 1px var(--table-border);
+    flex:1 1  5%;
+}
+.rowspan {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+button{
+    /*background-color: dodgerblue;*/
+    background-color: #39bfd3;
+    height: 4vh;
+    width:60%;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 4; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+}
+button.reset{
+    background-color: dodgerblue;
+    float: right;
+    width:20%;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+
+

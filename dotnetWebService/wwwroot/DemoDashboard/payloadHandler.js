@@ -51,8 +51,11 @@ function dateEntryParamsFromTimestamp(num){
 function getDateEntry(year,month,date, hour, minutes, seconds){
     let result = new Date(year,month,date,hour,minutes,seconds);
     let minutes_string = String(result.getMinutes()).padStart(2,'0'); //reference https://stackoverflow.com/questions/1127905/how-can-i-format-an-integer-to-a-specific-length-in-javascript
+    //let date_day = String(result.getDate()).padStart(2,0);
+    let month_value = String(result.getMonth()+1).padStart(2,0);
     let timeString = `${result.getHours()}:${minutes_string}:${result.getSeconds()}`;
-    let dateString = `${result.getFullYear()}-${result.getMonth()}-${result.getDate()}`;
+    let dateString = `${result.getFullYear()}-${month_value}-${result.getDate()}`;
+    //let dateString = `${result.getFullYear()}-${result.getMonth()}-${result.getDate()}`;
     let resultString= dateString+ ' ' + timeString;
     return resultString; 
 }

@@ -144,6 +144,27 @@ namespace PartDataManager{
             return "ok";
         }
 
+        public async Task<string>getOperationStatusEvaluation(string opKey,string serial, string timeStamp) {
+            //correctionPending : complete the characteristics evaluation code
+            var partCode = dbHandler!.getPartTypeCode(serial);
+            var operationId = dbHandler.getOperationId(partCode.PartTypeCode, partCode.LineName ,opKey);
+            var num_characteristics = dbHandler.getAllCharacteriticsOfOperationCode(
+                partCode.PartTypeCode,partCode.LineName,opKey);
+            var items = dbHandler.getQueryinAlarmsSearch(operationId,serial);
+            var count_check = System.Math.Min(items.Count,num_characteristics.Count);
+            for (int i=0;i<count_check;i++){
+                if(System.Int64.Parse(items[i][0].ToString()!)!=0){
+                    return "not-ok";
+                }
+            }
+            await Task.Delay(0);
+            if(timeStamp==string.Empty){
+                // if other values are not available then don't send the characteristicStatus
+                return "";
+            }
+            return "ok";
+        }
+
         public LabBlock getLabBlockForSeachPart(string serial){
             var result = new LabBlock();
             if(IsPDFList(serial))

@@ -3,12 +3,16 @@ const validationElem = document.getElementById('SerialFieldValidation');
 const LineSelector = document.getElementById('LineSelector');
 const OperationSelector = document.getElementById('OperationSelector');
 const uploadFinishModal= document.getElementById('FinishModal');
-const FinishModalText= document.getElementById("FinishModalText");
+const FinishModalText = document.getElementById("FinishModalText");
+const WeightField = document.getElementById("WeightFieldtext");
+const HeightField = document.getElementById("HeightFieldtext");
 
 async function uploadScanData(inputElem=input, 
                                       checkElem=validationElem,
                                       opElem=OperationSelector,
-                                      LineElem=LineSelector)
+                                      LineElem = LineSelector,
+                                      WeightElem = WeightField,
+                                      HeightElem = HeightField)
 {
   if (checkElem.style.display=="none" 
           || 
@@ -17,7 +21,8 @@ async function uploadScanData(inputElem=input,
         checkElem.style.color=="red" 
         || 
         checkElem.style.color==''
-  ){
+    )
+    {
       alert("provide valid serial number");
       return false;
   }
@@ -33,9 +38,11 @@ async function uploadScanData(inputElem=input,
   payload = {
     serialNum:inputElem.value,
     LineNum:LineElem.value,
-    OpStation:opElem.value,
+    OpStation: opElem.value,
+    WeightNum: WeightElem.value,
+    HeightNum: HeightElem.value,
     senderTag:'ManualWebFormUpload',
-    partCode: getPartCodeFromValidSerialNumber(inputElem.value),
+   // partCode: getPartCodeFromValidSerialNumber(inputElem.value),
   }
   response = await postDataStream(`${serverMainPath}/ManualScanData`, JSON.stringify(payload));
   uploadFinishModal.style.display='block';

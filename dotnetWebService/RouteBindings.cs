@@ -38,10 +38,8 @@ public static class RouteMethods{
   public static IResult MoveToHomeScreen(HttpRequest request){
     return Results.LocalRedirect("~/Home",false,true);
   }
-
   public static async Task testJsonData(HttpContext context)
   {
-
     HttpClient client = new HttpClient { BaseAddress = new System.Uri("https://jsonplaceholder.typicode.com/") };
     string posts = await client.GetStringAsync("posts");
     await context.Response.WriteAsync(posts);

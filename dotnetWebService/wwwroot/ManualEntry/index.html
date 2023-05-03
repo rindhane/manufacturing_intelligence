@@ -33,29 +33,39 @@
                     <div class="SerialInputBar">
                         <label for="SerialField">Serial Number</label>
                         <input type="text" id="SerialField" name="SerialField" placeholder="Scan the Serial Number">
-                    </div>
+                    </div>                   
                     <span class="SerialFieldValidation" id="SerialFieldValidation">empty</span>
+                </div>
+                <div class="WeightHeightFieldContainer">
+                    <div class="WeightInputBar">
+                        <label for="Weight">Weight</label>
+                        <input type="text" id="WeightFieldtext" name="WeightField" placeholder="Enter Weight">
+                    </div>
+                    <div class="HeightInputBar">
+                        <label for="Height">Height</label>
+                        <input type="text" id="HeightFieldtext" name="HeightField" placeholder="Enter Height">
+                    </div>
                 </div>
                 <div class="selectionSet operationContainer">
                     <span>Line Applicable</span>
                     <select id="LineSelector" onchange="operationsOfLine(event);">
                         <!--
-                        <option value="0">Select Station</option>
-                        <option value="1">Line:ABC</option>
-                        <option value="2">Line:BCD</option>
-                        <option value="3">Line:3AB</option>
-                        -->
+            <option value="0">Select Station</option>
+            <option value="1">Line:ABC</option>
+            <option value="2">Line:BCD</option>
+            <option value="3">Line:3AB</option>
+            -->
                     </select>
-                </div> 
+                </div>
                 <div class="selectionSet operationContainer">
                     <span>Operation Stage</span>
                     <select id="OperationSelector">
                         <!--
-                        <option value="0">Select Station</option>
-                        <option value="1">OP-10</option>
-                        <option value="2">OP-20</option>
-                        <option value="3">OP-30</option>
-                        -->
+            <option value="0">Select Station</option>
+            <option value="1">OP-10</option>
+            <option value="2">OP-20</option>
+            <option value="3">OP-30</option>
+            -->
                     </select>
                 </div>
             </div>

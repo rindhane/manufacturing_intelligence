@@ -7,7 +7,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>enable</Nullable>   
     <!-- ref 
         https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview?tabs=cli 
         https://github.com/dotnet/runtime/issues/45382

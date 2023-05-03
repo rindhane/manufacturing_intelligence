@@ -95,8 +95,16 @@ function fileAsUrlBase64(file){
     return promise;
 };
 
+//function getCookie(key) {
+//    var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+//    return keyValue ? keyValue[2] : null;
+//}
 async function uploadFileData(fileHook, inputElem=input, checkElem=validationElem,){
-    const serverMainPath='';//'http://127.0.0.1:5001' ;
+    const serverMainPath = '';    //'http://127.0.0.1:5001';
+    //var productselectedValue = $('#dropField').val();   
+    //var selVal = selectElem.value;
+    //document.cookie = "CURRENT_DROP_DOWN_VAL=" + selVal + ";expires=Thu, 01-Jan-2099 00:00:01 GMT;path=/";
+    //alert(selVal);
     if (checkElem.style.display=="none" 
           || 
         checkElem.style.display=="" 
@@ -122,7 +130,8 @@ async function uploadFileData(fileHook, inputElem=input, checkElem=validationEle
     response= await postDataStream(`${serverMainPath}/LabData`, uploadData= dat, serialNum=inputElem.value, 
                         LabStation=selectElem.value);
     notifytheUpdate(response);
-    uploadFinishModal.style.display='block';
+    uploadFinishModal.style.display = 'block';
+
     return true;
 };
 
@@ -177,12 +186,19 @@ async function getLabStations(){
   return data;
 }
 
-async function populateSelector(selElem, data){
+async function populateSelector(selElem, data) {
+   // debugger;
   let LabList = JSON.parse(data);
   selElem.appendChild(createElementForSelector("0","Select Station"));
   LabList.forEach(elem => {
     selElem.appendChild(createElementForSelector(elem,elem));
   });
+
+   // var elementid = localStorage.getItem('selectElemid');
+    //if (elementid !== 'undefined' && elementid !== null) {      
+    document.getElementById("LabStation").selectedIndex = parseInt(localStorage.getItem('selectElemid'));
+        //localStorage.clear();
+    //}
 }
 
 function createElementForSelector(value,text){
@@ -194,12 +210,57 @@ function createElementForSelector(value,text){
 }
 
 //
-function reloadWindow(inputElem=input){
-  inputElem.value='';
-  selectElem.value=0;
-  location.reload();
-};
+//function reloadWindow(inputElem=input){
+//  inputElem.value='';
+//   selectElem.value = 0;
+  // location.reload();
+//};
+//$(document).ready(function () {
+//    debugger;
+//    $('#LabStation').value(localStorage.getItem('selectElemid'));
+//})
+//(function () {
+//    debugger;
+//   // document.getElementsById('#LabStation').value(localStorage.getItem('selectElemid'));
 
+//    var abc = localStorage.getItem('selectElemid');
+
+//    if (abc !== 'undefined' && abc !== null) {
+//        var selectedlab = localStorage.getItem('selectElemid');
+//        document.getElementById("LabStation").selectedIndex = parseInt(selectedlab);
+//        localStorage.clear();
+//    }    
+//    })();
+function reloadWindow(inputElem = input) {
+   debugger;
+    inputElem.value = '';
+   // selectElem.value = 0;
+    localStorage.setItem("selectElemid", selectElem.selectedIndex);      
+    location.reload();   
+};
+//selectElement = document.querySelector('#select1');
+//output = selectElement.value;
+//document.querySelector('.output').textContent = output;
+
+//function getOption() {
+//    selectElement = document.querySelector('#LabStation');
+//    output = selectElement.value;
+//    document.querySelector('.output').textContent = output;
+
+
+//function setLocalStorageValue() {
+//   // let selectElem = document.getElementById('LabStation');
+//    let myNewValue = selectElem.value;
+
+//    let localStorage = window.localStorage;
+//    localStorage.setItem('defaultValue', myNewValue);
+//}
+
+//function getLocalStoredValue() {
+//    let localStorage = window.localStorage;
+//    let defaultValue = json.parse(localStorage.getItem('defaultValue'));   
+//    selectElem.value = defaultValue;
+//}
 //input validation 
 input.addEventListener('input', triggerValidation);
 function triggerValidation(e) {
@@ -266,6 +327,7 @@ const stream = new ReadableStream({
 
 async function postDataStream(url, stream){ 
     let options={
+      method: 'POST',
       method: 'POST',
       headers: {
         Accept: 'application.json',

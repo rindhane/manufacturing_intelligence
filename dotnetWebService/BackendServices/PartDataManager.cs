@@ -81,7 +81,7 @@ namespace PartDataManager{
             configReader = new tomlConfigReader(_configPath);
             var temp = buildOptionsfromConfig();
             dbHandler = new QDasDbConnection(temp.Item1,temp.Item2);
-            updateAllPartOperationFlow();
+           // updateAllPartOperationFlow();
         }
         public System.Tuple<dbOptions,string> buildOptionsfromConfig(){
             var source1Part = (string)configReader!.getKeyValue("dataSource","qdas_value_db");

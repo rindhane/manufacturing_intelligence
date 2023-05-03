@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "dotnetWebService": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\Masters\\SPRL_Tracebility\\dotnetWebService"
+    }
+  }
+}

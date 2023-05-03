@@ -3,7 +3,7 @@
 DECLARE @qdas_db VARCHAR(100);
 declare @query nvarchar(max); 
 
-SET @qdas_db='QDAS_VALUE_DATABASE'; --replace with the data database of qdas
+SET @qdas_db='QDAS_DATA'; --replace with the data database of qdas
 
 --help https://stackoverflow.com/questions/2838490/a-table-name-as-a-variable
 set @query= 'CREATE TABLE'+ QUOTENAME(@qdas_db)+'.dbo.LABREPORT(

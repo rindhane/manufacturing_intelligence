@@ -1,4 +1,5 @@
 ﻿using ServiceReference;
+using qdasWebService;
 
 namespace WebApiConnector
 {
@@ -6,6 +7,12 @@ namespace WebApiConnector
         //pending stuff: instead of hardcoded server name, input through environment variables into System.ServiceModel.EndpointAddress GetEndpointAddress in the serviceReference: 
         static void Main(string[] args)
         {
+            
+            var client = new qdasServiceClient();
+            //client.getPPKResult();
+            //client.getResult123();
+            client.getResultPPKNew();
+            /*
             System.Console.WriteLine("Hello, World!");
             WebConnectRequest request= new WebConnectRequest(20, 44, "superuser", "superuser", "");
             Qdas_Web_ServiceClient ws = new Qdas_Web_ServiceClient();
@@ -16,6 +23,7 @@ namespace WebApiConnector
             WebDisconnectResponse res= ws.WebDisconnectAsync(response.Handle).GetAwaiter().GetResult();
             System.Console.WriteLine(res.Result);
             System.Console.ReadLine();
+            */
         }
     }
 }

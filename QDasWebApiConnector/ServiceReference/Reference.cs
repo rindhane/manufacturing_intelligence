@@ -14539,7 +14539,7 @@ namespace ServiceReference
         {
             if ((endpointConfiguration == EndpointConfiguration.IQdas_Web_ServicePort))
             {
-                string server_main_input = "qdas-server-1";
+                string server_main_input = "localhost";
                 return new System.ServiceModel.EndpointAddress($"http://{server_main_input}/qs-STAT1_WebService/QdasWebService.dll/soap/IQdas_Web_Servic" +
                         "e");
             }

@@ -91,12 +91,12 @@ select{
     text-align: center;
 
 }
-button{
+button {
     /*background-color: dodgerblue;*/
     background-color: #39bfd3;
     height: 4vh;
-    width:60%;
-    align-self: center;
+    width: 60%;   
+    align-self: center;    
     justify-self: center;
     cursor: pointer;
 }

@@ -13,10 +13,10 @@
 <body onload="console.log('loaded');">
     <header>
         <div class="logo-container">
-            <img src="/img/client.png" alt="logo">  
+            <img src="/img/client.png" alt="logo">
         </div>
         <div class="header-title">
-            <div class="titleContent">Lab Reports</div> 
+            <div class="titleContent">Lab Reports</div>
         </div>
         <nav>
             <ul class="nav-links">
@@ -25,18 +25,21 @@
             </ul>
         </nav>
     </header>
+   
     <main>
         <div class="CenterBox">
-            <div class="CenterTitle"> Reports for Part: <span id="PartIdSpan"></span>
+            <div class="CenterTitle">
+                Reports for Part: <span id="PartIdSpan"></span>
             </div>
             <div class="PdfBox" id="pdfBox">
                 <!--
-                <a class="PdfLink" onclick="showReport(this);" reportID="123456" href="#">Report-CMM</a>
-                <a class="PdfLink" href="#">Report-Lubricant</a>
-                <a class="PdfLink" href="#">Report-Master</a>
-                -->
+        <a class="PdfLink" onclick="showReport(this);" reportID="123456" href="#">Report-CMM</a>
+        <a class="PdfLink" href="#">Report-Lubricant</a>
+        <a class="PdfLink" href="#">Report-Master</a>
+        -->
             </div>
         </div>
+
         <!-- Following div is the result in the modal form -->
         <div class="modal" id="ReportViewModal">
             <div class="modal-content">
@@ -46,9 +49,9 @@
                     &nbsp; &nbsp;
                     <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
                     <button class="reset" onclick="reloadWindow()">Revert</button>
-                  </div>
+                </div>
                 <div id="pdfViewer">
-                    <canvas id="pdfCanvas" style="border: 1px solid black; direction: ltr;" ></canvas>
+                    <canvas id="pdfCanvas" style="border: 1px solid black; direction: ltr;"></canvas>
                 </div>
             </div>
         </div>
@@ -56,8 +59,8 @@
     <footer>
         <div class="footer-client">© 2022 - Shriram Pistons & Rings Ltd</div>
         <div class="disclaimer">
-            Powered By : 
-            <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png"/>
+            Powered By :
+            <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png" />
         </div>
     </footer>
 </body>
@@ -67,3 +70,4 @@
     updatePartId();
     buildReportBlock();
 </script>
+

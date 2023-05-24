@@ -10,7 +10,7 @@ public static class Routes{
         //app.MapGet( "/" , RouteMethods.IndexMethod);
         //app.MapGet("/testPage", RouteMethods.testJsonData);
         //add key-link-reRerouting
-        app.MapGet("/Home",RouteMethods.pageRedirect);
+        app.MapGet("/Home",RouteMethods.pageRedirect);        
         app.MapGet("/TraceSearch", RouteMethods.pageRedirect);
         app.MapGet("/LabReportDisplay", RouteMethods.pageRedirectWithSerialParams);
         app.MapGet("/DemoDashboard", RouteMethods.pageRedirect);
@@ -39,7 +39,9 @@ public static class Routes{
         app.MapPost("/OperationInProdLine",RouteMethods.getAllOperationOfProductionLine);
         app.MapPost("/GetAllPartCodes",RouteMethods.getAllPartCodesConfigured);
         app.MapPost("/SyncControlPlans", RouteMethods.syncUpAllPartCodesConfigured);
-        return app;
+
+       
+            return app;
     }
 }  
 }

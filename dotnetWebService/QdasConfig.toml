@@ -10,7 +10,7 @@ ReportTableName="LABREPORT"
 #Production Plant related configs
 [prodPlant]
 lines = ["ABC","DEF","GHI"] #define all the typical lines configured in control plan 
-labs = ["CMM", "Profile Tester", "Surface Roughness", "Hardness Tester", "Visual Measurement Machine"] # define all the labs stations eligible to submit report
+labs = ["CMM", "Profile Tester", "Surface Roughness", "Hardness Tester","Conture","Roundness","Volume Related", "WCVX","Millipore","Visual Measurement Machine","Ovelty & O.D.Profile Check"] # define all the labs stations eligible to submit report
 
 
 #DFQ creation parameters

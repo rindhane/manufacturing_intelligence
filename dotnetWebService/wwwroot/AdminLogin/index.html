@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="/CSS/master.css">
+    <link rel="stylesheet" href="./individual.css">
+    <title>QDas Dashboard</title>
+    <link rel="icon" href="/favicon.png">
+</head>
+<body onload="console.log('loaded');">
+    <header>
+        <div class="logo-container">
+            <img src="/img/client.png" alt="logo">
+        </div>
+        <div class="header-title">
+            <div class="titleContent">Lab Reports</div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-link-outer"><a class="nav-link" href="/Home">Home Page</a></li>
+                <li class="nav-link-outer hidden"><a class="nav-link" href="#">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+   
+        <div class="CenterBox">
+            <div class="inputGroup">
+                <label for="startDate">Start Date</label>
+                <input type="date" value="" name="startDate" id="startDate" />
+
+                <label for="endDate">End Date</label>
+                <input type="date" value="" name="endDate" id="endDate" />
+                <button id="submitAction">Search</button>
+            </div>
+        </div>
+    
+        <main>
+            <div class="CenterBox">
+                <div class="CenterTitle">
+                    Reports for Part: <span id="PartIdSpan"></span>
+                </div>
+                <div class="PdfBox" id="pdfBox">
+                    <!--
+            <a class="PdfLink" onclick="showReport(this);" reportID="123456" href="#">Report-CMM</a>
+            <a class="PdfLink" href="#">Report-Lubricant</a>
+            <a class="PdfLink" href="#">Report-Master</a>
+            -->
+
+                </div>
+
+            </div>
+
+            <!-- Following div is the result in the modal form -->
+            <div class="modal" id="ReportViewModal">
+                <div class="modal-content">
+                    <div>
+                        <button id="prev">Previous</button>
+                        <button id="next">Next</button>
+                        &nbsp; &nbsp;
+                        <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+                        <button class="reset" onclick="reloadWindow()">Revert</button>
+                    </div>
+                    <div id="pdfViewer">
+                        <canvas id="pdfCanvas" style="border: 1px solid black; direction: ltr;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    <footer>
+        <div class="footer-client">© 2022 - Shriram Pistons & Rings Ltd</div>
+        <div class="disclaimer">
+            Powered By :
+            <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png" />
+        </div>
+    </footer>
+</body>
+<script src="./pdfJs/build/pdf.js"></script>
+<script src="./ReportList.js"></script>
+<script defer>
+    updatePartId();
+    buildReportBlock();
+</script>
+

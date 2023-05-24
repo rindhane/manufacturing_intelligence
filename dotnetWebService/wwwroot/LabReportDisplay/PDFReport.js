@@ -29,6 +29,8 @@ async function buildReportBlock(serial=serialNum, masterElem=reportBox)
   return false;
 }
 
+
+
 async function GetReportList(url, uploadData){ 
   let options={
     method: 'POST',

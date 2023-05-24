@@ -160,7 +160,7 @@ public static class RouteMethods{
     string serialNum=request.Headers["serialNum"]!;
     string stationName=request.Headers["LabStation"]!;
     var reader = new StreamReader(request.Body);
-    string pdfData = await reader.ReadToEndAsync();//it is the pdf which needs to be stored
+    string pdfData = await reader.ReadToEndAsync(); //it is the pdf which needs to be stored
     var stat= qdasManager.storePDF(serialNum,stationName,pdfData);
     if (stat) {
     await context.Response.WriteAsync("File was uploaded");
@@ -169,7 +169,7 @@ public static class RouteMethods{
     await context.Response.WriteAsync("Something went wrong");
     return ;
   }
-
+  
   public static async Task ManualScan(HttpContext context, HttpRequest request, IpartDataHandler qdasManager)
   {
     var reader = new StreamReader(request.Body);
@@ -184,7 +184,8 @@ public static class RouteMethods{
     // since can't find async option in xmlSerializer
     string tempString = await reader.ReadToEndAsync();//it provides JSON with serialNum and pdf-ID to provide the string
     var result = await qdasManager.retrievePDF(tempString);
-    //delete this line //string path = host.WebRootPath+@"\LabReportDisplay\test.pdf";
+    //delete this line 
+    string path = host.WebRootPath+@"\LabReportDisplay\test.pdf";
     //delete this line//var pdfReader= new PdfDataProvider(path);
     //delete this line //byte[] data = await pdfReader.ReadFileData();
     //delete this line await context.Response.Body.WriteAsync(data,0,data.Length);

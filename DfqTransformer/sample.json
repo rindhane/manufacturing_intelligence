@@ -1,0 +1,53 @@
+{
+    "part_detail":{
+        "part_code":"1",
+        "name":"part_name",
+        "drawing_no":"xyz_drawing_123",
+        "model":"model_xyx",
+        "line":"1yt"
+    },
+    "characteristics_measured_values":[
+        {
+            "id":"1",
+            "name":"chacteristics_1",
+            "measured_values": 
+                [
+                    {
+                        "sequence_no":"1",
+                        "observed_value":"37.81",
+                        "dateTime":"08-02-2023 00:00:00",
+                        "component_id":"1abc456",
+                        "tool_no" : "1"
+                    },
+                    {
+                        "sequence_no":"2",
+                        "observed_value":"37.91",
+                        "dateTime":"09-02-2023 00:00:00",
+                        "component_id":"2abc456",
+                        "tool_no" : "1"
+                    }
+                ]
+            
+        },
+        {
+            "id":"2",
+            "name":"chacteristics_2",
+            "measured_values": [
+                {
+                    "sequence_no":"1",
+                    "observed_value":"11.01",
+                    "dateTime":"10-02-2023 00:00:00",
+                    "component_id":"1abc456",
+                    "tool_no" : "1"
+                },
+                {
+                    "sequence_no":"2",
+                    "observed_value":"11.02",
+                    "dateTime":"11-02-2023 00:00:00",
+                    "component_id":"2abc456",
+                    "tool_no" : "1"
+                }
+            ]    
+        }     
+    ]
+}

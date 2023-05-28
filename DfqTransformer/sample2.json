@@ -1,0 +1,20 @@
+{
+    "serialNum":"inputElem.value",
+    "stElem": "stElem.value",
+    "modelElem": "modelElem.value",
+    "DrawingNumberElem": "DrawingNumberElem.value",
+    "CHARACTERISTICS": {
+        "MaxparticleSizeElem": 
+            {
+            "obsElem": "obsElem.value",
+            "JudgementElem": "JudgementElem",
+            "OperatorcommentsElem": "OperatorcommentsElem"
+            },
+        "ContaminationWeightElem": 
+        {
+            "obsElem": "obsElem.value",
+            "JudgementElem": "JudgementElem",
+            "OperatorcommentsElem": "OperatorcommentsElem"
+        }
+    }
+}

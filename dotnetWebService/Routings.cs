@@ -39,6 +39,9 @@ public static class Routes{
         app.MapPost("/OperationInProdLine",RouteMethods.getAllOperationOfProductionLine);
         app.MapPost("/GetAllPartCodes",RouteMethods.getAllPartCodesConfigured);
         app.MapPost("/SyncControlPlans", RouteMethods.syncUpAllPartCodesConfigured);
+
+        //for DFQ save from Manual Forms
+        app.MapPost("/ManualFormData",RouteMethods.ManualFormData);
         return app;
     }
 }  

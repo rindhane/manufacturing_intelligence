@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System; // to use the Func Delegate
 using DFQModelSet;
 
-namespace DFQhandler{
+namespace DFQhandler_new{
 
-    class DFQWriter_v1{
+    public class DFQWriter_v1{
 
         string _filePath{get;set;}
         StreamWriter? _fileWriteHanlder {get;set;}

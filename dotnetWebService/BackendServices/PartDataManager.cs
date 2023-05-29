@@ -5,6 +5,10 @@ using DbConnectors;
 using System.Collections; // to access the DictionaryEntry type
 using TOMLreader;
 using DFQhandler; // to get access to dfq writer
+using DFQhandler_new; //to access DFQWriter_v1;
+using DFQJSON.helpers; // to access the JsonHelpers
+using SPRLTransformers; // to acces ManualEntryJsonTransformer;
+using DFQJSON.Models; // to acces DFQJSONModel
 
 
 namespace PartDataManager{
@@ -62,6 +66,8 @@ namespace PartDataManager{
         public string getAllTheOperationOfProducitonLine(string line);
 
         public void produceDfqForManualScan(string scanInput);
+
+        public void produceDfqForManualForms(string scanInput);
 
         public string getAllPartCategory();
         public bool updateAllPartOperationFlow();
@@ -329,6 +335,17 @@ namespace PartDataManager{
             #endregion 
         }
 
+        public void produceDfqForManualForms(string scanInput){
+            string directory=(string)configReader!.getKeyValue("folder_path","DFQ_FROM_SCAN");
+            string fileName=System.DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString() +".dfq";
+            var writer = new DFQWriter_v1(directory+fileName);
+            var dfqResult = writer.getDFQTransformation<DFQJSONModel>(
+                scanInput,
+                ManualEntryJsonTransformer.validDFQJsonFromInputResponse,
+                JsonHelpers.extractDFQResultFromStdJson
+            );
+            writer.DfqModeltoFileWrite(dfqResult);
+        }
         public string getAllPartCategory() {
             var result=dbHandler!.GetAllAvailablePartCodes();
             return JsonConvert.SerializeObject(result);

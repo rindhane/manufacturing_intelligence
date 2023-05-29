@@ -180,6 +180,13 @@ public static class RouteMethods{
     await context.Response.WriteAsync("Scan was uploaded");
   }
 
+  public static async Task ManualFormData(HttpContext context, HttpRequest request, IpartDataHandler qdasManager){
+    var reader = new StreamReader(request.Body);
+    string tempString = await reader.ReadToEndAsync();//provides JSONstring for the Manual Forms
+    qdasManager.produceDfqForManualForms(tempString);
+    await context.Response.WriteAsync("Scan was uploaded");
+  }
+
   public static async Task PDFReportData(HttpContext context, HttpRequest request, IWebHostEnvironment host, IpartDataHandler qdasManager)
   {
     var reader = new StreamReader(request.Body);

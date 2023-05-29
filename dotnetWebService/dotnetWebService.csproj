@@ -25,10 +25,11 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="7.0.0" /> <!--Required to run as background service in windows-->
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DbConnector\DbConnector.csproj" />
     <ProjectReference Include="..\TomlReader\TomlReader.csproj" />
+    <ProjectReference Include="..\DfqTransformer\DfqTransformer.csproj" />
   </ItemGroup>
 </Project>

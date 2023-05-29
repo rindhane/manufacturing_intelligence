@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 using DFQJSON.Models;
 using DFQModelSet;
 namespace DFQJSON.helpers {    
-    class JsonHelpers{
+    public class JsonHelpers{
         public static DFQmodel extractDFQResultFromStdJsonString(string dfqJsonString){
             var result = JsonConvert.DeserializeObject<DFQJSONModel>(dfqJsonString,
                         new JsonSerializerSettings

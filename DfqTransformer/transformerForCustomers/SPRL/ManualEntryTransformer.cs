@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace SPRLTransformers
 {
-    class inputResponseJson{
+    public class inputResponseJson{
         public string? serialNum {get;set;}
         public string? stElem     {get;set;}
         public string? modelElem {get;set;}
@@ -13,7 +13,7 @@ namespace SPRLTransformers
         public List<inputCharacteristicComponent>? characteristics {get;set;}
     }
 
-    class inputCharacteristicComponent{
+    public class inputCharacteristicComponent{
             public string? characteristicsSerialNum  {get;set;} 
             public string? characteristicsName   {get;set;}
             public string? obsElem   {get;set;}
@@ -22,7 +22,7 @@ namespace SPRLTransformers
     }
     
     
-    class ManualEntryJsonTransformer{
+    public class ManualEntryJsonTransformer{
         
         public static PartDetailModel GetPartDetailModelFromInputResponse(inputResponseJson dat){
             var result_partDetail = new PartDetailModel();

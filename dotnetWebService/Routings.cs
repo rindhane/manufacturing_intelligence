@@ -17,10 +17,11 @@ public static class Routes{
         app.MapGet("/MainDashboard", RouteMethods.pageRedirectWithLineParams);
         app.MapGet("/LabEntry",RouteMethods.pageRedirect);
         app.MapGet("/ManualEntry",RouteMethods.pageRedirect);
+        app.MapGet("/ManualDataEntry", RouteMethods.pageRedirect);  
         app.MapGet("/LaserMarkingAuto",RouteMethods.pageRedirect);
         app.MapGet("/instructions",RouteMethods.pageRedirect);
         app.MapGet("/AutoScanEntry",RouteMethods.pageRedirect);
-        //
+            //
         app.MapGet("/", RouteMethods.MoveToHomeScreen);
         app.MapGet("/testStart", RouteMethods.TestStartPage);
         app.MapGet("/getAuthorization", RouteMethods.getAuthorization);

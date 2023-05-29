@@ -1,19 +1,17 @@
 const input = document.getElementById('SerialField');
 const validationElem = document.getElementById('SerialFieldValidation');
-
 const StationSelector = document.getElementById('StationSelector');
 const ModelSelector = document.getElementById('ModelSelector');
 const DrawingNumberSelector = document.getElementById('DrawingNumberSelector');
 const ObservedValue = document.getElementById("ObservedValue");
 const JudgementValue = document.getElementById("JudgementValue");
 const OperatorcommentsValue = document.getElementById("OperatorcommentsValue");
-
 const uploadFinishModal= document.getElementById('FinishModal');
 const FinishModalText = document.getElementById("FinishModalText");
 
 async function uploadScanData(inputElem=input, 
                                       checkElem = validationElem,   
-                                   //   stElem = StationSelector,
+   // stElem = StationSelector,
                                       ModelElem = ModelSelector,
                                       DrawingNumberElem = DrawingNumberSelector,
                                       obsElem = ObservedValue,
@@ -47,19 +45,17 @@ async function uploadScanData(inputElem=input,
 
         serialNum: inputElem.value,
 
-       // stElem: stElem.value,
+      //  stElem: stElem.value,
 
         ModelElem: ModelElem.value,
 
         DrawingNumberElem: DrawingNumberElem.value,
 
         "characteristics": [
-
             {
-
                 characteristicsSerialNum: "1",
 
-                characteristicsName: "Max Particle Size",
+                characteristicsName: "Bowl volume",
 
                 obsElem: obsElem.value,
 
@@ -70,9 +66,10 @@ async function uploadScanData(inputElem=input,
             },
 
             {
-                characteristicsSerialNum: "2",
 
-                characteristicsName: "Contamination Weight",
+                characteristicsSerialNum : "2",
+
+                characteristicsName: "Bowl volume with valve pocket",
 
                 obsElem: obsElem.value,
 
@@ -80,11 +77,22 @@ async function uploadScanData(inputElem=input,
 
                 OperatorcommentsElem: OperatorcommentsElem.value
 
-            }
+            },
+            {
 
+                characteristicsSerialNum: "3",
+
+                characteristicsName: "Head volume",
+
+                obsElem: obsElem.value,
+
+                JudgementElem: JudgementElem.value,
+
+                OperatorcommentsElem: OperatorcommentsElem.value               
+
+            }
         ],
        // "senderTag": 'ManualWebFormUpload',
-
     }
   //{
   //  serialNum:inputElem.value,

@@ -1,28 +1,25 @@
 const input = document.getElementById('SerialField');
 const validationElem = document.getElementById('SerialFieldValidation');
-const StationSelector = document.getElementById('StationSelector').value;
+const StationSelector = document.getElementById("StationSelector");
 const ModelSelector = document.getElementById('ModelSelector');
 const DrawingNumberSelector = document.getElementById('DrawingNumberSelector');
-const MaxparticleSize = document.getElementById('MaxparticleSize');
-const ContaminationWeight = document.getElementById('ContaminationWeight');
-const obsval = document.getElementById('ObservedValue');
-const JudgementValue = document.getElementById('JudgementValue');
-const OperatorcommentsValue = document.getElementById('OperatorcommentsValue');
+const ObservedValue = document.getElementById("ObservedValue");
+const JudgementValue = document.getElementById("JudgementValue");
+const OperatorcommentsValue = document.getElementById("OperatorcommentsValue");
+const uploadFinishModal= document.getElementById('FinishModal');
 const FinishModalText = document.getElementById("FinishModalText");
 
 async function uploadScanData(inputElem=input, 
-                              checkElem=validationElem,
-                              stElem = StationSelector,
-                              modelElem = ModelSelector,
-                              DrawingNumberElem = DrawingNumberSelector,
-                              obsElem = obsval,
-                              JudgementElem = JudgementValue,
-                              OperatorcommentsElem = OperatorcommentsValue,
-                              MaxparticleSizeElem = MaxparticleSize,
-                              ContaminationWeightElem = ContaminationWeight                              
-                              )
+                                      checkElem = validationElem,  
+                                    //  stElem=StationSelector,
+                                      ModelElem = ModelSelector,
+                                      DrawingNumberElem = DrawingNumberSelector,
+                                      obsElem = ObservedValue,
+                                      JudgementElem = JudgementValue,
+                                      OperatorcommentsElem = OperatorcommentsValue
+)
 {
-    debugger
+    debugger;
   if (checkElem.style.display=="none" 
           || 
         checkElem.style.display=="" 
@@ -35,33 +32,183 @@ async function uploadScanData(inputElem=input,
       alert("provide valid serial number");
       return false;
   }
-    if (stElem.value=="0"){
-    alert("select station");
+    if (ModelElem.value=="Selected"){
+    alert("select Model");
     return false;
   }
-
-  const serverMainPath='';//'http://127.0.0.1:5001' ;
-  payload = {
-    serialNum:inputElem.value,
-      stElem: stElem.value,
-      modelElem: modelElem.value,
-      DrawingNumberElem: DrawingNumberElem.value,      
-      CHARACTERISTICS: {
-          MaxparticleSizeElem: {
-              obsElem: obsElem.value,
-              JudgementElem: JudgementElem,
-              OperatorcommentsElem: OperatorcommentsElem,
-          },
-          ContaminationWeightElem: {
-              obsElem: obsElem.value,
-              JudgementElem: JudgementElem,
-              OperatorcommentsElem: OperatorcommentsElem,
-          }
-      },
-    senderTag:'ManualWebFormUpload',
-   // partCode: getPartCodeFromValidSerialNumber(inputElem.value),
+    if (DrawingNumberElem.value =="Selected"){
+    alert("select Drawing");
+    return false;
   }
-  response = await postDataStream(`${serverMainPath}/ManualScanData`, JSON.stringify(payload));
+  const serverMainPath='';//'http://127.0.0.1:5001' ;
+    payload = {
+
+        serialNum: inputElem.value,
+
+       // stElem: stElem.value,
+
+        ModelElem: ModelElem.value,
+
+        DrawingNumberElem: DrawingNumberElem.value,
+
+        "characteristics": [
+            {
+
+                characteristicsSerialNum: "1",
+
+                characteristicsName: "Groove roughness -1st Upper flank",
+
+                obsElem: obsElem.value,
+
+                JudgementElem: JudgementElem.value,
+
+                OperatorcommentsElem: OperatorcommentsElem.value
+
+            },
+
+            {
+
+                characteristicsSerialNum: "2",
+
+                characteristicsName: "SGroove roughness -1st Lower flank",
+                obsElem: obsElem.value,
+
+                JudgementElem: JudgementElem.value,
+
+                OperatorcommentsElem: OperatorcommentsElem.value
+
+            },
+            {
+
+                characteristicsSerialNum: "3",
+
+                characteristicsName: "Groove roughness -2nd  Upper flank",
+
+                obsElem: obsElem.value,
+
+                JudgementElem: JudgementElem.value,
+
+                OperatorcommentsElem: OperatorcommentsElem.value
+
+
+            },
+            {
+
+                characteristicsSerialNum: "4",
+
+                characteristicsName: "Groove roughness -2nd  Lower flank",
+
+                obsElem: obsElem.value,
+
+                JudgementElem: JudgementElem.value,
+
+                OperatorcommentsElem: OperatorcommentsElem.value
+
+
+            },
+            {
+
+                characteristicsSerialNum: "5",
+
+                characteristicsName: "Groove roughness -3rd Upper flank",
+
+                obsElem: obsElem.value,
+
+                JudgementElem: JudgementElem.value,
+
+                OperatorcommentsElem: OperatorcommentsElem.value
+
+            },
+            {
+
+                characteristicsSerialNum: "6",
+
+                characteristicsName: "Groove roughness -3rd Lower flank",
+
+                obsElem: obsElem.value,
+
+                JudgementElem: JudgementElem.value,
+
+                OperatorcommentsElem: OperatorcommentsElem.value
+
+            },
+            {
+
+                characteristicsSerialNum: "7",
+
+                characteristicsName: "OD roughness",
+
+                obsElem: obsElem.value,
+
+                JudgementElem: JudgementElem.value,
+
+                OperatorcommentsElem: OperatorcommentsElem.value
+
+            },
+            {
+
+                characteristicsSerialNum: "8",
+
+                characteristicsName: "OD Pitch",
+
+                obsElem: obsElem.value,
+
+                JudgementElem: JudgementElem.value,
+
+                OperatorcommentsElem: OperatorcommentsElem.value
+
+            },
+            {
+
+                characteristicsSerialNum: "9",
+
+                characteristicsName: "Pin bore roughness",
+
+                obsElem: obsElem.value,
+
+                JudgementElem: JudgementElem.value,
+
+                OperatorcommentsElem: OperatorcommentsElem.value
+
+            },
+            {
+
+                characteristicsSerialNum: "10",
+
+                characteristicsName: "Ring zone finish",
+
+                obsElem: obsElem.value,
+
+                JudgementElem: JudgementElem.value,
+
+                OperatorcommentsElem: OperatorcommentsElem.value
+
+            },
+            {
+
+                characteristicsSerialNum: "11",
+
+                characteristicsName: "Crown finish",
+
+                obsElem: obsElem.value,
+
+                JudgementElem: JudgementElem.value,
+
+                OperatorcommentsElem: OperatorcommentsElem.value
+
+            }
+        ],
+        // "senderTag": 'ManualWebFormUpload',
+
+    }
+  //{
+  //  serialNum:inputElem.value,
+  //    ModelName: ModelElem.value,
+  //    DrawingNum: DrawingElem.value,   
+      
+  // // partCode: getPartCodeFromValidSerialNumber(inputElem.value),
+  //}
+    response = await postDataStream(`${serverMainPath}/ManualFormData`, JSON.stringify(payload));
   uploadFinishModal.style.display='block';
   if (notifytheUpdate(response)){
     console.log('scan uploaded');
@@ -69,8 +216,7 @@ async function uploadScanData(inputElem=input,
   return true;
 }
 
-async function postDataStream(url, uploadData) {
-    debugger
+async function postDataStream(url, uploadData){ 
   let options={
     method: 'POST',
     headers: {
@@ -135,8 +281,7 @@ function showValidationMessage(cntxt,status){
 
 //functions to populate the selector field
 //function to get the lab stations configured in backend
-async function getConfiguredLines() {
-    debugger
+async function getConfiguredLines(){
   let options={
     method: 'POST',
     headers: {
@@ -153,8 +298,7 @@ async function getConfiguredLines() {
   return data;
 }
 
-async function populateSelector(selElem, data) {
-    debugger
+async function populateSelector(selElem, data){
   let JsonList = JSON.parse(data);
   selElem.innerHTML=""; //remove any previously added elements;
   selElem.appendChild(createElementForSelector("0","Select option"));
@@ -171,8 +315,7 @@ function createElementForSelector(value,text){
   return elem;
 }
 
-async function operationsOfLine(event) {
-    debugger
+async function operationsOfLine(event){
   let line = event.target.value; 
   let dat = await getOperationsOfLine(line);
   //console.log(dat); 
@@ -181,8 +324,7 @@ async function operationsOfLine(event) {
 
 }
 
-async function getOperationsOfLine(Line) {
-    debugger
+async function getOperationsOfLine(Line){
   let options={
     method: 'POST',
     headers: {

@@ -27,14 +27,24 @@
         <div class="ManualForm">
             <div class="FormTitle">Profile Projector</div>
             <div class="FormHeader">
-                <div class="selectionModel operationContainer" style="text-align:center;">
+                <div class="SerialFieldContainer">
+                    <div class="SerialInputBar">
+                        <label for="SerialField">Serial Number</label>
+                        <input type="text" id="SerialField" name="SerialField" placeholder="Scan the Serial Number">
+                    </div>
+                    <span class="SerialFieldValidation" id="SerialFieldValidation">empty</span>
+                </div>
+                <div class="selectionModel operationContainer" style="text-align: center;">
                     <span>Model :</span>
                     <select id="ModelSelector" name="ModelSelector" style="width: 100px;">
-                        <option value="0">Tier-3</option>
+                        <!--<option value="0">Select Model</option>-->
+                        <!--<option value="1">Tier-3</option>-->
+                        <option selected>Tier-3</option>
                     </select>
                     <span>Drawing Number :</span>
                     <select id="DrawingNumberSelector" name="DrawingNumberSelector" style="width: 100px;">
-                        <option value="0">1</option>
+                        <!--<option value="0">Select Drawing Number</option>-->
+                        <option selected>1</option>
                     </select>
                 </div>
                 <div>
@@ -254,7 +264,7 @@
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
-                
+
 
             </div>
             <button onclick="uploadScanData();">Submit</button>
@@ -274,7 +284,7 @@
         </div>
     </footer>
 </body>
-<script src="./submission.js"></script>
+<script src="./profileprojector.js"></script>
 <script defer>
     (async ()=>{
         let dat = await getConfiguredLines();

@@ -1,15 +1,19 @@
 const input = document.getElementById('SerialField');
 const validationElem = document.getElementById('SerialFieldValidation');
+
+const StationSelector = document.getElementById('StationSelector');
 const ModelSelector = document.getElementById('ModelSelector');
 const DrawingNumberSelector = document.getElementById('DrawingNumberSelector');
 const ObservedValue = document.getElementById("ObservedValue");
 const JudgementValue = document.getElementById("JudgementValue");
 const OperatorcommentsValue = document.getElementById("OperatorcommentsValue");
+
 const uploadFinishModal= document.getElementById('FinishModal');
 const FinishModalText = document.getElementById("FinishModalText");
 
 async function uploadScanData(inputElem=input, 
-                                      checkElem=validationElem,                                      
+                                      checkElem = validationElem,   
+                                   //   stElem = StationSelector,
                                       ModelElem = ModelSelector,
                                       DrawingNumberElem = DrawingNumberSelector,
                                       obsElem = ObservedValue,
@@ -30,52 +34,51 @@ async function uploadScanData(inputElem=input,
       alert("provide valid serial number");
       return false;
   }
-    if (ModelElem.value=="0"){
+    if (ModelElem.value=="Selected"){
     alert("select Model");
     return false;
   }
-    if (DrawingNumberElem.value=="0"){
+    if (DrawingNumberElem.value =="Selected"){
     alert("select Drawing");
     return false;
   }
   const serverMainPath='';//'http://127.0.0.1:5001' ;
     payload = {
 
-        "serialNum": "inputElem.value",
+        serialNum: inputElem.value,
 
-        "stElem": "stElem.value",
+       // stElem: stElem.value,
 
-        "modelElem": "modelElem.value",
+        ModelElem: ModelElem.value,
 
-        "DrawingNumberElem": "DrawingNumberElem.value",
+        DrawingNumberElem: DrawingNumberElem.value,
 
         "characteristics": [
 
             {
 
-                "characteristicsSerialNum": "1",
+                characteristicsSerialNum: "1",
 
-                "characteristicsName": "Max Particle Size",
+                characteristicsName: "Max Particle Size",
 
-                "obsElem": "obsElem.value",
+                obsElem: obsElem.value,
 
-                "JudgementElem": "JudgementElem",
+                JudgementElem: JudgementElem.value,
 
-                "OperatorcommentsElem": "OperatorcommentsElem"
+                OperatorcommentsElem: OperatorcommentsElem.value
 
             },
 
             {
+                characteristicsSerialNum: "2",
 
-                "characteristicsSerialNum": "2",
+                characteristicsName: "Contamination Weight",
 
-                "characteristicsName": "Contamination Weight",
+                obsElem: obsElem.value,
 
-                "obsElem": "obsElem.value",
+                JudgementElem: JudgementElem.value,
 
-                "JudgementElem": "JudgementElem",
-
-                "OperatorcommentsElem": "OperatorcommentsElem"
+                OperatorcommentsElem: OperatorcommentsElem.value
 
             }
 

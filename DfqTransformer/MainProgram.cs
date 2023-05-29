@@ -2,7 +2,9 @@ using DFQhandler;
 using System.Collections.Generic; //to access List;
 using DFQModelSet; // to access the DFQ models
 using System.IO; // to acces the File class
-using dataFromJson; // to access the JsonHelpers
+using DFQJSON.helpers; // to access the JsonHelpers
+using SPRLTransformers; // to acces ManualEntryJsonTransformer;
+using DFQJSON.Models; // to acces DFQJSONModel
 
 namespace MainProgram {
 
@@ -68,11 +70,25 @@ namespace MainProgram {
             var writer = new DFQWriter_v1("fileTest.dfq");
             writer.DfqModeltoFileWrite(testModel);       
         }
-        static void Main(){
+        static void testStdJson(){
             var dfqJsonString = File.ReadAllText("sample.json");
-            var dfqResult = JsonHelpers.extractKfieldResultFromJson(dfqJsonString);
+            var dfqResult = JsonHelpers.extractDFQResultFromStdJsonString(dfqJsonString);
             var writer = new DFQWriter_v1("fileTestResult.dfq");
             writer.DfqModeltoFileWrite(dfqResult);    
     }
+        static void testSPRL(){
+            var dfqJsonString = File.ReadAllText("transformerForCustomers\\SPRL\\SPRL_sample3.json");
+            var writer = new DFQWriter_v1("SPRL_TestResult.dfq");
+            var dfqResult = writer.getDFQTransformation<DFQJSONModel>(
+                dfqJsonString,
+                ManualEntryJsonTransformer.validDFQJsonFromInputResponse,
+                JsonHelpers.extractDFQResultFromStdJson
+            );
+            writer.DfqModeltoFileWrite(dfqResult); // writing result to file;
+            
+        }
+        static void Main(){
+            testSPRL();
+        }
     }
 }

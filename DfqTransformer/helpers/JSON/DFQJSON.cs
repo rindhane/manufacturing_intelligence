@@ -1,19 +1,21 @@
 using System.Collections.Generic;
 using DFQModelSet;
 
-namespace DFQJSONModels{
+namespace DFQJSON.Models{
     class PartDetailModel {
         public string? part_code {get;set;}
         public string? name {get;set;}
         public string? drawing_no {get;set;}
         public string? model {get;set;}
         public string? line {get;set;}
+        public string? OPCode {get;set;}
         public static implicit operator DFQPartModel( PartDetailModel partData) => new DFQPartModel {
             K1001=  partData. part_code,
             K1002 = partData.name,
             K1041 = partData.drawing_no,
             K1008 = partData.model,
-            K1102 =partData.line, 
+            K1102 = partData.line,
+            K1086 = partData.OPCode, 
         };
 
     }
@@ -48,21 +50,27 @@ namespace DFQJSONModels{
         public string? component_id{get;set;}
         public string? cavity_no{get;set;}
         public string? shift_production{get;set;}
+
+        public string? operator_comment {get;set;}
+
+        public string? text {get;set;}
         public static implicit operator DFQMeasurementModel( measured_valuesModel measurement) => new DFQMeasurementModel {
             K0001= measurement.observed_value,
             K0004 = measurement.dateTime,
+            K0009 = measurement.text,
             K0007 = measurement.cavity_no,
             K0014 = measurement.component_id,
-            K0053 = measurement.shift_production
+            K0053 = measurement.shift_production,
+            K0056 = measurement.operator_comment,
         };
         
     }
     
-    class DFQJSON {
+    class DFQJSONModel {
         public PartDetailModel? part_detail {get;set;}       
         public List<characteristics_measured_valueModel> ? characteristics_measured_values {get;set;}
 
-        public static implicit operator DFQmodel(DFQJSON jsonData) => new DFQmodel{
+        public static implicit operator DFQmodel(DFQJSONModel jsonData) => new DFQmodel{
             partData = produceDFQPartListFromJSON(jsonData),
             K0100 = jsonData.characteristics_measured_values!.Count.ToString()
         };
@@ -76,7 +84,7 @@ namespace DFQJSONModels{
             }
             return new List<DFQCharacteristicModel>();
         }
-        static List<DFQPartModel> produceDFQPartListFromJSON(DFQJSON JsonModel){
+        static List<DFQPartModel> produceDFQPartListFromJSON(DFQJSONModel JsonModel){
             var chars = DFQCharModelFromJSONModel(JsonModel.characteristics_measured_values!);
             var result = new List<DFQPartModel>{
                 (DFQPartModel)JsonModel.part_detail!

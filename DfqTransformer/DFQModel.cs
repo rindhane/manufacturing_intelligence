@@ -13,6 +13,7 @@ namespace DFQModelSet{
         public string? K1008 {get;set;} //model 
         public string? K1041 {get;set;} // drawing_no
         public string? K1102 {get;set;} //line // 
+        public string? K1086 {get;set;} //OpCode
         
         public List<DFQCharacteristicModel>? chars{get;set;} // child characteristics
     }
@@ -29,7 +30,9 @@ namespace DFQModelSet{
         public string? K0001{get;set;}//observed_value
         public string? K0004{get;set;}//dateTime format : "08-02-2023 00:00:00"
         public string? K0007 {get;set;}//tool_no
+        public string? K0009 {get;set;}//text
         public string? K0014 {get;set;}//component_id // UID for serial number of measured_component
         public string? K0053 {get;set;}// shift
+        public string? K0056 {get;set;} //operator_comment
     }
 }

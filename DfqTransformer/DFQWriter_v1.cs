@@ -61,8 +61,12 @@ namespace DFQhandler{
             fileTextWriter(temp,1,true);
         }
 
-        public void setDataTransformer<T>(Func<string,T> transformer, string dataString){
-            var result = transformer(dataString);
+        public DFQmodel getDFQTransformation<T>(string dataString, 
+                                          Func<string,T> transformer, 
+                                          Func<T,DFQmodel>stdDFQTransformer){
+            var stdFormat = transformer(dataString);
+            var dfqResult = stdDFQTransformer(stdFormat);
+            return dfqResult;
         }
 
         public void DfqModeltoFileWrite(DFQmodel model){

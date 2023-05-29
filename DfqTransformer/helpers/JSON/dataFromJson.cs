@@ -1,10 +1,10 @@
 using Newtonsoft.Json;
-using DFQJSONModels;
+using DFQJSON.Models;
 using DFQModelSet;
-namespace dataFromJson {    
+namespace DFQJSON.helpers {    
     class JsonHelpers{
-        public static DFQmodel extractKfieldResultFromJson(string dfqJsonString){
-            var result = JsonConvert.DeserializeObject<DFQJSON>(dfqJsonString,
+        public static DFQmodel extractDFQResultFromStdJsonString(string dfqJsonString){
+            var result = JsonConvert.DeserializeObject<DFQJSONModel>(dfqJsonString,
                         new JsonSerializerSettings
                                                 {
                                                     NullValueHandling = NullValueHandling.Ignore,
@@ -12,7 +12,10 @@ namespace dataFromJson {
                                                 });
 
             //System.Console.WriteLine(JsonConvert.SerializeObject(result,Formatting.Indented));
-            return (DFQmodel)result!;
+            return extractDFQResultFromStdJson(result!);
+        }
+        public static DFQmodel extractDFQResultFromStdJson(DFQJSONModel dat){
+            return (DFQmodel)dat;
         }
     }
 }

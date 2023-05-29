@@ -27,14 +27,23 @@
         <div class="ManualForm">
             <div class="FormTitle">Stereo Zoom Microscope</div>
             <div class="FormHeader">
+                <div class="SerialFieldContainer">
+                    <div class="SerialInputBar">
+                        <label for="SerialField">Serial Number</label>
+                        <input type="text" id="SerialField" name="SerialField" placeholder="Scan the Serial Number">
+                    </div>
+                    <span class="SerialFieldValidation" id="SerialFieldValidation">empty</span>
+                </div>
                 <div class="selectionModel operationContainer" style="text-align: center;">
                     <span>Model :</span>
                     <select id="ModelSelector" name="ModelSelector" style="width: 100px;">
-                        <option value="0">Tier-3</option>
+                        <option value="0">Select Model</option>
+                        <option value="1">Tier-3</option>
                     </select>
                     <span>Drawing Number :</span>
                     <select id="DrawingNumberSelector" name="DrawingNumberSelector" style="width: 100px;">
-                        <option value="0">1</option>
+                        <option value="0">Select Drawing Number</option>
+                        <option value="1">1</option>
                     </select>
                 </div>
                 <div>
@@ -42,22 +51,23 @@
                     <label for="Observedvalue">Observed value</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="Judgement">Judgement</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="Operator comments">Operator comments</label>
-
                 </div>
                 <div>
-                    <span>Max.Particle size </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span class="MaxparticleSize" id="MaxparticleSize">Max.Particle size </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <input type="text" id="ObservedValue" name="ObservedValue" placeholder="Enter Observed value">&nbsp;&nbsp;
 
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
+                    <input type="text" id="JudgementValue" name="JudgementValue" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
+                    <input type="text" id="OperatorcommentsValue" name="OperatorcommentsValue" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Contamination weight </span> &nbsp;&nbsp;&nbsp; <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span class="ContaminationWeight" id="ContaminationWeight">Contamination weight </span> &nbsp;&nbsp;&nbsp;
+                    <input type="text" id="ObservedValue" name="ObservedValue" placeholder="Enter Observed value">&nbsp;&nbsp;
 
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
+                    <input type="text" id="JudgementValue" name="JudgementValue" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
-                </div>                
+                    <input type="text" id="OperatorcommentsValue" name="OperatorcommentsValue" placeholder="Enter Operator comments">
+                </div>
             </div>
             <button onclick="uploadScanData();">Submit</button>
         </div>

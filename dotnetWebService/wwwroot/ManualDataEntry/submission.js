@@ -1,16 +1,23 @@
 const input = document.getElementById('SerialField');
 const validationElem = document.getElementById('SerialFieldValidation');
-const StationSelector = document.getElementById('StationSelector');
-const OperationSelector = document.getElementById('OperationSelector');
-
+const ModelSelector = document.getElementById('ModelSelector');
+const DrawingNumberSelector = document.getElementById('DrawingNumberSelector');
+const ObservedValue = document.getElementById("ObservedValue");
+const JudgementValue = document.getElementById("JudgementValue");
+const OperatorcommentsValue = document.getElementById("OperatorcommentsValue");
+const uploadFinishModal= document.getElementById('FinishModal');
 const FinishModalText = document.getElementById("FinishModalText");
 
-
 async function uploadScanData(inputElem=input, 
-                                      checkElem=validationElem,
-                                      opElem=OperationSelector,
-                                      LineElem = LineSelector)
+                                      checkElem=validationElem,                                      
+                                      ModelElem = ModelSelector,
+                                      DrawingNumberElem = DrawingNumberSelector,
+                                      obsElem = ObservedValue,
+                                      JudgementElem = JudgementValue,
+                                      OperatorcommentsElem = OperatorcommentsValue
+)
 {
+    debugger;
   if (checkElem.style.display=="none" 
           || 
         checkElem.style.display=="" 
@@ -23,25 +30,67 @@ async function uploadScanData(inputElem=input,
       alert("provide valid serial number");
       return false;
   }
-  if (LineElem.value=="0"){
-    alert("select Line");
+    if (ModelElem.value=="0"){
+    alert("select Model");
     return false;
   }
-  if (opElem.value=="0"){
-    alert("select Operation");
+    if (DrawingNumberElem.value=="0"){
+    alert("select Drawing");
     return false;
   }
   const serverMainPath='';//'http://127.0.0.1:5001' ;
-  payload = {
-    serialNum:inputElem.value,
-    LineNum:LineElem.value,
-    OpStation: opElem.value,
-    WeightNum: WeightElem.value,
-    HeightNum: HeightElem.value,
-    senderTag:'ManualWebFormUpload',
-   // partCode: getPartCodeFromValidSerialNumber(inputElem.value),
-  }
-  response = await postDataStream(`${serverMainPath}/ManualScanData`, JSON.stringify(payload));
+    payload = {
+
+        "serialNum": "inputElem.value",
+
+        "stElem": "stElem.value",
+
+        "modelElem": "modelElem.value",
+
+        "DrawingNumberElem": "DrawingNumberElem.value",
+
+        "characteristics": [
+
+            {
+
+                "characteristicsSerialNum": "1",
+
+                "characteristicsName": "Max Particle Size",
+
+                "obsElem": "obsElem.value",
+
+                "JudgementElem": "JudgementElem",
+
+                "OperatorcommentsElem": "OperatorcommentsElem"
+
+            },
+
+            {
+
+                "characteristicsSerialNum": "2",
+
+                "characteristicsName": "Contamination Weight",
+
+                "obsElem": "obsElem.value",
+
+                "JudgementElem": "JudgementElem",
+
+                "OperatorcommentsElem": "OperatorcommentsElem"
+
+            }
+
+        ],
+       // "senderTag": 'ManualWebFormUpload',
+
+    }
+  //{
+  //  serialNum:inputElem.value,
+  //    ModelName: ModelElem.value,
+  //    DrawingNum: DrawingElem.value,   
+      
+  // // partCode: getPartCodeFromValidSerialNumber(inputElem.value),
+  //}
+    response = await postDataStream(`${serverMainPath}/ManualFormData`, JSON.stringify(payload));
   uploadFinishModal.style.display='block';
   if (notifytheUpdate(response)){
     console.log('scan uploaded');
@@ -49,8 +98,7 @@ async function uploadScanData(inputElem=input,
   return true;
 }
 
-async function postDataStream(url, uploadData) {
-    debugger
+async function postDataStream(url, uploadData){ 
   let options={
     method: 'POST',
     headers: {
@@ -115,8 +163,7 @@ function showValidationMessage(cntxt,status){
 
 //functions to populate the selector field
 //function to get the lab stations configured in backend
-async function getConfiguredLines() {
-    debugger
+async function getConfiguredLines(){
   let options={
     method: 'POST',
     headers: {
@@ -133,8 +180,7 @@ async function getConfiguredLines() {
   return data;
 }
 
-async function populateSelector(selElem, data) {
-    debugger
+async function populateSelector(selElem, data){
   let JsonList = JSON.parse(data);
   selElem.innerHTML=""; //remove any previously added elements;
   selElem.appendChild(createElementForSelector("0","Select option"));
@@ -151,8 +197,7 @@ function createElementForSelector(value,text){
   return elem;
 }
 
-async function operationsOfLine(event) {
-    debugger
+async function operationsOfLine(event){
   let line = event.target.value; 
   let dat = await getOperationsOfLine(line);
   //console.log(dat); 
@@ -161,8 +206,7 @@ async function operationsOfLine(event) {
 
 }
 
-async function getOperationsOfLine(Line) {
-    debugger
+async function getOperationsOfLine(Line){
   let options={
     method: 'POST',
     headers: {

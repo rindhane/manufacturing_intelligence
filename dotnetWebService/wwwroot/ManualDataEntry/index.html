@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    <link
-			href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
-			rel="stylesheet"
-	/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
+          rel="stylesheet" />
     <link rel="stylesheet" href="/CSS/master.css">
     <link rel="stylesheet" href="./individual.css">
     <title>QDas Dashboard</title>
@@ -13,10 +11,10 @@
 <body onload="console.log('loaded');">
     <header>
         <div class="logo-container">
-            <img src="/img/client.png" alt="logo">  
+            <img src="/img/client.png" alt="logo">
         </div>
         <div class="header-title">
-            <div class="titleContent">Manual Entry Form</div> 
+            <div class="titleContent">Manual Entry Form</div>
         </div>
         <nav>
             <ul class="nav-links">
@@ -29,13 +27,13 @@
         <div class="ManualForm">
             <div class="FormTitle">Manual Data Entry</div>
             <div class="FormHeader">
-                <div class="SerialFieldContainer">
+                <!--<div class="SerialFieldContainer">
                     <div class="SerialInputBar">
                         <label for="SerialField">Serial Number</label>
                         <input type="text" id="SerialField" name="SerialField" placeholder="Scan the Serial Number">
                     </div>
                     <span class="SerialFieldValidation" id="SerialFieldValidation">empty</span>
-                </div>
+                </div>-->
                 <div class="selectionSet operationContainer" style="text-align: center;">
                     <label for="stations">Station List:</label>
                     <select id="StationSelector" name="StationSelector" style="width: 150px;">
@@ -49,41 +47,30 @@
             </div>
             <button type="button" onclick="goToNewPage()">Open</button>
         </div>
-        <!--<div class="modal" id="FinishModal">
+        <div class="modal" id="FinishModal">
             <div class="modal-content">
                 <span id="FinishModalText"></span>
                 <button class="reset" onclick="reloadWindow(input)">Revert</button>
             </div>
-        </div>-->
+        </div>
     </main>
     <footer>
         <div class="footer-client">© 2022 - Shriram Pistons & Rings Ltd</div>
         <div class="disclaimer">
-            Powered By : 
-            <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png"/>
+            Powered By :
+            <img class="footer-logo" src="/img/Hexagon_Q-DAS-Logo-white-small.png" />
         </div>
     </footer>
 </body>
-<script src="./submission.js" ></script>
-<script defer>
-    (async ()=>{
-        let dat = await getConfiguredLines();
-        //let dat ='["Line1", "Line2", "Line3"]';
-        populateSelector(LineSelector,dat);
-    })();
-</script>
-
-
-<script type="text/javascript">
-    function goToNewPage() {
-        var url = document.getElementById('StationSelector').value;
-        if (url != 'none') {
-            window.location = url;
+<script src="./submission.js"></script>
+        
+<script type="text/javascript">      
+   
+    function goToNewPage()
+    {        
+        const StationSelector = document.getElementById('StationSelector').value;
+        if (StationSelector != 'none') {
+            window.location = StationSelector;
         }
     }
-
-    //var urlmenu = document.getElementById('StationSelector');
-    //urlmenu.onchange = function () {
-    //    window.open(this.options[this.selectedIndex].value);
-    //};
 </script>

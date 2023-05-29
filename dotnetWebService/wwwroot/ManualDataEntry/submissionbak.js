@@ -1,23 +1,28 @@
 const input = document.getElementById('SerialField');
 const validationElem = document.getElementById('SerialFieldValidation');
+const StationSelector = document.getElementById('StationSelector').value;
 const ModelSelector = document.getElementById('ModelSelector');
 const DrawingNumberSelector = document.getElementById('DrawingNumberSelector');
-const ObservedValue = document.getElementById("ObservedValue");
-const JudgementValue = document.getElementById("JudgementValue");
-const OperatorcommentsValue = document.getElementById("OperatorcommentsValue");
-const uploadFinishModal= document.getElementById('FinishModal');
+const MaxparticleSize = document.getElementById('MaxparticleSize');
+const ContaminationWeight = document.getElementById('ContaminationWeight');
+const obsval = document.getElementById('ObservedValue');
+const JudgementValue = document.getElementById('JudgementValue');
+const OperatorcommentsValue = document.getElementById('OperatorcommentsValue');
 const FinishModalText = document.getElementById("FinishModalText");
 
 async function uploadScanData(inputElem=input, 
-                                      checkElem=validationElem,                                      
-                                      ModelElem = ModelSelector,
-                                      DrawingNumberElem = DrawingNumberSelector,
-                                      obsElem = ObservedValue,
-                                      JudgementElem = JudgementValue,
-                                      OperatorcommentsElem = OperatorcommentsValue
-)
+                              checkElem=validationElem,
+                              stElem = StationSelector,
+                              modelElem = ModelSelector,
+                              DrawingNumberElem = DrawingNumberSelector,
+                              obsElem = obsval,
+                              JudgementElem = JudgementValue,
+                              OperatorcommentsElem = OperatorcommentsValue,
+                              MaxparticleSizeElem = MaxparticleSize,
+                              ContaminationWeightElem = ContaminationWeight                              
+                              )
 {
-    debugger;
+    debugger
   if (checkElem.style.display=="none" 
           || 
         checkElem.style.display=="" 
@@ -30,67 +35,33 @@ async function uploadScanData(inputElem=input,
       alert("provide valid serial number");
       return false;
   }
-    if (ModelElem.value=="0"){
-    alert("select Model");
+    if (stElem.value=="0"){
+    alert("select station");
     return false;
   }
-    if (DrawingNumberElem.value=="0"){
-    alert("select Drawing");
-    return false;
-  }
+
   const serverMainPath='';//'http://127.0.0.1:5001' ;
-    payload = {
-
-        "serialNum": "inputElem.value",
-
-        "stElem": "stElem.value",
-
-        "modelElem": "modelElem.value",
-
-        "DrawingNumberElem": "DrawingNumberElem.value",
-
-        "characteristics": [
-
-            {
-
-                "characteristicsSerialNum": "1",
-
-                "characteristicsName": "Max Particle Size",
-
-                "obsElem": "obsElem.value",
-
-                "JudgementElem": "JudgementElem",
-
-                "OperatorcommentsElem": "OperatorcommentsElem"
-
-            },
-
-            {
-
-                "characteristicsSerialNum": "2",
-
-                "characteristicsName": "Contamination Weight",
-
-                "obsElem": "obsElem.value",
-
-                "JudgementElem": "JudgementElem",
-
-                "OperatorcommentsElem": "OperatorcommentsElem"
-
-            }
-
-        ],
-       // "senderTag": 'ManualWebFormUpload',
-
-    }
-  //{
-  //  serialNum:inputElem.value,
-  //    ModelName: ModelElem.value,
-  //    DrawingNum: DrawingElem.value,   
-      
-  // // partCode: getPartCodeFromValidSerialNumber(inputElem.value),
-  //}
-    response = await postDataStream(`${serverMainPath}/ManualFormData`, JSON.stringify(payload));
+  payload = {
+    serialNum:inputElem.value,
+      stElem: stElem.value,
+      modelElem: modelElem.value,
+      DrawingNumberElem: DrawingNumberElem.value,      
+      CHARACTERISTICS: {
+          MaxparticleSizeElem: {
+              obsElem: obsElem.value,
+              JudgementElem: JudgementElem,
+              OperatorcommentsElem: OperatorcommentsElem,
+          },
+          ContaminationWeightElem: {
+              obsElem: obsElem.value,
+              JudgementElem: JudgementElem,
+              OperatorcommentsElem: OperatorcommentsElem,
+          }
+      },
+    senderTag:'ManualWebFormUpload',
+   // partCode: getPartCodeFromValidSerialNumber(inputElem.value),
+  }
+  response = await postDataStream(`${serverMainPath}/ManualScanData`, JSON.stringify(payload));
   uploadFinishModal.style.display='block';
   if (notifytheUpdate(response)){
     console.log('scan uploaded');
@@ -98,7 +69,8 @@ async function uploadScanData(inputElem=input,
   return true;
 }
 
-async function postDataStream(url, uploadData){ 
+async function postDataStream(url, uploadData) {
+    debugger
   let options={
     method: 'POST',
     headers: {
@@ -163,7 +135,8 @@ function showValidationMessage(cntxt,status){
 
 //functions to populate the selector field
 //function to get the lab stations configured in backend
-async function getConfiguredLines(){
+async function getConfiguredLines() {
+    debugger
   let options={
     method: 'POST',
     headers: {
@@ -180,7 +153,8 @@ async function getConfiguredLines(){
   return data;
 }
 
-async function populateSelector(selElem, data){
+async function populateSelector(selElem, data) {
+    debugger
   let JsonList = JSON.parse(data);
   selElem.innerHTML=""; //remove any previously added elements;
   selElem.appendChild(createElementForSelector("0","Select option"));
@@ -197,7 +171,8 @@ function createElementForSelector(value,text){
   return elem;
 }
 
-async function operationsOfLine(event){
+async function operationsOfLine(event) {
+    debugger
   let line = event.target.value; 
   let dat = await getOperationsOfLine(line);
   //console.log(dat); 
@@ -206,7 +181,8 @@ async function operationsOfLine(event){
 
 }
 
-async function getOperationsOfLine(Line){
+async function getOperationsOfLine(Line) {
+    debugger
   let options={
     method: 'POST',
     headers: {

@@ -1,0 +1,29 @@
+{
+    "serialNum":"inputElem.value",
+    "stElem": "stElem.value",
+    "modelElem": "modelElem.value",
+    "DrawingNumberElem": "DrawingNumberElem.value",
+    "characteristics": [
+        {
+            "characteristicsSerialNum": "1", 
+            "characteristicsName":"Max Particle Size",
+            "obsElem": "obsElem.value",
+            "JudgementElem": "JudgementElem",
+            "OperatorcommentsElem": "OperatorcommentsElem"
+        },
+        {
+            "characteristicsSerialNum": "2",
+            "characteristicsName":"Contamination Weight",
+            "obsElem": "obsElem.value",
+            "JudgementElem": "JudgementElem",
+            "OperatorcommentsElem": "OperatorcommentsElem"
+        },
+        {
+            "characteristicsSerialNum": "1",
+            "characteristicsName":"example test characteristic",
+            "obsElem": "obsElem.value1",
+            "JudgementElem": "JudgementElem1",
+            "OperatorcommentsElem": "OperatorcommentsElem1"
+        }
+    ]                
+}

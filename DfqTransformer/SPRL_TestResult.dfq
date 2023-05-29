@@ -1,0 +1,22 @@
+﻿K0100 3
+K1008/1 modelElem.value
+K1041/1 stElem.value
+K1086/1 stElem.value
+K2001/1 1
+K2002/1 Max Particle Size
+K0001/1/1 obsElem.value
+K0009/1/1 JudgementElem
+K0014/1/1 inputElem.value
+K0056/1/1 OperatorcommentsElem
+K2001/2 2
+K2002/2 Contamination Weight
+K0001/2/1 obsElem.value
+K0009/2/1 JudgementElem
+K0014/2/1 inputElem.value
+K0056/2/1 OperatorcommentsElem
+K2001/3 1
+K2002/3 example test characteristic
+K0001/3/1 obsElem.value1
+K0009/3/1 JudgementElem1
+K0014/3/1 inputElem.value
+K0056/3/1 OperatorcommentsElem1

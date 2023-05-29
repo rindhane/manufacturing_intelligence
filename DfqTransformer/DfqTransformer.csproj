@@ -5,6 +5,10 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <!--
+      //bug https://github.com/dotnet/sdk/issues/10902
+      <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    -->
   </PropertyGroup>
 
   <ItemGroup>

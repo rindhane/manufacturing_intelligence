@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 
 namespace DFQModelSet{
-    class DFQmodel{
+    public class DFQmodel{
         public string? K0100 {get;set;} // no. of characteristics. it cannot be empty. it is essential
 
         public List<DFQPartModel>? partData {get;set;}
     }
 
-    class DFQPartModel{
+    public class DFQPartModel{
         public string? K1001 {get;set;} // part_code // number for part type
         public string? K1002 {get;set;} // name // part description  
         public string? K1008 {get;set;} //model 
@@ -18,7 +18,7 @@ namespace DFQModelSet{
         public List<DFQCharacteristicModel>? chars{get;set;} // child characteristics
     }
 
-    class DFQCharacteristicModel {
+    public class DFQCharacteristicModel {
         public string? K2001 {get;set;}//id // characteristic id
         public string? K2002 {get;set;}//name // characteristic name 
         public string? K2900 {get;set;}//charRemarks // characteristic remarks
@@ -26,7 +26,7 @@ namespace DFQModelSet{
 
     }
 
-    class DFQMeasurementModel{
+    public class DFQMeasurementModel{
         public string? K0001{get;set;}//observed_value
         public string? K0004{get;set;}//dateTime format : "08-02-2023 00:00:00"
         public string? K0007 {get;set;}//tool_no

@@ -40,8 +40,9 @@ public static class Routes{
         app.MapPost("/GetAllPartCodes",RouteMethods.getAllPartCodesConfigured);
         app.MapPost("/SyncControlPlans", RouteMethods.syncUpAllPartCodesConfigured);
 
-       
-            return app;
+        //for DFQ save from Manual Forms
+        app.MapPost("/ManualFormData",RouteMethods.ManualFormData);
+        return app;
     }
 }  
 }

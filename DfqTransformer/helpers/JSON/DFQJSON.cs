@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using DFQModelSet;
 
 namespace DFQJSON.Models{
-    class PartDetailModel {
+    public class PartDetailModel {
         public string? part_code {get;set;}
         public string? name {get;set;}
         public string? drawing_no {get;set;}
@@ -20,7 +20,7 @@ namespace DFQJSON.Models{
 
     }
 
-    class characteristics_measured_valueModel {
+    public class characteristics_measured_valueModel {
         public string? id {get;set;}
         public string? name {get;set;}
         public string? charRemarks {get;set;}
@@ -43,7 +43,7 @@ namespace DFQJSON.Models{
         }
     }
     
-    class measured_valuesModel{
+    public class measured_valuesModel{
         public string? sequence_no {get;set;}
         public string? observed_value  {get;set;}
         public string? dateTime {get;set;}
@@ -66,7 +66,7 @@ namespace DFQJSON.Models{
         
     }
     
-    class DFQJSONModel {
+    public class DFQJSONModel {
         public PartDetailModel? part_detail {get;set;}       
         public List<characteristics_measured_valueModel> ? characteristics_measured_values {get;set;}
 

@@ -10,6 +10,7 @@
       //bug https://github.com/dotnet/sdk/issues/10902
       <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     -->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 

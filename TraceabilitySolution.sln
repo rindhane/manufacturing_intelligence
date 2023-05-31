@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIConnector", "QDasWebA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TomlReader", "TomlReader\TomlReader.csproj", "{A1BEE83B-7F8F-49D4-9C79-D0B4AB9EDBCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DfqTransformer", "DfqTransformer\DfqTransformer.csproj", "{F32A4C67-72B3-4D8C-8311-B3EC5767C28D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{A1BEE83B-7F8F-49D4-9C79-D0B4AB9EDBCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1BEE83B-7F8F-49D4-9C79-D0B4AB9EDBCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1BEE83B-7F8F-49D4-9C79-D0B4AB9EDBCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F32A4C67-72B3-4D8C-8311-B3EC5767C28D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F32A4C67-72B3-4D8C-8311-B3EC5767C28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F32A4C67-72B3-4D8C-8311-B3EC5767C28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F32A4C67-72B3-4D8C-8311-B3EC5767C28D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

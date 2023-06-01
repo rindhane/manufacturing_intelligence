@@ -19,8 +19,34 @@
     <RuntimeIdentifier>win-x64</RuntimeIdentifier> 
     <PublishReadyToRun>true</PublishReadyToRun>
      -->
+  <ValidateExecutableReferencesMatchSelfContained>false</ValidateExecutableReferencesMatchSelfContained>
   </PropertyGroup>
-  <ItemGroup>
+	<ItemGroup>
+		<Content Include=".\ServerConfig.json" DestinationFolder="$(OutDir)\">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include=".\wwwroot\" >
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath> %(RecursiveDir)\%(Filename)%(Extension)</TargetPath>
+		</Content>
+	</ItemGroup>
+	<!--
+	<Target Name="AfterBuild">
+		<Copy SourceFiles="$(ProjectDir)\wwwroot" DestinationFolder="$(OutDir)\" />
+	</Target>
+	<Target Name="AfterBuild2">
+		<Copy SourceFiles="$(ProjectDir)\ServerConfig.json" DestinationFolder="$(OutDir)\" />
+	</Target>
+	-->
+	<!--
+	<Target Name="MoveForBuild">
+		<Copy Source="wwwroot\" DestinationFolder="$(BuildOutput)\." >
+		</Copy>
+	</Target>
+	-->
+	<ItemGroup>
     <FrameWorkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>

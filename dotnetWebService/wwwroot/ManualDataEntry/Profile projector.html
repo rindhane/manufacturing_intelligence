@@ -25,7 +25,7 @@
     </header>
     <main>
         <div class="ManualForm">
-            <div class="FormTitle">Profile Projector</div>
+            <div class="Profile Projector" id="LabStationProfileProjector" style="text-align:center" name="LabStationProfileProjector">Profile Projector</div>
             <div class="FormHeader">
                 <div class="SerialFieldContainer">
                     <div class="SerialInputBar">
@@ -36,11 +36,11 @@
                 </div>
                 <div class="selectionModel operationContainer" style="text-align: center;">
                     <span>Model :</span>
-                    <select id="ModelSelector" name="ModelSelector" style="width: 100px;">
-                        <!--<option value="0">Select Model</option>-->
-                        <!--<option value="1">Tier-3</option>-->
-                        <option selected>Nighthawk_5336103_STD</option>
-                    </select>
+
+                    <input type="checkbox" id="myCheckbox" >
+                    <label for="myCheckbox">Tier-3:</label>&nbsp;
+                    <input type="checkbox" id="myCheckbox1" checked>
+                    <label for="myCheckbox1">Night Hawk:</label>
                     <span>Drawing Number :</span>
                     <select id="DrawingNumberSelector" name="DrawingNumberSelector" style="width: 100px;">
                         <!--<option value="0">Select Drawing Number</option>-->
@@ -49,223 +49,293 @@
                 </div>
                 <div>
                     <label for="Parameters">Parameters</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <label for="LSL">LSL</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="USL">USL</label>&nbsp;&nbsp;&nbsp;
                     <label for="Observedvalue">Observed value</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="Judgement">Judgement</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="Operator comments">Operator comments</label>
 
                 </div>
                 <div>
-                    <span>Top Land Width </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Top Land Width </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">7.7</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">8.3</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+
+                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
+
+                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
+                </div>
+                <div id="myDiv">
+                    <span>S Land Width </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Lable id="text">9.1</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text1">9.3</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+
+                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
+
+                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
+                </div>
+                <div id="myDiv1">
+                    <span>S Land Angle </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text3" >40</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text4" >50</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>S Land Width </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>S1 Land Width </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Lable id="text">1.4</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">1.6</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>S1 Land Width </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>S1 Land Angle </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Lable id="text">40</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">50</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>S1 Land Angle</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>S2 Land Width </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Lable id="text">1.8</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">2.2</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span> S,S1,S2 Land Radius</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>S2 Land Angle</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">25</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">35</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+
+                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
+
+                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
+                </div>
+
+                <div>
+                    <span>Groove chamfer - 1st U</span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.0</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.2</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Groove chamfer - 1st U</span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Groove chamfer - 1st L</span>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.0</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.1</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Groove chamfer - 1st L</span>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Groove chamfer - 2nd U</span>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.0</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.2</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Groove chamfer - 2nd U</span>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span> Groove chamfer - 2nd L</span>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.0</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.1</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span> Groove chamfer - 2nd L</span>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Groove chamfer - 3rd U</span>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.0</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.2</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Groove chamfer - 3rd U</span>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Groove chamfer - 3rd L</span>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.0</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.2</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+
+                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
+
+                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
+                </div>
+                
+                <div>
+                    <span>Gr. Root Radius - 1st U</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.2</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.4</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Groove chamfer - 3rd L</span>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Gr. Root Radius - 1st L</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.2</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.4</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Groove chamfer - 4th U</span>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Gr. Root Radius - 2nd U</span>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.2</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.4</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Groove chamfer - 4th L</span>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Gr. Root Radius - 2nd L</span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.2</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.4</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Gr. Root Radius - 1st U</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Gr. Root Radius - 3rd U</span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.9</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">1.1</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Gr. Root Radius - 1st L</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Gr. Root Radius - 3rd L</span>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.9</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">1.1</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+
+                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
+
+                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
+                </div>
+                                <div>
+                    <span>D1 Chamfer width</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.5</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">1.5</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Gr. Root Radius - 2nd U</span>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>D1 Chamfer angle</span>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">25°00'00"</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">35°00'00"</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Gr. Root Radius - 2nd L</span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Top Chamfer width</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.0</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.2</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Gr. Root Radius - 3rd U</span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>KS ANGLE- 1st uppar flank</span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">7˚55′</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">8˚05′</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Gr. Root Radius - 3rd L</span>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>KS ANGLE - 1st lower flank</span>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">7˚</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">7˚10′</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Gr. Root Radius - 4th U</span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>KS ANGLE toal</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">15˚</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">15˚15′</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+
+                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
+
+                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
+                </div>
+                
+                <div>
+                    <span>Distance Top  to  3rd  Gr. U/F </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Lable id="text">32.3</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">32.5</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Gr. Root Radius - 4th L</span>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Distance Top to  3rd  Gr. U/F </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Lable id="text">25.6</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">25.8</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
-                <div>
-                    <span>D1 Chamfer width</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
-
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
-
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
-                </div>
-                <div>
-                    <span>D1 Chamfer angle</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
-
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
-
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
-                </div>
-                <div>
-                    <span>Top Chamfer width</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
-
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
-
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
-                </div>
-                <div>
-                    <span>Top Chamfer angle</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
-
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
-
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
-                </div>
-                <div>
-                    <span>KS ANGLE- 1st uppar flank</span>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
-
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
-
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
-                </div>
-                <div>
-                    <span>KS ANGLE - 1st lower flank</span>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
-
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
-
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
-                </div>
-                <div>
-                    <span>KS ANGLE toal</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
-
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
-
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
-                </div>
-                <div>
-                    <span>Distance 1st Gr. U/F to 3rd Gr. L/F</span>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
-
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
-
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
-                </div>
-                <div>
-                    <span>Distance 2nd Gr. U/F to 3rd Gr. L/F</span>&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
-
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
-
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
-                </div>
-
-
             </div>
             <button onclick="uploadScanData();">Submit</button>
         </div>
@@ -285,10 +355,20 @@
     </footer>
 </body>
 <script src="./profileprojector.js"></script>
-<script defer>
-    (async ()=>{
-        let dat = await getConfiguredLines();
-        //let dat ='["Line1", "Line2", "Line3"]';
-        populateSelector(LineSelector,dat);
-    })();
+<script src="/Scripts/pdfLib.js"></script>
+<script>
+    var checkbox = document.getElementById("myCheckbox1");
+    var div = document.getElementById("myDiv");
+    var div1 = document.getElementById("myDiv1");    
+
+    checkbox.addEventListener("change", function () {
+        if (checkbox.checked) {
+            div.style.display = "block";
+            div1.style.display = "block";           
+        }
+        else {            
+            div.style.display = "none";
+            div1.style.display = "none";
+        }
+    });
 </script>

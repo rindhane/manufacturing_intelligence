@@ -1,7 +1,8 @@
 {
   "profiles": {
     "dotnetWebService": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "workingDirectory": "D:\\Masters\\SPRL_01_06_23\\dotnetWebService"
     }
   }
 }

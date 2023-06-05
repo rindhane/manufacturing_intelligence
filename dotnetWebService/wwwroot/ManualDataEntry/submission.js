@@ -1,6 +1,6 @@
 const input = document.getElementById('SerialField');
 const validationElem = document.getElementById('SerialFieldValidation');
-
+const selectStationElem = document.getElementById('LabStationStereo');
 const StationSelector = document.getElementById('StationSelector');
 const ModelSelector = document.getElementById('ModelSelector');
 const DrawingNumberSelector = document.getElementById('DrawingNumberSelector');
@@ -8,18 +8,45 @@ const ObservedValue = document.getElementById("ObservedValue");
 const JudgementValue = document.getElementById("JudgementValue");
 const OperatorcommentsValue = document.getElementById("OperatorcommentsValue");
 
+const ObservedValue1 = document.getElementById("ObservedValue1");
+const JudgementValue1 = document.getElementById("JudgementValue1");
+const OperatorcommentsValue1 = document.getElementById("OperatorcommentsValue1");
+
 const uploadFinishModal= document.getElementById('FinishModal');
 const FinishModalText = document.getElementById("FinishModalText");
+
+
+
+function generatePDFHandler(blob) {
+  return new Promise((resolve, _) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.readAsDataURL(blob);
+  });
+};
+
+
+function extractBase64Data(impureBase64) {
+    debugger;
+    //remove the prefix: `data:*/*;base64,` infroto of impure base64
+    refString = 'data:application/pdf;base64,';
+    return impureBase64.slice(refString.length);
+};
+
 
 async function uploadScanData(inputElem=input, 
                                       checkElem = validationElem,   
                                    //   stElem = StationSelector,
+                                      selectStationElem = LabStationStereo,
                                       ModelElem = ModelSelector,
                                       DrawingNumberElem = DrawingNumberSelector,
                                       obsElem = ObservedValue,
                                       JudgementElem = JudgementValue,
-                                      OperatorcommentsElem = OperatorcommentsValue
-)
+                                      OperatorcommentsElem = OperatorcommentsValue,
+
+                                      obsElem1 = ObservedValue1,
+                                      JudgementElem1 = JudgementValue1,
+                                      OperatorcommentsElem1 = OperatorcommentsValue1)
 {
     debugger;
   if (checkElem.style.display=="none" 
@@ -42,50 +69,62 @@ async function uploadScanData(inputElem=input,
     alert("select Drawing");
     return false;
   }
-  const serverMainPath='';//'http://127.0.0.1:5001' ;
-    payload = {
+    
+    
+    const serverMainPath = '';//'http://127.0.0.1:5001' ;
+	// creating pdf from input
+	const blob = await html2pdf().from(document.body).toPdf().outputPdf("blob");
+    const base64DataString = await generatePDFHandler(blob);
+	let uploadDataPDf=extractBase64Data(base64DataString);
+	//
 
-        serialNum: inputElem.value,
+    response = await postDataStream(`${serverMainPath}/LabData`, uploadData = uploadDataPDf, serialNum = inputElem.value, LabStationStereo = selectStationElem.className);
+	
+	//payload = {
 
-       // stElem: stElem.value,
+ //       serialNum: inputElem.value,
 
-        ModelElem: ModelElem.value,
+ //      // stElem: stElem.value,
 
-        DrawingNumberElem: DrawingNumberElem.value,
+ //       ModelElem: ModelElem.value,
 
-        "characteristics": [
+ //       DrawingNumberElem: DrawingNumberElem.value,
 
-            {
+ //       "characteristics": [
 
-                characteristicsSerialNum: "1",
+ //           {
 
-                characteristicsName: "Max Particle Size",
+ //               characteristicsSerialNum: "1",
 
-                obsElem: obsElem.value,
+ //               characteristicsName: "Max Particle Size",
 
-                JudgementElem: JudgementElem.value,
+ //               obsElem: obsElem.value,
 
-                OperatorcommentsElem: OperatorcommentsElem.value
+ //               JudgementElem: JudgementElem.value,
 
-            },
+ //               OperatorcommentsElem: OperatorcommentsElem.value
 
-            {
-                characteristicsSerialNum: "2",
+ //           },
 
-                characteristicsName: "Contamination Weight",
+ //           {
+ //               characteristicsSerialNum: "2",
 
-                obsElem: obsElem.value,
+ //               characteristicsName: "Contamination Weight",
 
-                JudgementElem: JudgementElem.value,
+ //               obsElem: obsElem1.value,
 
-                OperatorcommentsElem: OperatorcommentsElem.value
+ //               JudgementElem: JudgementElem1.value,
 
-            }
+ //               OperatorcommentsElem: OperatorcommentsElem1.value
 
-        ],
-       // "senderTag": 'ManualWebFormUpload',
+ //           }
 
-    }
+ //       ],
+ //      // "senderTag": 'ManualWebFormUpload',
+
+ //   }
+
+
   //{
   //  serialNum:inputElem.value,
   //    ModelName: ModelElem.value,
@@ -93,28 +132,45 @@ async function uploadScanData(inputElem=input,
       
   // // partCode: getPartCodeFromValidSerialNumber(inputElem.value),
   //}
-    response = await postDataStream(`${serverMainPath}/ManualFormData`, JSON.stringify(payload));
+   // response = await postDataStream(`${serverMainPath}/ManualFormData`, JSON.stringify(payload));
   uploadFinishModal.style.display='block';
   if (notifytheUpdate(response)){
     console.log('scan uploaded');
   };
   return true;
 }
+async function postDataStream(url, uploadData, serialNum, LabStationStereo) {
+    debugger
+    let options = {
+        method: 'POST',
+        headers: {
+            Accept: 'application.json',
+            'Content-Type': 'text/plain',
+            serialNum: serialNum,
+            LabStation:LabStationStereo,
+        },
+        body: uploadData,
+        cache: 'default',
+    }
+    let response = await fetch(url, options); //`${serverMainPath}/partData`
+    const data = await response.text();
+    return data;
+};
 
-async function postDataStream(url, uploadData){ 
-  let options={
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: uploadData,
-    cache: 'default',
-  }
-  let response = await fetch(url, options); //`${serverMainPath}/partData`
-  const data = await response.text();
-  return data;
-  }
+//async function postDataStream(url, uploadData){ 
+//  let options={
+//    method: 'POST',
+//    headers: {
+//      Accept: 'application/json',
+//      'Content-Type': 'application/json',
+//    },
+//    body: uploadData,
+//    cache: 'default',
+//  }
+//  let response = await fetch(url, options); //`${serverMainPath}/partData`
+//  const data = await response.text();
+//  return data;
+//  }
 
 function notifytheUpdate(text,elem=FinishModalText){
   if(text==null || text=='') {

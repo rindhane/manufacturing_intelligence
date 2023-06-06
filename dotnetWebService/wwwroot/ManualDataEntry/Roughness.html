@@ -25,7 +25,7 @@
     </header>
     <main>
         <div class="ManualForm">
-            <div class="FormTitle">Roughness</div>
+            <div class="Roughness" id="LabStationRoughness" style="text-align:center" name="LabStationRoughness">Roughness</div>
             <div class="FormHeader">
                 <div class="SerialFieldContainer">
                     <div class="SerialInputBar">
@@ -37,9 +37,8 @@
                 <div class="selectionModel operationContainer" style="text-align: center;">
                     <span>Model :</span>
                     <select id="ModelSelector" name="ModelSelector" style="width: 100px;">
-                        <!--<option value="0">Select Model</option>-->                      
-                        <option selected>Tier-3</option>
-                    </select>
+                    <option value="1">Tier 3 </option>
+                    <option value="2">Night Hawk</option></select>
                     <span>Drawing Number :</span>
                     <select id="DrawingNumberSelector" name="DrawingNumberSelector" style="width: 100px;">
                         <!--<option value="0">Select Drawing Number</option>-->
@@ -48,83 +47,135 @@
                 </div>
                 <div style="text-align: center;">
                     <label for="Parameters">Parameters</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <label for="LSL">LSL</label>&nbsp;
+                    <label for="USL">USL</label>&nbsp;&nbsp;&nbsp;
                     <label for="Observedvalue">Observed value</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="Judgement">Judgement</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="Operator comments">Operator comments</label>
 
                 </div>
                 <div style="text-align: center;">
-                    <span>Groove roughness -1st Upper flank </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Groove roughness -1st Upper flank </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label id="text1">0.0</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label id="text2">2.0</label>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
+                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
+                </div>
+                <div style="text-align: center;">
+                    <span>Groove roughness -1st Lower flank </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label id="text3">0.0</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label id="text4">1.6</label>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
+                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
+                </div>
+                <div style="text-align: center;">
+                    <span>Groove roughness -2nd  Upper flank </span> &nbsp;&nbsp;&nbsp;
+                    <label id="text" >0.0</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label id="text" >0.6</label>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div style="text-align: center;">
-                    <span>Groove roughness -1st Lower flank </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Groove roughness -2nd  Lower flank </span> &nbsp;&nbsp;&nbsp;
+                    <lable id="text" >0.0</lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text" >0.6</lable>
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div style="text-align: center;">
-                    <span>Groove roughness -2nd  Upper flank </span> &nbsp;&nbsp;&nbsp; <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Groove roughness -3rd Upper flank </span> &nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.0</lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.6</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div style="text-align: center;">
-                    <span>Groove roughness -2nd  Lower flank </span> &nbsp;&nbsp;&nbsp; <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Groove roughness -3rd Lower flank </span> &nbsp;&nbsp;&nbsp;
+                    <Lable id="text">0.0</Lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.6</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div style="text-align: center;">
-                    <span>Groove roughness -3rd Upper flank </span> &nbsp;&nbsp;&nbsp; <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>OD roughness </span> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <lable id="text">3.3</lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">4.8</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div style="text-align: center;">
-                    <span>Groove roughness -3rd Lower flank </span> &nbsp;&nbsp;&nbsp; <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>OD Pitch  </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.2</lable> &nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.35</lable>
+                    
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div style="text-align: center;">
-                    <span>OD roughness </span> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Pin bore roughness </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text" >0.0</lable>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text" >0.8</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div style="text-align: center;">
-                    <span>OD Pitch  </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Ring zone finish </span> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.0</lable> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label id="text">4.0</label>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
+
                 <div style="text-align: center;">
-                    <span>Pin bore roughness </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Ring land finish </span> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.0</lable> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">4.0</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
-                <div style="text-align: center;">
-                    <span>Ring zone finish </span> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
-
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
-                </div>
                 <div style="text-align: center;">
-                    <span>Crown finish </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Crown finish </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <lable id="text">0.0</lable> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <lable id="text">3.0</lable>
+
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
@@ -149,10 +200,12 @@
     </footer>
 </body>
 <script src="./roughness.js"></script>
-<script defer>
+<script src="/Scripts/pdfLib.js"></script>
+
+<!--<script defer>
     (async ()=>{
         let dat = await getConfiguredLines();
         //let dat ='["Line1", "Line2", "Line3"]';
         populateSelector(LineSelector,dat);
     })();
-</script>
+</script>-->

@@ -8,7 +8,7 @@
     <title>QDas Dashboard</title>
     <link rel="icon" href="/favicon.png">
 </head>
-<body onload="console.log('loaded');">
+<body onload="console.log('loaded1');">
     <header>
         <div class="logo-container">
             <img src="/img/client.png" alt="logo">
@@ -25,7 +25,7 @@
     </header>
     <main>
         <div class="ManualForm">
-            <div class="FormTitle">Stereo Zoom Microscope</div>
+            <div class="Stereo Zoom Microscope" id="LabStationStereo" style="text-align:center" name="LabStationStereo">Stereo Zoom Microscope</div>
             <div class="FormHeader">
                 <div class="SerialFieldContainer">
                     <div class="SerialInputBar">
@@ -34,12 +34,12 @@
                     </div>
                     <span class="SerialFieldValidation" id="SerialFieldValidation">empty</span>
                 </div>
+
                 <div class="selectionModel operationContainer" style="text-align: center;">
                     <span>Model :</span>
-                    <select id="ModelSelector" name="ModelSelector" style="width: 100px;">
-                        <!--<option value="0">Select Model</option>-->
+                    <select id="ModelSelector" name="ModelSelector" style="width: 100px;">                        
                         <option value="1">Tier-3</option>
-                        <option selected>Tier-3</option>
+                        <option value="3">Night Hawk</option>
                     </select>
                     <span>Drawing Number :</span>
                     <select id="DrawingNumberSelector" name="DrawingNumberSelector" style="width: 100px;">
@@ -48,13 +48,18 @@
                     </select>
                 </div>
                 <div>
-                    <label for="Parameters">Parameters</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <label for="Parameters">Parameters</label>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <label for="LSL">LSL</label>&nbsp;
+                    <label for="USL">USL</label>&nbsp;&nbsp;&nbsp;
                     <label for="Observedvalue">Observed value</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="Judgement">Judgement</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="Operator comments">Operator comments</label>
                 </div>
                 <div>
-                    <span class="MaxparticleSize" id="MaxparticleSize">Max.Particle size </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <span class="MaxparticleSize" id="MaxparticleSize">Max.Particle size </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <label for="LSL">0</label>&nbsp;&nbsp;&nbsp;
+                    <label for="USL">0.5</label>&nbsp;&nbsp;&nbsp;
+
                     <input type="text" id="ObservedValue" name="ObservedValue" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="JudgementValue" name="JudgementValue" placeholder="Enter Judgement value">&nbsp;&nbsp;
@@ -62,12 +67,15 @@
                     <input type="text" id="OperatorcommentsValue" name="OperatorcommentsValue" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span class="ContaminationWeight" id="ContaminationWeight">Contamination weight </span> &nbsp;&nbsp;&nbsp;
-                    <input type="text" id="ObservedValue" name="ObservedValue" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span class="ContaminationWeight" id="ContaminationWeight">Contamination weight </span> &nbsp;&nbsp;
+                    <label for="LSL">0</label>&nbsp;&nbsp;&nbsp;
+                    <label for="USL">6.0</label>&nbsp;&nbsp;&nbsp;
 
-                    <input type="text" id="JudgementValue" name="JudgementValue" placeholder="Enter Judgement value">&nbsp;&nbsp;
+                    <input type="text" id="ObservedValue1" name="ObservedValue1" placeholder="Enter Observed value">&nbsp;&nbsp;
 
-                    <input type="text" id="OperatorcommentsValue" name="OperatorcommentsValue" placeholder="Enter Operator comments">
+                    <input type="text" id="JudgementValue1" name="JudgementValue1" placeholder="Enter Judgement value">&nbsp;&nbsp;
+
+                    <input type="text" id="OperatorcommentsValue1" name="OperatorcommentsValue1" placeholder="Enter Operator comments">
                 </div>
             </div>
             <button onclick="uploadScanData();">Submit</button>
@@ -88,10 +96,11 @@
     </footer>
 </body>
 <script src="./submission.js"></script>
-<script defer>
+<script src="/Scripts/pdfLib.js"></script>
+<!--<script defer>
     (async ()=>{
         let dat = await getConfiguredLines();
         //let dat ='["Line1", "Line2", "Line3"]';
         populateSelector(LineSelector,dat);
     })();
-</script>
+</script>-->

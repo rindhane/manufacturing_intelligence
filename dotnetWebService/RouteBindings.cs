@@ -158,10 +158,14 @@ public static class RouteMethods{
   public static async Task LabUpload(HttpContext context, HttpRequest request, IpartDataHandler qdasManager)
   {
     string serialNum=request.Headers["serialNum"]!;
-    string stationName=request.Headers["LabStation"]!;
+            string stationName = request.Headers["LabStation"]!;            
     var reader = new StreamReader(request.Body);
     string pdfData = await reader.ReadToEndAsync(); //it is the pdf which needs to be stored
-    var stat= qdasManager.storePDF(serialNum,stationName,pdfData);
+            System.Console.WriteLine(serialNum);
+            System.Console.WriteLine(stationName);
+            System.Console.WriteLine(pdfData);
+
+            var stat= qdasManager.storePDF(serialNum,stationName,pdfData);
     if (stat) {
     await context.Response.WriteAsync("File was uploaded");
     return ;

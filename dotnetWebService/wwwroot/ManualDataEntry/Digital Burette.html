@@ -25,7 +25,7 @@
     </header>
     <main>
         <div class="ManualForm">
-            <div class="FormTitle">Digital Burette</div>
+            <div class="Digital Burette" id="LabStationDigitalBurette" style="text-align:center" name="LabStationDigitalBurette">Digital Burette</div>
             <div class="FormHeader">
                 <div class="SerialFieldContainer">
                     <div class="SerialInputBar">
@@ -38,38 +38,37 @@
                     <span>Model :</span>
                     <select id="ModelSelector" name="ModelSelector" style="width: 100px;">
                         <!--<option value="0">Select Model</option>-->
-                        <!--<option value="1">Tier-3</option>-->
-                        <option selected>Tier-3</option>
+                        <option value="1">Tier-3</option>
+                        <option value="2">Night Hawk</option>
                     </select>
                     <span>Drawing Number :</span>
                     <select id="DrawingNumberSelector" name="DrawingNumberSelector" style="width: 100px;">
                         <!--<option value="0">Select Drawing Number</option>-->
                         <option selected>1</option>
                     </select>
-                </div>   
+                </div>
                 <div>
-                    <label for="Parameters">Parameters</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                    <label for="Observedvalue">Observed value</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="Parameters">Parameters</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <label for="LSL">LSL</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="USL">USL</label>&nbsp;&nbsp;&nbsp;
+                    <label for="Observedvalue">Observed value</label>&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="Judgement">Judgement</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="Operator comments">Operator comments</label>
 
                 </div>
                 <div>
-                    <span>Bowl volume </span> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
-
+                    <span>Bowl volume </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <label for="LSL">51.05</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="USL">51.35</label>&nbsp;&nbsp;
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
                     <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
                 <div>
-                    <span>Bowl volume with valve pocket </span> &nbsp;&nbsp;&nbsp; <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <span>Bowl volume with valve pocket </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
-
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
-                </div>
-                <div>
-                    <span>Head volume </span>  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
 
                     <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
@@ -96,10 +95,13 @@
     </footer>
 </body>
 <script src="./digitalburette.js"></script>
-<script defer>
+<script src="/Scripts/pdfLib.js"></script>
+
+<!--<script defer>
     (async ()=>{
         let dat = await getConfiguredLines();
         //let dat ='["Line1", "Line2", "Line3"]';
         populateSelector(LineSelector,dat);
     })();
-</script>
+</script>-->
+

@@ -1,5 +1,6 @@
 const PdfModal= document.getElementById('ReportViewModal');
-const reportBox= document.getElementById("pdfBox");
+const reportBox = document.getElementById("pdfBox");
+const deleteActionBox = document.getElementById("deleteActionBox");
 const serialNum=new URLSearchParams(window.location.search).get("serialNum");
 const pdfViewer =new URLSearchParams(window.location.search).get("pdfViewer");
 const partIdHolder = document.getElementById('PartIdSpan');
@@ -17,8 +18,21 @@ function updatePartId(elem=partIdHolder,serial=serialNum){
   return true;
 }
 
+async function buildActionReportBlock(serial = serialNum, masterElem = deleteActionBox) {
+    debugger;
+    const serverMainPath = '';//'http://127.0.0.1:8080' ;//
+    let payload = serial;
+    response = await GetReportList(`${serverMainPath}/GetReportList`, payload);
+    if (populatTheDeleteActionList(response, masterElem)) {
+        console.log('received report list');
+        return true;
+    };
+    return false;
+}
+
 async function buildReportBlock(serial=serialNum, masterElem=reportBox)
 {
+    
   const serverMainPath= '';//'http://127.0.0.1:8080' ;//
   let payload = serial;
   response = await GetReportList(`${serverMainPath}/GetReportList`, payload);
@@ -28,8 +42,18 @@ async function buildReportBlock(serial=serialNum, masterElem=reportBox)
   };
   return false;
 }
-
-
+// add by pushparaj
+//async function buildReportBlock(serial = serialNum, masterElem = reportBox) {
+//    debugger;
+//    const serverMainPath = '';//'http://127.0.0.1:8080' ;//
+//    let payload = serial;
+//    response = await GetReportList(`${serverMainPath}/GetLabList`);
+//    if (populatTheList(response, masterElem)) {
+//        console.log('received report list');
+//        return true;
+//    };
+//    return false;
+//}
 
 async function GetReportList(url, uploadData){ 
   let options={
@@ -62,27 +86,67 @@ async function fetchPdfData(url,identifier){
   return data;
   }
 
-function populatTheList(text,elem){
+  //pushparaj
+function populatTheDeleteActionList(text, elem) {
+
+    if (text == null || text == '') {
+        elem.innerText = "No reports are attached";
+        return false;
+    }
+    const PdfList = JSON.parse(text);
+    debugger;
+    PdfList.forEach(element => {
+        elem.appendChild(generateDeleteActionReportElem(element[1], element[0]));
+    });
+    return true;
+}
+//pushparaj
+function generateDeleteActionReportElem(name, id) {
+    debugger;
+    var btn = document.createElement('button');
+    btn.innerText = 'Delete';
+    btn.type = 'button';
+    btn.value = 'delete';
+    btn.setAttribute('class', "evt-btn");
+    btn.setAttribute('onClick', `pdfDelete(${id})`);
+    //var element = document.createElement("input");
+    //element.type = 'button';
+    //element.value = 'delete';
+    //element.setAttribute("data-person_id", id);
+    //element.setAttribute("class", "btn-viewdetail btn btn-primary"); 
+}
+
+function populatTheList(text, elem) {
+    
   if(text==null || text=='') {
     elem.innerText="No reports are attached";
     return false;
   }
-  const PdfList =JSON.parse(text);
+    const PdfList = JSON.parse(text);
+    debugger;
   PdfList.forEach(element => {
     elem.appendChild(generateReportElem(element[1],element[0]));
-  });
+  });   
   return true;
   }
 
-function generateReportElem(name,id){
+function generateReportElem(name, id) {
+    
   const elem=document.createElement('a');
   elem.setAttribute("class", "PdfLink");
   //elem.setAttribute("target","_blank");
   elem.setAttribute('reportID',id);
   elem.setAttribute('onclick','downloadReport(this);');
   elem.href='#';
-  elem.innerText=name;
+    elem.innerText = name;
+    //
+   // elem.appendChild(elem);
   return elem;
+}
+
+function addEvent(evt) {
+    eventList.push(evt);
+    console.log(eventList);
 }
 
 function reloadWindow(){

@@ -21,8 +21,9 @@ public static class Routes{
         app.MapGet("/LaserMarkingAuto",RouteMethods.pageRedirect);
         app.MapGet("/instructions",RouteMethods.pageRedirect);
         app.MapGet("/AutoScanEntry",RouteMethods.pageRedirect);
+        app.MapGet("/AdminLogin", RouteMethods.pageRedirect);
             //
-        app.MapGet("/", RouteMethods.MoveToHomeScreen);
+            app.MapGet("/", RouteMethods.MoveToHomeScreen);
         app.MapGet("/testStart", RouteMethods.TestStartPage);
         app.MapGet("/getAuthorization", RouteMethods.getAuthorization);
         app.MapPost("/checkAuthorization", RouteMethods.checkAuthorization);
@@ -34,6 +35,8 @@ public static class Routes{
         app.MapPost("/ManualScanData",RouteMethods.ManualScan);
         app.MapPost("/GetReportData",RouteMethods.PDFReportData);
         app.MapPost("/GetReportList",RouteMethods.PDFReportList);
+            //add by pushparaj
+           
         app.MapPost("/GetDashboardLines", RouteMethods.DashboardLines );
         app.MapPost("/GetLabStations", RouteMethods.getLabEntries );
         app.MapPost("/GetProductionLines",RouteMethods.getAllProductionLines);
@@ -41,8 +44,10 @@ public static class Routes{
         app.MapPost("/GetAllPartCodes",RouteMethods.getAllPartCodesConfigured);
         app.MapPost("/SyncControlPlans", RouteMethods.syncUpAllPartCodesConfigured);
 
-        //for DFQ save from Manual Forms
-        app.MapPost("/ManualFormData",RouteMethods.ManualFormData);
+        app.MapDelete("/DeleteReport", RouteMethods.DeletePDFReport);
+
+            //for DFQ save from Manual Forms
+            app.MapPost("/ManualFormData",RouteMethods.ManualFormData);
         return app;
     }
 }  

@@ -72,8 +72,8 @@ async function uploadScanData(inputElem=input,
     
     
     const serverMainPath = '';//'http://127.0.0.1:5001' ;
-	// creating pdf from input
-	const blob = await html2pdf().from(document.body).toPdf().outputPdf("blob");
+    // creating pdf from input
+    const blob = await html2pdf().from(document.getElementsByClassName("FormHeader")[0]).toPdf().outputPdf("blob");
     const base64DataString = await generatePDFHandler(blob);
 	let uploadDataPDf=extractBase64Data(base64DataString);
 	//
@@ -149,6 +149,16 @@ async function postDataStream(url, uploadData, serialNum, LabStationStereo) {
             serialNum: serialNum,
             LabStation:LabStationStereo,
         },
+        pdfOptions: {
+            margin: {
+                top: '20mm',
+                right: '20mm',
+                bottom: '20mm',
+                left: '20mm'
+            }
+        },
+        image: { type: 'jpeg', quality: 0.9 },
+        jsPDF: { format: 'letter', orientation: 'portrait' },                
         body: uploadData,
         cache: 'default',
     }

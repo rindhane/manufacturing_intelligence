@@ -24,11 +24,11 @@
         </nav>
     </header>
     <main>
-        <div class="ManualForm">
-            <div class="Digital Burette" id="LabStationDigitalBurette" style="text-align:center" name="LabStationDigitalBurette">Digital Burette</div>
+        <div class="ManualForm">            
             <div class="FormHeader">
+                <div class="Digital Burette" id="LabStationDigitalBurette" style="text-align:center" name="LabStationDigitalBurette">Digital Burette</div>
                 <div class="SerialFieldContainer">
-                    <div class="SerialInputBar">
+                    <div class="SerialInputBar" style="text-align:center;">
                         <label for="SerialField">Serial Number</label>
                         <input type="text" id="SerialField" name="SerialField" placeholder="Scan the Serial Number">
                     </div>
@@ -37,9 +37,10 @@
                 <div class="selectionModel operationContainer" style="text-align: center;">
                     <span>Model :</span>
                     <select id="ModelSelector" name="ModelSelector" style="width: 100px;">
-                        <!--<option value="0">Select Model</option>-->
-                        <option value="1">Tier-3</option>
-                        <option value="2">Night Hawk</option>
+                        <option value="1">TIER-III_533607_STD</option>
+                        <option value="2">TIER-III_533608_0.5 OS</option>
+                        <option value="3">Nighthawk_5336103_STD</option>
+                        <option value="4">Nighthawk_5336104_0.5 OS</option>
                     </select>
                     <span>Drawing Number :</span>
                     <select id="DrawingNumberSelector" name="DrawingNumberSelector" style="width: 100px;">
@@ -47,32 +48,34 @@
                         <option selected>1</option>
                     </select>
                 </div>
-                <div>
-                    <label for="Parameters">Parameters</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                    <label for="LSL">LSL</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="text-align: center;">
+                    <label for="Parameters">Parameters</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <label for="LSL">LSL</label>&nbsp;&nbsp;
                     <label for="USL">USL</label>&nbsp;&nbsp;&nbsp;
-                    <label for="Observedvalue">Observed value</label>&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label for="Judgement">Judgement</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="Unit">Unit</label>&nbsp;
+                    <label for="Observedvalue">Observed value</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="Judgement">Judgement</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="Operator comments">Operator comments</label>
 
                 </div>
-                <div>
-                    <span>Bowl volume </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                    <label for="LSL">51.05</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label for="USL">51.35</label>&nbsp;&nbsp;
-                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
+                <div style="text-align: center;">
+                    <span>Bowl volume </span>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <label for="LSL">51</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="USL">51.04</label>&nbsp;&nbsp;
+                    <label for="unit">cc</label>&nbsp;
+                    <input type="text" id="obsval" name="obsval" size="16" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <input type="text" id="Judgementval" name="Judgementval" size="16" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
+                    <input type="text" id="Operatorcommentsval" size="16" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
-                <div>
-                    <span>Bowl volume with valve pocket </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="text-align: center;">
+                    <span>Bowl volume with valve pocket </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="unit">cc</label>&nbsp;
+                    <input type="text" id="obsval" name="obsval" size="16" placeholder="Enter Observed value">&nbsp;&nbsp;
 
-                    <input type="text" id="obsval" name="obsval" placeholder="Enter Observed value">&nbsp;&nbsp;
+                    <input type="text" id="Judgementval" size="16" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
 
-                    <input type="text" id="Judgementval" name="Judgementval" placeholder="Enter Judgement value">&nbsp;&nbsp;
-
-                    <input type="text" id="Operatorcommentsval" name="Operatorcommentsval" placeholder="Enter Operator comments">
+                    <input type="text" id="Operatorcommentsval" size="16" name="Operatorcommentsval" placeholder="Enter Operator comments">
                 </div>
 
 

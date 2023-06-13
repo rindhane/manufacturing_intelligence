@@ -202,14 +202,23 @@ public static class RouteMethods{
     //delete this line await context.Response.Body.WriteAsync(data,0,data.Length);
     await context.Response.WriteAsync(result);
   }
-  public static async Task PDFReportList(HttpContext context, HttpRequest request, IpartDataHandler qdasManager)
-  {
-    var reader = new StreamReader(request.Body);
-    string tempString = await reader.ReadToEndAsync();//it provides JSON with serialNum 
-    var temp = qdasManager.getPDFList(tempString);
-    await context.Response.WriteAsync(temp);
-    //await context.Response.WriteAsync("[{\"name\": \"Report-CMM\",\"id\": \"123456\"},{\"name\": \"Report-Portal\", \"id\": \"123478\"}]");
-  }
+        public static async Task PDFReportList(HttpContext context, HttpRequest request, IpartDataHandler qdasManager)
+        {
+            var reader = new StreamReader(request.Body);
+            string tempString = await reader.ReadToEndAsync();//it provides JSON with serialNum 
+            var temp = qdasManager.getPDFList(tempString);
+            await context.Response.WriteAsync(temp);
+            //await context.Response.WriteAsync("[{\"name\": \"Report-CMM\",\"id\": \"123456\"},{\"name\": \"Report-Portal\", \"id\": \"123478\"}]");
+        }
+        // delete pdf record by id -- pushparaj
+        public static async Task DeletePDFReport(HttpContext context, HttpRequest request, IpartDataHandler qdasManager)
+        {
+            var reader = new StreamReader(request.Body);
+            string tempString = await reader.ReadToEndAsync();//it provides JSON with serialNum 
+            var temp = qdasManager.deletePDF(tempString);
+            await context.Response.WriteAsync(temp);
+            //await context.Response.WriteAsync("[{\"name\": \"Report-CMM\",\"id\": \"123456\"},{\"name\": \"Report-Portal\", \"id\": \"123478\"}]");
+        }
 
   public static async Task DashboardLines(HttpContext context, IpartDataHandler qdasManager)
   {

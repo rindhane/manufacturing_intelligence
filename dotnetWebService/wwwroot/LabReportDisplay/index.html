@@ -31,31 +31,40 @@
             <div class="CenterTitle">
                 Reports for Part: <span id="PartIdSpan"></span>
             </div>
-            <div class="PdfBox" id="pdfBox">
+            <!--<div class="PdfBox" id="pdfBox"></div>-->
+            <table>
+                <tr>
+                    <th>Pdf</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td class="PdfBox" id="pdfBox"></td>
+                    <td class="DeleteActionBox" id="deleteActionBox"></td>
+                </tr>
+                <!--<table id="pdfBox" class="PdfBox">-->
+                <!--</table>-->
                 <!--
         <a class="PdfLink" onclick="showReport(this);" reportID="123456" href="#">Report-CMM</a>
         <a class="PdfLink" href="#">Report-Lubricant</a>
         <a class="PdfLink" href="#">Report-Master</a>
         -->
-            </div>
-        </div>
-
-        <!-- Following div is the result in the modal form -->
-        <div class="modal" id="ReportViewModal">
-            <div class="modal-content">
-                <div>
-                    <button id="prev">Previous</button>
-                    <button id="next">Next</button>
-                    &nbsp; &nbsp;
-                    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-                    <button class="reset" onclick="reloadWindow()">Revert</button>
+            </table>
+            <!-- Following div is the result in the modal form -->
+            <div class="modal" id="ReportViewModal">
+                <div class="modal-content">
+                    <div>
+                        <button id="prev">Previous</button>
+                        <button id="next">Next</button>
+                        &nbsp; &nbsp;
+                        <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+                        <button class="reset" onclick="reloadWindow()">Revert</button>
+                    </div>
+                    <div id="pdfViewer">
+                        <canvas id="pdfCanvas" style="border: 1px solid black; direction: ltr;"></canvas>
+                    </div>
                 </div>
-                <div id="pdfViewer">
-                    <canvas id="pdfCanvas" style="border: 1px solid black; direction: ltr;"></canvas>
-                </div>
             </div>
-        </div>
-    </main>
+</main>
     <footer>
         <div class="footer-client">© 2022 - Shriram Pistons & Rings Ltd</div>
         <div class="disclaimer">
@@ -69,5 +78,13 @@
 <script defer>
     updatePartId();
     buildReportBlock();
+    buildActionReportBlock();
+</script>
+
+<script>
+    function myFunction() {
+        const list = document.getElementById("pdfBox");
+        list.removeChild(list.firstElementChild);
+    }
 </script>
 

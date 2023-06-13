@@ -283,6 +283,16 @@ namespace DbConnectors
             List<object[]> result = this.ValuesFromSQLquery(query,2);
             return result;
         }
+        //new added delete pdf by pushparaj
+        public List<object[]> deletePDFbyId(string id)
+        {
+            string query = $"delete FROM [{QDB_NAME}].[dbo].{reportTable} " +
+                            $"WHERE id=@id ;";
+            List<object[]> result = this.ValuesFromSQLquery(query, 2);
+            return result;
+        }
+
+
         public async Task<List<object[]>> getPDFData(string serialNum,int id){
             string query = $"SELECT pdfData FROM [{QDB_NAME}].[dbo].{reportTable} " +
                             $"WHERE id={id} AND serialNum='{serialNum}' ;";
@@ -290,6 +300,7 @@ namespace DbConnectors
             await Task.Delay(0);
             return result;
         }
+
         public List<string> GetAllAvailableProductionLines(){
             string query =
             $"SELECT DISTINCT TEWERKSTATT FROM [{QDB_NAME}].[dbo].[TEIL] " +

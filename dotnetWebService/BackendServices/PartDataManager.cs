@@ -58,6 +58,7 @@ namespace PartDataManager{
 
         public string getPDFList(string serialNum);
 
+        public string deletePDF(string id);
         public Task<string> retrievePDF(string jsonString);
         public string getLabEntries();
 
@@ -219,6 +220,13 @@ namespace PartDataManager{
         }
         public string getPDFList(string serialNum){
             var result = dbHandler!.getPDFListForSerial(serialNum);
+            return JsonConvert.SerializeObject(result);
+        }
+        // delete by id -- pushparaj
+        
+        public string deletePDF(string id)
+        {
+            var result = dbHandler!.deletePDFbyId(id);
             return JsonConvert.SerializeObject(result);
         }
 

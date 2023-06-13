@@ -17,31 +17,6 @@ const FinishModalText = document.getElementById("FinishModalText");
 
 
 
-function myFunction1() {
-
-    var checkBox = document.getElementById("myCheck1");
-    var test = document.getElementById("test");
-    var test1 = document.getElementById("test1");
-    //var text3 = document.getElementById("text3");
-    //var text4 = document.getElementById("text4");
-    
-
-    if (checkBox.checked == true) {
-        test.style.display = "block";
-        test1.style.display = "block";
-        //text3.style.display = "block";
-        //text4.style.display = "block";
-    }
-    else {
-        test.style.display = "none";
-        test1.style.display = "none";
-        //text3.style.display = "none";
-        //text4.style.display = "none";
-        
-    }
-}
-
-
 
 function generatePDFHandler(blob) {
     return new Promise((resolve, _) => {
@@ -84,10 +59,10 @@ async function uploadScanData(inputElem = input,
         alert("provide valid serial number");
         return false;
     }
-    if (ModelElem.value == "Selected") {
-        alert("select Model");
-        return false;
-    }
+    //if (ModelElem.value == "Selected") {
+    //    alert("select Model");
+    //    return false;
+    //}
     if (DrawingNumberElem.value == "Selected") {
         alert("select Drawing");
         return false;
@@ -96,7 +71,8 @@ async function uploadScanData(inputElem = input,
 
     const serverMainPath = '';//'http://127.0.0.1:5001' ;
     // creating pdf from input
-    const blob = await html2pdf().from(document.body).toPdf().outputPdf("blob");
+   // const blob = await html2pdf().from(document.body).toPdf().outputPdf("blob");
+    const blob = await html2pdf().from(document.getElementsByClassName("FormHeader")[0]).toPdf().outputPdf("blob");
     const base64DataString = await generatePDFHandler(blob);
     let uploadDataPDf = extractBase64Data(base64DataString);
     //
@@ -170,7 +146,7 @@ async function postDataStream(url, uploadData, serialNum, LabStationProfileProje
             'Content-Type': 'text/plain',
             serialNum: serialNum,
             LabStation: LabStationProfileProjector,
-        },
+        },        
         body: uploadData,
         cache: 'default',
     }

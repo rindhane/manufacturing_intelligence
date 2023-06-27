@@ -206,14 +206,15 @@ function generateResultContent(type,detail,resultObject,contentMap=resultContent
   return elem ;
 }
 
-function generateResultLabReportLink(type,serial){
+function generateResultLabReportLink(type, serial) {
+    debugger;
   const elem = document.createElement('a');
   elem.href=`/LabReportDisplay?serialNum=${serial}`;
   if(serial==null ) {
     elem.innerText="";
     return elem;  
   }
-  elem.innerText="Link";
+  //elem.innerText="Link";
   return elem;
 }
 

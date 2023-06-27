@@ -109,11 +109,7 @@ function generateDeleteActionReportElem(name, id) {
     btn.value = 'delete';
     btn.setAttribute('class', "evt-btn");
     btn.setAttribute('onClick', `pdfDelete(${id})`);
-    //var element = document.createElement("input");
-    //element.type = 'button';
-    //element.value = 'delete';
-    //element.setAttribute("data-person_id", id);
-    //element.setAttribute("class", "btn-viewdetail btn btn-primary"); 
+    
 }
 
 function populatTheList(text, elem) {

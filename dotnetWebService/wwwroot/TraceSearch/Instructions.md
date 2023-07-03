@@ -12,6 +12,7 @@
 - The scanner input field only accepts the DMC code as PO annexure A. The annexure is shown below: 
 - ![Annexure Details](Traceability_DMC_code.jpg "Barcode details")  
 - Currently only following data points have been configured in the test server. 
+    - **CA22L0015**
     - **1234567;07365;3;AG672;G04;P4567;07:09:26** 
     - **1236789;11111;1;ABCDE;p01;A1234;22:03:06** 
     - **1236789;11111;1;ABCDG;p01;A1234;22:03:06** 

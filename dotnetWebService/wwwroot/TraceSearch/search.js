@@ -35,6 +35,7 @@ imgHeaderMap.set("Merkmal", ["/img/Merkmal.png", "merkmal imgSetter", "Character
 //functions to run the input from the search bar 
 input.addEventListener('input', triggerActionOnInput);
 function triggerActionOnInput(e) {
+    debugger;
   const value = e.target.value;
   if(value!="") 
   {
@@ -47,7 +48,8 @@ function triggerActionOnInput(e) {
   return 1;
 }
 
-function showDisplay(status,cntxt,type, value){
+function showDisplay(status, cntxt, type, value) {
+    debugger
   if (status==true)
   {
     if (type==1) {
@@ -80,7 +82,8 @@ function showValidationMessage(cntxt,status){
   return 0;
 }
 
-async function generateResultHTML(elem,serialData){
+async function generateResultHTML(elem, serialData) {
+    debugger
   const data = await getSerialData(serialData); 
   const temp = data.dataPoints;
   elem.innerHTML="";
@@ -88,7 +91,8 @@ async function generateResultHTML(elem,serialData){
   return 1;
 }
 
-async function getSerialData(serialNumber){
+async function getSerialData(serialNumber) {
+    debugger
   let body = serialNumber; 
   let options={
     method: 'POST',
@@ -228,8 +232,10 @@ function getCharacteristicsStyling(kind){
   return "statusSignal";
 }
 
-function validateSerialNumber(string){
-  const regexChecker = /^[0-9]{7};[0-9]{5};[1-3]{1};[a-zA-Z0-9]{5};[PG]{1}[0-9]{2};[a-zA-Z0-9]{5};[0-9]{2}:[0-9]{2}:[0-9]{2}$/i ;
+function validateSerialNumber(string) {
+    debugger
+   // const regexChecker = /^[0-9]{7};[0-9]{5};[1-3]{1};[a-zA-Z0-9]{5};[PG]{1}[0-9]{2};[a-zA-Z0-9]{5};[0-9]{2}:[0-9]{2}:[0-9]{2}$/i;
+    const regexChecker = /^[a-zA-Z0-9]{9}$/i;
   return regexChecker.test(string);
 }
 

@@ -4,7 +4,7 @@ dataSource = "127.0.0.1"  # ip of the sql server. 127.0.0.1 if on located on the
 port = 1433
 userID = "sa"            
 password = "Hexagon"
-dbName="QDAS_DATA" #database which contains the measurement data of q-das
+dbName="CRAFTSMAN DB" #database which contains the measurement data of q-das
 ReportTableName="LABREPORT"
 
 

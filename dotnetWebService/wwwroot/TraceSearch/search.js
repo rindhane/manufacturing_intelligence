@@ -235,14 +235,15 @@ function getCharacteristicsStyling(kind){
 function validateSerialNumber(string) {
     debugger
    // const regexChecker = /^[0-9]{7};[0-9]{5};[1-3]{1};[a-zA-Z0-9]{5};[PG]{1}[0-9]{2};[a-zA-Z0-9]{5};[0-9]{2}:[0-9]{2}:[0-9]{2}$/i;
-    const regexChecker = /^[a-zA-Z0-9]{9}$/i;
+    const regexChecker = /^[a-zA-Z0-9]{9}$/;
   return regexChecker.test(string);
 }
 
 function testCaseForStringCheckers(){
   testCases= ["1234567;07365;3;AG672;G04;P4567;07:09:26",
               "1234567;07365;3;AG672;G04;P4567;07:09:26;",
-              "1236789;11111;1;ABCDE;p01;A1234;22:03:06"  ];
+              "1236789;11111;1;ABCDE;p01;A1234;22:03:06",
+              "CA22L0015"];
   answers= [true,
             false,
           true];

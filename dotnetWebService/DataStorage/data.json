@@ -1,7 +1,7 @@
 [
   {
-    //"serial": "1234567;07365;3;AG672;G04;P4567;07:09:26",
-    "serial": "CA22L0015",
+    "serial": "1234567;07365;3;AG672;G04;P4567;07:09:26",
+    //"serial": "CA22L0015",
     "dataPoints": [
       {
         "processID": "OP10",
@@ -40,63 +40,65 @@
       }
     ]
   },
-    {
-        "serial":"1236789;11111;1;ABCDE;p01;A1234;22:03:06", 
-        "dataPoints" :[
-            {
-                "processID":"OP10",
-                "operater": "Operator1",
-                "timeStamp":"20.01.2022/11.23.15",
-                "machine": "Machine1", 
-                "characteristicStatus": "Ok"
-            },
-            {
-                "processID":"OP20",
-                "operater": "Operator13",
-                "timeStamp":"20.01.2022/11.26.15",
-                "machine": "Machine2", 
-                "characteristicStatus": "Ok"
-            },
-            {
-                "processID":"OP30",
-                "operater": "Operator16",
-                "timeStamp":"20.01.2022/19.23.15",
-                "machine": "Machine2", 
-                "characteristicStatus": "Not-Ok"
-            },
-            {
-                "processID":"OP40",
-                "operater": "Operator19",
-                "timeStamp":"20.01.2022/19.23.15",
-                "machine": "Machine6", 
-                "characteristicStatus": "Ok"
-            },
-            {
-                "processID":"Final Inspection",
-                "operater": "",
-                "timeStamp":"",
-                "machine": "", 
-                "characteristicStatus": ""
-            }
-        ]
-    },
-    {
-        "serial":"1236789;11111;1;ABCDG;p01;A1234;22:03:06", 
-        "dataPoints" :[
-            {
-                "processID":"OP10",
-                "operater": "Operator1",
-                "timeStamp":"20.01.2022/11.23.15",
-                "machine": "Machine1", 
-                "characteristicStatus": "Ok"
-            },
-            {
-                "processID":"OP20",
-                "operater": "Operator13",
-                "timeStamp":"20.01.2022/11.26.15",
-                "machine": "Machine2", 
-                "characteristicStatus": "Ok"
-            }
-        ]
-    }
+  {
+    "serial": "1236789;11111;1;ABCDE;p01;A1234;22:03:06",
+    //"serial": "CA22L0015",
+    "dataPoints": [
+      {
+        "processID": "OP10",
+        "operater": "Operator1",
+        "timeStamp": "20.01.2022/11.23.15",
+        "machine": "Machine1",
+        "characteristicStatus": "Ok"
+      },
+      {
+        "processID": "OP20",
+        "operater": "Operator13",
+        "timeStamp": "20.01.2022/11.26.15",
+        "machine": "Machine2",
+        "characteristicStatus": "Ok"
+      },
+      {
+        "processID": "OP30",
+        "operater": "Operator16",
+        "timeStamp": "20.01.2022/19.23.15",
+        "machine": "Machine2",
+        "characteristicStatus": "Not-Ok"
+      },
+      {
+        "processID": "OP40",
+        "operater": "Operator19",
+        "timeStamp": "20.01.2022/19.23.15",
+        "machine": "Machine6",
+        "characteristicStatus": "Ok"
+      },
+      {
+        "processID": "Final Inspection",
+        "operater": "",
+        "timeStamp": "",
+        "machine": "",
+        "characteristicStatus": ""
+      }
+    ]
+  },
+  {
+    //"serial": "1236789;11111;1;ABCDG;p01;A1234;22:03:06",
+    "serial": "CA22L0015",
+    "dataPoints": [
+      {
+        "processID": "OP10",
+        "operater": "Operator1",
+        "timeStamp": "20.01.2022/11.23.15",
+        "machine": "Machine1",
+        "characteristicStatus": "Ok"
+      },
+      {
+        "processID": "OP20",
+        "operater": "Operator13",
+        "timeStamp": "20.01.2022/11.26.15",
+        "machine": "Machine2",
+        "characteristicStatus": "Ok"
+      }
+    ]
+  }
 ]

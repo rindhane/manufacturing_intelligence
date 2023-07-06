@@ -17,7 +17,7 @@ namespace DbConnectors
         string? QDB_NAME {get;set;}
         string? reportTable {get;set;} 
 
-        string serialNumCol {get;set;}= "WV0055";//Confirm the field is K0054/WV0054 and not K0014/WV0014 //
+        string serialNumCol {get;set;}= "WV0014";//Confirm the field is K0054/WV0054 and not K0014/WV0014 //
 
         public QDasDbConnection(dbOptions opt , string report_table) : base(opt)
         {
@@ -248,9 +248,11 @@ namespace DbConnectors
         }
 
         public string getMachineNameFromId(int id){
-            string query = 
-            $"SELECT MABEZ FROM [{QDB_NAME}].[dbo].[MASCHINE] " +
-            $"WHERE MAMASCHINE = {id}" ;
+            string query =
+             $"SELECT TEMASCHINEBEZ FROM [{QDB_NAME}].[dbo].[TEIL] " +
+            $"WHERE TETEIL = {id}";
+            //$"SELECT MABEZ FROM [{QDB_NAME}].[dbo].[MASCHINE] " +
+            //$"WHERE MAMASCHINE = {id}" ;
             List<object[]> input = this.ValuesFromSQLquery(query,1);
             string result = "None";
             if(input.Count>0){

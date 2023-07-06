@@ -32,9 +32,9 @@ namespace BackendServices {
             builder.Services.AddScoped<TokenManager>();
             builder.Services.AddTransient<IFileHandler,ResultHandler>(sp=>new ResultHandler(configs.resultFile));
             builder.Services.AddSingleton<IpartDataHandler,PartDataHandler>(sp=> {
-                                                var webHostEnvironment = sp.GetRequiredService<IWebHostEnvironment>();
-                                              return new PartDataHandler(webHostEnvironment.ContentRootPath+"/"+configs.qdasConfig);
-                                            });
+                   var webHostEnvironment = sp.GetRequiredService<IWebHostEnvironment>();
+                 return new PartDataHandler(webHostEnvironment.ContentRootPath+"/"+configs.qdasConfig);
+               });
             return builder;
         }
     }
